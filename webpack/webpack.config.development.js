@@ -42,7 +42,7 @@ const config = {
         port: 3000,
         open: true,
         noInfo: true,
-        host: '0.0.0.0'
+        host: 'localhost'
     }
 }
 
