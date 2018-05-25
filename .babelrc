@@ -1,0 +1,16 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "modules": false,
+                "targets": {
+                    "browsers": ["last 2 versions", "safari >= 7"]
+                },
+                "useBuiltIns": "usage"
+            }
+        ],
+        "react"
+    ],
+    "plugins": ["syntax-dynamic-import", "react-hot-loader/babel", "transform-decorators-legacy", "transform-object-rest-spread", "transform-class-properties"]
+}

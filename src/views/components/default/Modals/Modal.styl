@@ -1,0 +1,26 @@
+.ReactModal__Overlay
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    right 0
+    z-index 999
+    .ReactModalPortal &
+        background-color transparent!important
+    .ReactModalPortalDark &
+        background-color rgba(black, .3)!important
+    .ReactModalPortalLight &
+        background-color rgba(white, .15)!important
+    .ReactModalPortalGradient &
+        // ackground linear-gradient(to right, rgba($mainColor, .6), rgba($vertJade, .6))
+    .ReactModalPortalGradientInset &
+        // background linear-gradient(to right, rgba($mainColor, .6), rgba($vertJade, .6))
+        z-index 99
+        padding-top 100px
+        background-clip content-box
+        @media (max-width: 991px)
+            padding-top 60px
+    .ReactModal__Content
+        center(column)
+        overflow-x hidden
+        overflow-y auto

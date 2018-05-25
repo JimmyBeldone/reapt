@@ -1,0 +1,118 @@
+.input-group
+    position relative
+    width 100%
+    height 45px
+    margin-bottom 15px
+    @media (max-width: 1396px)
+        margin-bottom 15px
+    &.textarea
+        height 180px
+        width 100%
+        margin-top 10px
+        label
+            flex()
+            align()
+            width calc(100% - 20px)
+            height 30px
+            margin-bottom 10px
+            position relative
+            left 10px
+            overflow hidden
+            color $mainColor
+            font-size 13px
+            &:after
+                content ''
+                top 15px
+                position absolute
+                height 1px
+                left 80px
+                background-color $second
+                width 100%
+        &.error
+            label
+                color $error
+                &:after
+                    background-color $error
+    &.select
+        flex()
+        align(flex-end)
+        .custom-select
+            position relative
+            height 35px
+            width calc(100% - 20px)
+            bottom 0
+            left 10px
+            border-bottom 1px solid $second
+            overflow hidden
+            select
+                position absolute
+                bottom 0
+                left 0
+                // padding-left 10px
+                height 100%
+                width 100%
+                border 0
+                box-shadow none
+                background transparent
+                background-image none
+                appearance none
+                -webkit-appearance: none
+                -moz-appearance: none
+                z-index 2
+            .icon
+                center()
+                position absolute
+                right 0
+                width 26px
+                height 100%
+                background-color transparent
+                color $mainColor
+                &:before
+                    transform rotate(90deg)
+        label
+            position absolute
+            width calc(100% - 20px)
+            left 10px
+            right 10px
+            bottom 32px
+            font-size(11px)
+            color $mainColor
+
+    &:not(.textarea):not(.checkbox-bloc):not(.select) label
+        position absolute
+        width calc(100% - 20px)
+        left 10px
+        right 10px
+        bottom 8px
+        font-size(13px)
+        color $second
+        transition all .2s ease
+    input
+        height 35px
+        position absolute
+        display block
+        width calc(100% - 20px)
+        bottom 0
+        left 10px
+        right 10px
+        background-color transparent
+        border-bottom 1px solid $second
+    textarea
+        position absolute
+        left 10px
+        width calc(100% - 20px)
+        height 140px
+        background-color $second
+        padding 10px
+        line-height 1.4
+    &.active
+        &:not(.textarea):not(.checkbox-bloc):not(.select) label
+            font-size(11px)
+            bottom 32px
+            color $mainColor
+    &.error
+        &:not(.textarea):not(.checkbox-bloc):not(.select) label
+            color $error
+        input
+            border-bottom 1px solid $error
+            color $error
