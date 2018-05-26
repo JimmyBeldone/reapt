@@ -8,21 +8,24 @@ import {
     PAGE_ABOUT_TWO,
     PAGE_NOT_FOUND
 } from '../constants/router'
-
 import LoadingPage from '../views/components/default/LoadingPage/LoadingPage'
-import HomePage from '../views/pages/HomePage'
-import About from '../views/pages/About'
 
 const AboutOne = () => <h1>About One Page</h1>
 const AboutTwo = () => <h1>About Two Page</h1>
 
-const routes = [{
+const routesProd = [{
     path: PAGE_HOME,
-    component: HomePage,
+    component: Loadable({
+        loader: () => import('../views/pages/HomePage'),
+        loading: LoadingPage
+    }),
     exact: true
 }, {
     path: PAGE_ABOUT,
-    component: About,
+    component: Loadable({
+        loader: () => import('../views/pages/About'),
+        loading: LoadingPage
+    }),
     routes: [
         {
             path: PAGE_ABOUT_ONE,
@@ -33,6 +36,7 @@ const routes = [{
         }
     ]
 }]
-console.log('route dev');
 
-export default routes
+console.log('route prod');
+
+export default routesProd

@@ -1,11 +1,17 @@
-import React, {PureComponent} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Router, Switch, Redirect} from 'react-router-dom'
 
-import RouteConfig from './routes'
+import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
+import getRoutesByEnv from './routes'
+
 import DefaultLayout from './views/layouts/DefaultLayout'
 
-class App extends PureComponent {
+// HMR doesn't work with react loadable,
+// so as a temporary fix, disable codesplitting in dev mode
+const routes = getRoutesByEnv(process.env.NODE_ENV)
+
+class App extends Component {
 
     static propTypes = {
         history: PropTypes.object
@@ -18,7 +24,7 @@ class App extends PureComponent {
             <DefaultLayout>
                 <Router history={history}>
                     <Switch>
-                        <RouteConfig />
+                        {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                     </Switch>
                 </Router>
             </DefaultLayout>
