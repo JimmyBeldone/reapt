@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {FormattedMessage} from 'react-intl'
 
-import './index.styl'
+import './HomePage.styl'
 
 class HomePage extends React.PureComponent {
 

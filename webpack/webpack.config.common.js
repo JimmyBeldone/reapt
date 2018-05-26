@@ -64,10 +64,10 @@ const config = {
                         loader: 'url-loader',
                         options: {
                             limit: 1024,
-                            name: './assets/fonts/[name].[hash].[ext]', // Output below ./fonts
-                        },
+                            name: './assets/fonts/[name].[hash].[ext]' // Output below ./fonts
+                        }
                     }
-                ],
+                ]
             }, {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
