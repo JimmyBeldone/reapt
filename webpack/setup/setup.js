@@ -86,6 +86,10 @@ prompt.get([{name: 'deleteGit', description: "Delete the git repository?  [Y/n]"
         silent: true
       });
 
+      if (err) {
+          console.log(chalkWarn(err))
+      }
+
       // remove all setup scripts from the 'tools' folder
       console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
       rimraf('./webpack/setup', error => {
@@ -97,8 +101,7 @@ prompt.get([{name: 'deleteGit', description: "Delete the git repository?  [Y/n]"
 
   if (deleteGit.match(/^N.*/)) {
     updatePackage();
-  }
-  else {
+  } else {
     // remove the original git repository
     rimraf('.git', error => {
       if (error) throw new Error(error);

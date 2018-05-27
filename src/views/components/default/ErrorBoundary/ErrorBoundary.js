@@ -24,15 +24,15 @@ class ErrorBoundary extends PureComponent {
         this.setState(state => ({
             ...state,
             hasError: error,
-            info: infoe
+            info: info
         }))
     }
 
     render() {
         if (this.state.hasError) {
             return [
-                <div className="error">Une erreur est survenue : </div>
-                <div className="error-info">{this.state.info}</div>
+                <div key="A" className="error">Une erreur est survenue : </div>,
+                <div key="B" className="error-info">{this.state.info}</div>
             ]
         }
         return this.props.children

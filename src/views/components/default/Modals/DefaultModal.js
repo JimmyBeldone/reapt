@@ -41,7 +41,7 @@ class DefaultModal extends React.PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.isOpen) {
+        if (nextProps.isOpen) {
             setTimeout(() => {
                 this.setState({activeClass: true})
             }, 100)

@@ -1,4 +1,4 @@
-import React, {PureComponent}  from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {FormattedMessage} from 'react-intl'
 
@@ -16,16 +16,17 @@ export default class GeoLib extends PureComponent {
 
     formatLib() {
         const split = this.props.lib.split('|')
-        let lib = '', count = 0
+        let lib = ''
+        let count = 0
         split.forEach((geoLib, i) => {
             geoLib = geoLib.trim()
-            if(i === 0){
+            if (i === 0) {
                 lib += geoLib
             } else {
                 count++
             }
         })
-        if(count > 0){
+        if (count > 0) {
             return (
                 <span>
                     {lib} + <br />

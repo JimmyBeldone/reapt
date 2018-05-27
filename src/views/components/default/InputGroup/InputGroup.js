@@ -48,18 +48,18 @@ class InputGroup extends React.PureComponent {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            //value: nextProps.value,
+            // value: nextProps.value,
             active: this.isActive(nextProps)
         })
     }
 
     isActive(nextProps = null) {
-        let props = (nextProps !== null)? nextProps : this.props
-        return props.value !== undefined && props.value !== null && props.value.length > 0 || props.autofocus || props.placeholder.length > 2 || props.alwaysActive
+        let props = (nextProps !== null) ? nextProps : this.props
+        return (props.value !== undefined && props.value !== null && props.value.length > 0) || props.autofocus || props.placeholder.length > 2 || props.alwaysActive
     }
 
     activeInput() {
-        this.setState( {active: true} )
+        this.setState({active: true})
     }
 
     getInputValue(e) {
@@ -71,7 +71,7 @@ class InputGroup extends React.PureComponent {
             }
             this.setState({value: value})
         } else {
-            if(this.props.alwaysActive) return
+            if (this.props.alwaysActive) return
             this.setState({active: false})
         }
     }
@@ -84,7 +84,7 @@ class InputGroup extends React.PureComponent {
 
     render() {
         const {classNames, title, label, component, type, value, disabled, hidden, autofocus, children, placeholder, errorField} = this.props
-        if(type === 'checkbox') {
+        if (type === 'checkbox') {
             return (
                 <div
                     className={cn("input-group", "checkbox-bloc", {
@@ -97,15 +97,14 @@ class InputGroup extends React.PureComponent {
                         component={"input"}
                         type={"checkbox"}
                         onChange={this.feedInput.bind(this)}
-                    >
-                    </Field>
+                     />
                     <label htmlFor={title}>
                         {label}
                     </label>
                 </div>
             )
         }
-        if(component === 'select') {
+        if (component === 'select') {
             return (
                 <div className="input-group select">
                     <label htmlFor={title}>
@@ -134,8 +133,8 @@ class InputGroup extends React.PureComponent {
             )
         }
         let errorClass = ''
-        if(errorField !== null) {
-            if(Array.isArray(errorField)) {
+        if (errorField !== null) {
+            if (Array.isArray(errorField)) {
                 errorClass = errorField.includes(title)
             } else {
                 errorClass = errorField === title
@@ -147,7 +146,7 @@ class InputGroup extends React.PureComponent {
                     active: (this.state.active),
                     textarea: component === 'textarea',
                     hidden: hidden,
-                    error:  errorClass
+                    error: errorClass
                 })}
             >
                 <label htmlFor={title}>
@@ -167,7 +166,7 @@ class InputGroup extends React.PureComponent {
                     disabled={disabled}
                     autoFocus={autofocus}
                 >
-                    {(children !== undefined)? children : null}
+                    {(children !== undefined) ? children : null}
                 </Field>
             </div>
         );
@@ -175,7 +174,7 @@ class InputGroup extends React.PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    if(state.form[ownProps.form] !== undefined) {
+    if (state.form[ownProps.form] !== undefined) {
         let value = (state.form[ownProps.form].values !== undefined && state.form[ownProps.form].values[ownProps.title] !== undefined) ? state.form[ownProps.form].values[ownProps.title] : null
         return {
             value: value

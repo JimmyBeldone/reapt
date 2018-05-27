@@ -57,7 +57,7 @@ export default class Notifications extends React.PureComponent {
                         ...style,
                         right: 'auto',
                         left: '-100%',
-                        bottom: '${4 + (index * 4)}rem',
+                        bottom: `${4 + (index * 4)}rem`,
                         top: `auto`
                     })}
                     activeBarStyleFactory={(index, style) => ({
@@ -65,7 +65,7 @@ export default class Notifications extends React.PureComponent {
                         top: `auto`,
                         right: 'auto',
                         left: '1rem',
-                        bottom: '${4 + (index * 4)}rem'
+                        bottom: `${4 + (index * 4)}rem`
                     })}
                 />
             )

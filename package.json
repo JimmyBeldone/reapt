@@ -11,6 +11,7 @@
         "build:srv": "babel-node webpack/distServer.js",
         "analyze": "yarn clean-dist && cross-env NODE_ENV=production ADDONS=bundleanalyze webpack",
         "clean-dist": "yarn remove-dist && mkdir dist",
+        "lint": "eslint src webpack --fix",
         "remove-dist": "rimraf ./dist",
         "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
         "webpack": "node ./node_modules/webpack/bin/webpack.js",

@@ -1,4 +1,4 @@
-import React, {PureComponent}  from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
 import Decimal from './Decimal'
@@ -11,7 +11,7 @@ export default class Average extends PureComponent {
         formatedMoney: PropTypes.bool,
         minimumFractionDigits: PropTypes.integer,
         maximumFractionDigits: PropTypes.integer,
-        roundToThousands: PropTypes.bool,
+        roundToThousands: PropTypes.bool
     }
 
     static defaultProps = {
@@ -25,11 +25,11 @@ export default class Average extends PureComponent {
     render() {
         let value = this.props.value
         let formatedMoney = this.props.formatedMoney
-        if(value === null) {
+        if (value === null) {
             return <FormattedNumberWithPlaceholder {...this.props} style="currency" currency="EUR" />
         }
-        if(this.props.roundToThousands) {
-            if(formatedMoney) {
+        if (this.props.roundToThousands) {
+            if (formatedMoney) {
                 let newValue = value / 1000
                 return (
                     <span className="">
