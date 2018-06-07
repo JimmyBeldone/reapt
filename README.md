@@ -110,6 +110,9 @@ It use [mk-react-comp](https://www.npmjs.com/package/mk-react-comp) without glob
 - [x]  Add react components
 - [x]  Separate templates and logic
 - [x]  React 16.4
+- [ ]  [Ducks Module](https://github.com/erikras/ducks-modular-redux)
+- [ ]  [Redux Auth](https://github.com/mjrussell/redux-auth-wrapper)
+- [ ]  Replace React Router Redux (deprecated) by [Connected React Router](https://github.com/supasate/connected-react-router)
 
 ### Internationalization :
 - [x]  Add React-Intl

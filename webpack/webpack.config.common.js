@@ -35,7 +35,7 @@ const config = {
     },
     entry: {
         app: path.join(__dirname, '../src/index.js'),
-        react: ['react', 'react-dom', 'react-router-dom', 'prop-types', 'react-redux', 'react-router-redux', 'redux-persist', 'redux', 'redux-thunk']
+        react: ['react', 'react-dom', 'react-router-dom', 'prop-types', 'react-redux', 'redux-persist', 'redux', 'redux-thunk']
     },
     output: {
         filename: '[name].[hash].bundle.js',
