@@ -10,6 +10,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const chalk = require('chalk')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const commonPaths = require('./commonPaths')
 
@@ -103,6 +104,9 @@ const config = {
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css'
+        }),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i
         }),
         new CompressionWebpackPlugin({
             asset: '[path].gz[query]',
