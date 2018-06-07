@@ -37,6 +37,4 @@ const routesProd = [{
     ]
 }]
 
-console.log('route prod');
-
 export default routesProd
