@@ -57,7 +57,6 @@ const config = {
         ]
     },
     optimization: {
-        namedModules: true,
         noEmitOnErrors: true,
         concatenateModules: true,
         splitChunks: {
