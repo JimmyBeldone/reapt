@@ -63,6 +63,6 @@
             "html": false
         }],
         "import/no-unresolved": 0,
-        "react/sort-comp": 1
+        "react/sort-comp": 0
     }
 }

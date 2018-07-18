@@ -11,30 +11,32 @@ const lang = require('../lang')
 
 addLocaleData([...fr, ...en])
 
-let locale =
-    (navigator.languages && navigator.languages[0]) ||
-    navigator.language ||
-    navigator.userLanguage ||
-    'fr-FR'
+// let locale =
+//     (navigator.languages && navigator.languages[0]) ||
+//     navigator.language ||
+//     navigator.userLanguage ||
+//     'fr-FR'
 
 let i18nConfig = {
-    locale: locale,
+    // locale: locale,
     messages: lang
 }
 
 class ReactIntlProvider extends PureComponent {
 
     static propTypes = {
-        children: PropTypes.element.isRequired
+        children: PropTypes.element.isRequired,
+        language: PropTypes.string.isRequired
     }
 
     render() {
+        const {language, children} = this.props
         return (
             <IntlProvider
-                locale={i18nConfig.locale}
-                messages={flattenMessages(i18nConfig.messages[locale])}
+                locale={language}
+                messages={flattenMessages(i18nConfig.messages[language])}
             >
-                { React.Children.only(this.props.children) }
+                { React.Children.only(children) }
             </IntlProvider>
         )
     }

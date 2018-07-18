@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
 import { ConnectedRouter } from 'connected-react-router'
 
+import AppContextProvider from './providers/AppContextProvider'
 import ReactIntlProvider from './providers/ReactIntlProvider'
+import LanguageProvider, {LanguageConsumer} from './providers/LanguageProvider'
 import App from './App'
 
 class Root extends PureComponent {
@@ -17,13 +19,21 @@ class Root extends PureComponent {
     render () {
         const { store, history } = this.props
         return (
-            <ReactIntlProvider>
-                <Provider store={store}>
-                    <ConnectedRouter history={history}>
-                        <App history={history} />
-                    </ConnectedRouter>
-                </Provider>
-            </ReactIntlProvider>
+            <AppContextProvider>
+                <LanguageProvider>
+                    <LanguageConsumer>
+                    {({lang}) => (
+                        <ReactIntlProvider language={lang}>
+                            <Provider store={store}>
+                                <ConnectedRouter history={history}>
+                                    <App history={history} />
+                                </ConnectedRouter>
+                            </Provider>
+                        </ReactIntlProvider>
+                    )}
+                    </LanguageConsumer>
+                </LanguageProvider>
+            </AppContextProvider>
         )
     }
 }

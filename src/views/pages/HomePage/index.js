@@ -23,15 +23,13 @@ class HomePage extends React.PureComponent {
                     <FormattedMessage
                         id="home.hello"
                     />
+                    <br/>
                     <FormattedMessage
                         id="home.content.test"
                     />
                 </div>
-                test
                 <div>
-                    {
-                        this.context.intl.formatMessage({id: "home.hello"})
-                    }
+                    {this.context.intl.formatMessage({id: "home.hello"})}
                 </div>
             </div>
         )
