@@ -1,96 +1,44 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux';
 import cn from 'classnames'
 import Modal from 'react-modal'
 
 import './Modal.styl'
 import './DefaultModal.styl'
 
-class DefaultModal extends React.PureComponent {
+Modal.setAppElement('#app')
 
-    static propTypes = {
-        children: PropTypes.node,
-        title: PropTypes.string,
-        isOpen: PropTypes.bool.isRequired,
-        portalClassName: PropTypes.string,
-        classNames: PropTypes.string,
-        closeModal: PropTypes.func.isRequired,
-        shouldCloseOnOverlayClick: PropTypes.bool,
-        parentSelector: PropTypes.string
-    }
+const DefaultModal = ({onRequestClose, ...props}) => (
+    <Modal
+        isOpen
+        contentLabel="Default Modal"
+        overlayClassName="ReactModalPortalDark"
+        className={cn('default-modal', props.classNames)}
+        style={{ overlay: {}, content: {} }}
+        onRequestClose={onRequestClose}
+        shouldCloseOnOverlayClick={true}
+        shouldReturnFocusAfterClose={false}
+    >
+        <Fragment>
+            <div className="close-modal" onClick={onRequestClose}>
+                x
+            </div>
+            <div className="modal-content">
+                {/* {(children !== null) ? React.Children.only(children) : null} */}
+                I'm a modal
+            </div>
+        </Fragment>
+    </Modal>
+)
 
-    static defaultProps = {
-        portalClassName: 'ReactModalPortalDark',
-        classNames: '',
-        shouldCloseOnOverlayClick: true,
-        parentSelector: '#app'
-    }
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeClass: false
-        }
-    }
-
-    componentWillMount() {
-        if (process.browser !== undefined) {
-            Modal.setAppElement('#app')
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.isOpen) {
-            setTimeout(() => {
-                this.setState({activeClass: true})
-            }, 100)
-        }
-    }
-
-    closeModal() {
-        this.setState({activeClass: false})
-        setTimeout(() => {
-            this.props.closeModal()
-        }, 100)
-    }
-
-    render() {
-        const {isOpen, title, children, portalClassName, classNames, parentSelector, shouldCloseOnOverlayClick} = this.props
-        return (
-            <Modal
-                isOpen={isOpen}
-                contentLabel="Default Modal"
-                portalClassName={portalClassName}
-                className={cn('default-modal', classNames, { active: this.state.activeClass })}
-                style={{ overlay: {}, content: {} }}
-                onRequestClose={this.closeModal.bind(this)}
-                shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-                parentSelector={() => document.querySelector(parentSelector)}
-                shouldReturnFocusAfterClose={false}
-            >
-                <div className="close-modal" onClick={this.closeModal.bind(this)}>
-                    <span className="icon icon-close" />
-                </div>
-                <div className="modal-header">
-                    <div className="title">
-                        {title}
-                    </div>
-                </div>
-                <div className="modal-content">
-                    {(children !== null) ? React.Children.only(children) : null}
-                </div>
-            </Modal>
-        );
-    }
+DefaultModal.propTypes = {
+    children: PropTypes.element,
+    classNames: PropTypes.string,
+    onRequestClose: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+DefaultModal.defaultProps = {
+    classNames: ''
+}
 
-})
-
-const mapDispatchToProps = (dispatch) => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultModal);
+export default DefaultModal

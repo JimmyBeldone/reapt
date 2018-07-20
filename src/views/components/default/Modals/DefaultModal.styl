@@ -1,75 +1,31 @@
 .default-modal
-    position fixed
-    width 50vw
-    min-height 500px
-    max-height 80%
-    min-width 310px
-    //overflow auto
-    left 25%
-    right 25%
-    top 10%
-    background-color transparent
-    border 1px solid #e6e6e6
-    font-size(13px)
-    //box-shadow 0px 0px 6px 1px rgba(black, .15)
-    //transition .5s cubic-bezier(0.89, 0.01, 0.5, 1.1)
-    color: #434E9A;
-    padding 20px 30px
+	position: fixed
+	width: 50vw
+	min-height: 500px
+	max-height: 80%
+	min-width: 310px
+	// overflow auto
+	left: 25%
+	right: 25%
+	top: 10%
+	background-color: $bodyLight
+	padding: 20px 30px
 
-    .modal-header
-        position relative
-        center()
-        margin-bottom 40px
-        .title
-            font-size(28px)
-            text-align center
-            text-transform uppercase
-            margin-bottom 15px
-            margin-top 20px
-            &:after
-                content ''
-                position absolute
-                bottom -10px
-                right calc(50% - 40px)
-                width 80px
-                height 1px
-                background-color $texte
+	.close-modal
+		position: absolute
+		center()
+		top: 14px
+		right: 14px
+		height: 32px
+		width: 32px
+		border-radius: 50%
+		font-size 18px
+		text-align center
+		color: $texte
+		cursor: pointer
 
-    .close-modal
-        position absolute
-        cursor pointer
-        top 14px
-        right 14px
-        height 32px
-        width 32px
-        font-size(18px)
-        border 1px solid
-        color $texte
-        border-color transparent
-        border-radius 50%
-        center()
-        transition all .3s
-        &:hover
-            //border-color $texte
-            transform rotate(180deg)
-
-    .modal-content
-        flex(column)
-        overflow auto
-        color $texte
-        width 100%
-
-        h1
-            margin 40px auto
-            position relative
-            flex()
-            justify()
-            &:after
-                content ''
-                position absolute
-                left: 50%
-                transform translate(-50%,0)
-                bottom -40px
-                width 50%
-                height 1px
-                background-color $texte
+	.modal-content
+		flex(column)
+		overflow: auto
+		color: $texte
+		width: 100%

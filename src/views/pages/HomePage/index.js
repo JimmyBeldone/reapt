@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
 import {FormattedMessage} from 'react-intl'
 
 import './HomePage.styl'
+import OpenModalBtn from '../../components/default/Modals/OpenModalBtn'
 
 class HomePage extends React.PureComponent {
 
@@ -20,28 +20,15 @@ class HomePage extends React.PureComponent {
             <div id="homepage">
                 <h1>Home Page</h1>
                 <div className="message">
-                    <FormattedMessage
-                        id="home.hello"
-                    />
-                    <br/>
-                    <FormattedMessage
-                        id="home.content.test"
-                    />
-                </div>
-                <div>
                     {this.context.intl.formatMessage({id: "home.hello"})}
+                    <br/>
+                    <FormattedMessage id="home.content.test" />
+                    <br/>
+                    <OpenModalBtn />
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = (dispatch) => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default HomePage
