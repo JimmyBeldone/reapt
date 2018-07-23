@@ -11,6 +11,10 @@ const Visualizer = require('webpack-visualizer-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const chalk = require('chalk')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const ManifestPlugin = require('webpack-manifest-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const pjson = require('../package.json')
 
 const commonPaths = require('./commonPaths')
 
@@ -114,8 +118,36 @@ const config = {
             threshold: 10240,
             minRatio: 0.8
         }),
-        new Visualizer({
-            filename: './stats.html'
+        // new Visualizer({
+        //     filename: './stats.html'
+        // }),
+        new ManifestPlugin({
+            fileName: 'asset-manifest.json'
+        }),
+        new SWPrecacheWebpackPlugin({
+            ontCacheBustUrlsMatching: /\.\w{8}\./,
+            filename: 'service-worker.js',
+            logger(message) {
+                if (message.indexOf('Total precache size is') === 0) {
+                    // This message occurs for every build and is a bit too noisy.
+                    return;
+                }
+                console.log(message);
+            },
+            minify: true, // minify and uglify the script
+            navigateFallback: '/index.html',
+            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+        }),
+        new WebpackPwaManifest({
+            name: pjson.name,
+            description: pjson.description,
+            short_name: pjson.name,
+            background_color: '#ffffff',
+            theme_color: '#ffffff',
+            icons: [{
+                src: path.resolve('src/assets/img/favicon.ico'),
+                sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            }]
         })
     ]
 }

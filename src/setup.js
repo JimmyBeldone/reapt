@@ -13,6 +13,7 @@ import {render} from 'react-dom'
 
 import configureStore, { history } from './store/configureStore'
 import Root from './Root'
+import registerServiceWorker from './registerServiceWorker'
 
 // highlightUpdates();
 
@@ -23,3 +24,5 @@ render(
     <Root store={store} history={history} />,
     document.getElementById('app')
 )
+
+registerServiceWorker()

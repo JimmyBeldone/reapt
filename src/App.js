@@ -29,6 +29,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        // Single check
         noInternet({
             callback: offline => {
                 if (offline) {
