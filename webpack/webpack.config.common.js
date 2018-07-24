@@ -4,7 +4,6 @@ const HTMLPlugin = require('html-webpack-plugin')
 const path = require('path')
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Stylish = require('webpack-stylish')
-const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const configPath = `../config/config.${process.env.NODE_ENV}.json`
 
@@ -105,7 +104,6 @@ const config = {
                 minifyURLs: true
             }
         }),
-        new PreloadWebpackPlugin(),
         new Stylish()
     ],
     externals: {

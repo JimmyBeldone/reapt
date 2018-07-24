@@ -15,6 +15,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const pjson = require('../package.json')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const commonPaths = require('./commonPaths')
 
@@ -124,6 +125,7 @@ const config = {
         new ManifestPlugin({
             fileName: 'asset-manifest.json'
         }),
+        new PreloadWebpackPlugin(),
         new SWPrecacheWebpackPlugin({
             ontCacheBustUrlsMatching: /\.\w{8}\./,
             filename: 'service-worker.js',
