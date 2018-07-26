@@ -53,6 +53,12 @@
         "react/no-multi-comp": 0,
         "react/no-set-state": 0,
         "react/no-unknown-property": 1,
+        "react/no-access-state-in-setstate": 1,
+        "react/no-array-index-key": 0,
+        "react/no-deprecated": 1,
+        "react/no-unused-state": 1,
+        "react/no-unused-prop-types": 1,
+        "react/no-unsafe": 1,
         "react/prefer-es6-class": 1,
         "react/prop-types": 1,
         "react/react-in-jsx-scope": 1,
@@ -63,6 +69,10 @@
             "html": false
         }],
         "import/no-unresolved": 0,
+        "import/order": ["error", {
+            "groups": ["builtin", "external", "parent", "sibling", "index"],
+            "newlines-between": "always"
+        }],
         "react/sort-comp": 0
     }
 }
