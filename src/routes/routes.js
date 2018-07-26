@@ -9,7 +9,6 @@ import {
     PAGE_NOT_FOUND
 } from '../constants/router'
 import {userIsAuthenticated, userIsNotAuthenticated} from '../providers/AuthProvider'
-
 import HomePage from '../views/pages/HomePage'
 import LoginPage from '../views/pages/Login'
 import About from '../views/pages/About'

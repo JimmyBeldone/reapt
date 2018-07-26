@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { PAGE_ABOUT_ONE, PAGE_ABOUT_TWO } from '../../../constants/router'
 import RouteWithSubRoutes from '../../../routes/RouteWithSubRoutes'
+
 import AboutTemplate from './AboutTemplate'
 import './About.styl'
 

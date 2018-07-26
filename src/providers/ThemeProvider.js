@@ -19,8 +19,9 @@ export default class ThemeProvider extends PureComponent {
     }
 
     render() {
+        const {theme, toggleTheme} = this.state
         return (
-            <ThemeContext.Provider value={this.state}>
+            <ThemeContext.Provider value={{theme, toggleTheme}}>
                 { this.props.children }
             </ThemeContext.Provider>
         )

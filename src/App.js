@@ -6,7 +6,6 @@ import isEmpty from 'lodash/isEmpty'
 
 import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
 import getRoutesByEnv from './routes'
-
 import DefaultLayout from './views/layouts/DefaultLayout'
 import ModalProvider from './providers/ModalProvider'
 import ModalRoot from './views/components/default/Modals'

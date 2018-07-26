@@ -1,9 +1,11 @@
-const commonPaths = require('./commonPaths')
+const path = require('path')
+
 const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
-const path = require('path')
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Stylish = require('webpack-stylish')
+
+const commonPaths = require('./commonPaths')
 
 const configPath = `../config/config.${process.env.NODE_ENV}.json`
 

@@ -12,8 +12,7 @@ class Nav extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            hasError: false,
-            overlayActive: true
+            hasError: false
         }
     }
 

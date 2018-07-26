@@ -1,5 +1,6 @@
-const webpack = require('webpack')
 const path = require('path')
+
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const postcssFixie = require('postcss-fixie')
@@ -14,8 +15,9 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-const pjson = require('../package.json')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+
+const pjson = require('../package.json')
 
 const commonPaths = require('./commonPaths')
 
@@ -138,7 +140,7 @@ const config = {
             },
             minify: true, // minify and uglify the script
             navigateFallback: '/index.html',
-            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
         }),
         new WebpackPwaManifest({
             name: pjson.name,

@@ -18,7 +18,7 @@ export default class LanguageProvider extends PureComponent {
 
     render() {
         return (
-            <LanguageContext.Provider value={{ lang: this.state.lang, updateLanguage: this.updateLanguage }}>
+            <LanguageContext.Provider value={{ lang: this.state.lang, updateLanguage: this.state.updateLanguage }}>
                 {this.props.children}
             </LanguageContext.Provider>
         )

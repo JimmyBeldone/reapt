@@ -3,6 +3,7 @@ var rimraf = require('rimraf');
 var chalk = require('chalk');
 var replace = require("replace");
 var prompt = require("prompt");
+
 var prompts = require('./setupPrompts');
 
 var chalkSuccess = chalk.green;
