@@ -29,15 +29,22 @@ class App extends Component {
 
     componentDidMount() {
         // Single check
-        noInternet({
-            callback: offline => {
-                if (offline) {
-                    this.setState({isOffline: true})
-                } else {
-                    this.setState({isOffline: false})
-                }
+        noInternet()
+        .then(offline => {
+            if (offline) {
+                this.setState({isOffline: true})
             }
         })
+        // Interval check
+        // noInternet({
+        //     callback: offline => {
+        //         if (offline) {
+        //             this.setState({isOffline: true})
+        //         } else {
+        //             this.setState({isOffline: false})
+        //         }
+        //     }
+        // })
     }
 
     render () {
