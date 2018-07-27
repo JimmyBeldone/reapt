@@ -1,16 +1,15 @@
 import React from 'react'
-import Loadable from 'react-loadable'
 
 import {
     PAGE_HOME,
     PAGE_ABOUT,
     PAGE_ABOUT_ONE,
-    PAGE_ABOUT_TWO,
-    PAGE_NOT_FOUND
+    PAGE_ABOUT_TWO
+    // PAGE_NOT_FOUND
 } from '../constants/router'
-import {userIsAuthenticated, userIsNotAuthenticated} from '../providers/AuthProvider'
+// import {userIsAuthenticated, userIsNotAuthenticated} from '../providers/AuthProvider'
 import HomePage from '../views/pages/HomePage'
-import LoginPage from '../views/pages/Login'
+// import LoginPage from '../views/pages/Login'
 import About from '../views/pages/About'
 
 const AboutOne = () => <h1>About One Page</h1>

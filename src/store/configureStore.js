@@ -3,14 +3,9 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import {connectRouter, routerMiddleware} from 'connected-react-router'
-import storage from 'redux-persist/es/storage'
 
 import rootReducer from '../reducers'
 
-const config = {
-    key: 'root',
-    storage
-}
 export const history = createHistory()
 
 const reducer = combineReducers(rootReducer)

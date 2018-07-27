@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {Router, Switch, Redirect} from 'react-router-dom'
+import {Switch} from 'react-router-dom'
 import noInternet from 'no-internet'
-import isEmpty from 'lodash/isEmpty'
 
 import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
 import getRoutesByEnv from './routes'
@@ -48,17 +47,13 @@ class App extends Component {
     }
 
     render () {
-        const {history} = this.props
-        const style = {color: 'red'}
         return (
             <ModalProvider>
                 <ModalRoot />
                 <DefaultLayout>
-                    <Router history={history}>
-                        <Switch>
-                            {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-                        </Switch>
-                    </Router>
+                    <Switch>
+                        {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+                    </Switch>
                 </DefaultLayout>
                 {this.state.isOffline ? (
                     <div className="offline-info">

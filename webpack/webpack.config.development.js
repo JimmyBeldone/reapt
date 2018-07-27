@@ -39,7 +39,7 @@ const config = {
             errors: true
         },
         compress: true,
-        port: 3000,
+        port: 3020,
         open: true,
         noInfo: true,
         host: 'localhost'

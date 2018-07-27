@@ -5,8 +5,8 @@ import {
     PAGE_HOME,
     PAGE_ABOUT,
     PAGE_ABOUT_ONE,
-    PAGE_ABOUT_TWO,
-    PAGE_NOT_FOUND
+    PAGE_ABOUT_TWO
+    // PAGE_NOT_FOUND
 } from '../constants/router'
 import LoadingPage from '../views/components/default/LoadingPage/LoadingPage'
 

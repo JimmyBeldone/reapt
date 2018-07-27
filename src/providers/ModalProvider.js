@@ -31,7 +31,6 @@ export default class ModalProvider extends PureComponent {
     }
 
     render() {
-        const ModalContent = this.state.content
         const {content, props, showModal, hideModal} = this.state
         return (
             <ModalContext.Provider value={{content, props, showModal, hideModal}}>

@@ -1,13 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-class LoadingPage extends React.PureComponent {
-
-    render() {
-        return (
-            <div>Loading</div>
-        )
-    }
-}
+const LoadingPage = () => (
+    <div>Loading</div>
+)
 
 export default LoadingPage

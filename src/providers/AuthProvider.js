@@ -1,4 +1,3 @@
-import React from 'react'
 import {connectedRouterRedirect} from 'redux-auth-wrapper/history4/redirect'
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper'
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
