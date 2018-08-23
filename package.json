@@ -1,6 +1,6 @@
 {
     "name": "reapt",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "A complete React Redux starterkit, configured with Webpack, stop wasting time configuring, adopt it and just code",
     "main": "src/index.js",
     "scripts": {
@@ -127,7 +127,6 @@
         "webpack-bundle-analyzer": "^2.13.1",
         "webpack-cli": "^3.1.0",
         "webpack-dashboard": "^2.0.0",
-        "webpack-deep-scope-plugin": "^1.4.1",
         "webpack-dev-server": "^3.1.5",
         "webpack-manifest-plugin": "^2.0.3",
         "webpack-merge": "^4.1.4",
