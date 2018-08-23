@@ -16,6 +16,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default
 
 const pjson = require('../package.json')
 
@@ -128,6 +129,7 @@ const config = {
             fileName: 'asset-manifest.json'
         }),
         new PreloadWebpackPlugin(),
+        new WebpackDeepScopeAnalysisPlugin(),
         new SWPrecacheWebpackPlugin({
             ontCacheBustUrlsMatching: /\.\w{8}\./,
             filename: 'service-worker.js',

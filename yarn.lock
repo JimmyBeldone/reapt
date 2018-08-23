@@ -3846,13 +3846,13 @@ esquery@^1.0.1:
   dependencies:
     estraverse "^4.0.0"
 
-esrecurse@^4.1.0:
+esrecurse@^4.1.0, esrecurse@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/esrecurse/-/esrecurse-4.2.1.tgz#007a3b9fdbc2b3bb87e4879ea19c92fdbd3942cf"
   dependencies:
     estraverse "^4.1.0"
 
-estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1:
+estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
 
@@ -11386,6 +11386,19 @@ webpack-dashboard@^2.0.0:
     most "^1.7.3"
     socket.io "^2.1.1"
     socket.io-client "^2.1.1"
+
+webpack-deep-scope-analysis@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/webpack-deep-scope-analysis/-/webpack-deep-scope-analysis-1.4.1.tgz#3acf816b535990290aba1f0275fe03119216801a"
+  dependencies:
+    esrecurse "^4.2.1"
+    estraverse "^4.2.0"
+
+webpack-deep-scope-plugin@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/webpack-deep-scope-plugin/-/webpack-deep-scope-plugin-1.4.1.tgz#cb3968bdbf66b83ea0f68355d0e2ae6b7c3a20db"
+  dependencies:
+    webpack-deep-scope-analysis "^1.4.1"
 
 webpack-defaults@^1.5.0:
   version "1.6.0"
