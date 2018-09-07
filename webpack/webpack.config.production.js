@@ -108,8 +108,9 @@ const config = {
         //     maxSize: 50000,
         // }),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
+            publicPath: './',
+            filename: './[name].[hash].css',
+            chunkFilename: './[id].[hash].css'
         }),
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i
