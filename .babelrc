@@ -18,9 +18,11 @@
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
         "react-hot-loader/babel",
-        "transform-decorators-legacy",
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-proposal-class-properties",
-        "react-loadable/babel"
+        "react-loadable/babel",
+        [ "@babel/plugin-proposal-decorators", {
+            "legacy": true
+        } ]
     ]
 }
