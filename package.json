@@ -79,7 +79,7 @@
         "browser-sync": "^2.24.7",
         "bundle-buddy-webpack-plugin": "^0.3.0",
         "chalk": "^2.4.1",
-        "compression-webpack-plugin": "^1.1.11",
+        "compression-webpack-plugin": "^2.0.0",
         "connect-history-api-fallback": "^1.5.0",
         "core-js": "^2.5.7",
         "cross-env": "^5.2.0",
