@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux';
-import {NotificationStack} from 'react-notification';
-import {OrderedSet} from 'immutable';
+import { connect } from 'react-redux';
+import { NotificationStack } from 'react-notification';
+import { OrderedSet } from 'immutable';
 
 import Trans from '../Format/Trans'
 
@@ -22,7 +22,7 @@ export default class Notifications extends React.PureComponent {
     }
 
     addNotification(notif) {
-        const {count, notifications} = this.state
+        const { count, notifications } = this.state
         const id = notifications.size + 1
         const newCount = count + 1
         return this.setState({
@@ -38,7 +38,7 @@ export default class Notifications extends React.PureComponent {
     }
 
     removeNotification(id) {
-        const {notifications} = this.state
+        const { notifications } = this.state
         this.setState({
             notifications: notifications.filter(n => n.key !== id)
         })
@@ -51,7 +51,7 @@ export default class Notifications extends React.PureComponent {
                 <NotificationStack
                     notifications={notifications}
                     onDismiss={notification => {
-                        this.setState({notifications: this.state.notifications.delete(notification)})
+                        this.setState({ notifications: this.state.notifications.delete(notification) })
                     }}
                     barStyleFactory={(index, style) => ({
                         ...style,

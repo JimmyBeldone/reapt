@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 // import PropTypes from 'prop-types'
 
 import NavTemplate from './NavTemplate'
@@ -36,7 +36,7 @@ class Nav extends PureComponent {
 
     componentDidCatch(error, info) {
         console.log(error);
-        this.setState(state => ({...state, hasError: true}))
+        this.setState(state => ({ ...state, hasError: true }))
     }
 
     componentWillUnmount() {

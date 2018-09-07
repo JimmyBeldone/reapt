@@ -11,6 +11,7 @@
         "ecmaFeatures": {
           "jsx": true,
           "experimentalDecorators": true,
+          "legacyDecorators": true
         }
     },
     "rules": {

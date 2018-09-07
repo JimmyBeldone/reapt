@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import cn from 'classnames'
-import {Field} from 'redux-form'
+import { Field } from 'redux-form'
 
 import './InputGroup.styl'
 
@@ -59,7 +59,7 @@ class InputGroup extends React.PureComponent {
     }
 
     activeInput() {
-        this.setState({active: true})
+        this.setState({ active: true })
     }
 
     getInputValue(e) {
@@ -69,21 +69,21 @@ class InputGroup extends React.PureComponent {
             if (value === this.state.value) {
                 return
             }
-            this.setState({value: value})
+            this.setState({ value: value })
         } else {
             if (this.props.alwaysActive) return
-            this.setState({active: false})
+            this.setState({ active: false })
         }
     }
 
     feedInput(e) {
         this.props.errorMessage()
         let value = e.currentTarget.value
-        this.setState({value: value})
+        this.setState({ value: value })
     }
 
     render() {
-        const {classNames, title, label, component, type, value, disabled, hidden, autofocus, children, placeholder, errorField} = this.props
+        const { classNames, title, label, component, type, value, disabled, hidden, autofocus, children, placeholder, errorField } = this.props
         if (type === 'checkbox') {
             return (
                 <div

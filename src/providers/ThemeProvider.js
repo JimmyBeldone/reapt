@@ -1,4 +1,4 @@
-import React, {PureComponent, createContext} from 'react'
+import React, { PureComponent, createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const ThemeContext = createContext()
@@ -10,7 +10,7 @@ export default class ThemeProvider extends PureComponent {
     }
 
     toggleTheme = (e) => {
-        this.setState({theme: e.target.checked ? 'dark' : 'light'})
+        this.setState({ theme: e.target.checked ? 'dark' : 'light' })
     }
 
     state = {
@@ -19,9 +19,9 @@ export default class ThemeProvider extends PureComponent {
     }
 
     render() {
-        const {theme, toggleTheme} = this.state
+        const { theme, toggleTheme } = this.state
         return (
-            <ThemeContext.Provider value={{theme, toggleTheme}}>
+            <ThemeContext.Provider value={{ theme, toggleTheme }}>
                 { this.props.children }
             </ThemeContext.Provider>
         )
