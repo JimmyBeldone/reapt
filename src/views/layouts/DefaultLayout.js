@@ -1,4 +1,4 @@
-import React, {PureComponent, Fragment} from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import Header from '../containers/Header/Header'
@@ -12,7 +12,7 @@ class DefaultLayout extends PureComponent {
     }
 
     render () {
-        const {children} = this.props
+        const { children } = this.props
         return (
             <Fragment>
                 <Header />

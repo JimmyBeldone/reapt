@@ -13,7 +13,7 @@ class About extends Component {
     }
 
     render() {
-        const {routes} = this.props
+        const { routes } = this.props
         return (
             <div>
                 <AboutTemplate />

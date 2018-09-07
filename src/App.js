@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Switch} from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import noInternet from 'no-internet'
 
 import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
@@ -31,7 +31,7 @@ class App extends Component {
         noInternet()
         .then(offline => {
             if (offline) {
-                this.setState({isOffline: true})
+                this.setState({ isOffline: true })
             }
         })
         // Interval check

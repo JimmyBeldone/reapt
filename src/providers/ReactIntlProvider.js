@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { IntlProvider, addLocaleData } from 'react-intl'
 
-import {flattenMessages} from '../utils/lang'
+import { flattenMessages } from '../utils/lang'
 
 const fr = require('react-intl/locale-data/fr')
 const en = require('react-intl/locale-data/en')
@@ -30,7 +30,7 @@ class ReactIntlProvider extends PureComponent {
     }
 
     render() {
-        const {language, children} = this.props
+        const { language, children } = this.props
         return (
             <IntlProvider
                 locale={language}

@@ -1,4 +1,4 @@
-import React, {PureComponent, createContext} from 'react'
+import React, { PureComponent, createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const ModalContext = createContext()
@@ -31,9 +31,9 @@ export default class ModalProvider extends PureComponent {
     }
 
     render() {
-        const {content, props, showModal, hideModal} = this.state
+        const { content, props, showModal, hideModal } = this.state
         return (
-            <ModalContext.Provider value={{content, props, showModal, hideModal}}>
+            <ModalContext.Provider value={{ content, props, showModal, hideModal }}>
                 {this.props.children}
             </ModalContext.Provider>
         )

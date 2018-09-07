@@ -1,4 +1,4 @@
-import React, {PureComponent, createContext} from 'react';
+import React, { PureComponent, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 const LanguageContext = createContext()
@@ -9,7 +9,7 @@ export default class LanguageProvider extends PureComponent {
         children: PropTypes.element.isRequired
     }
 
-    updateLanguage = e => this.setState({lang: e.target.value})
+    updateLanguage = e => this.setState({ lang: e.target.value })
 
     state = {
         lang: 'en',

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import Modal from 'react-modal'
@@ -8,7 +8,7 @@ import './DefaultModal.styl'
 
 Modal.setAppElement('#app')
 
-const DefaultModal = ({onRequestClose, ...props}) => (
+const DefaultModal = ({ onRequestClose, ...props }) => (
     <Modal
         isOpen
         contentLabel="Default Modal"

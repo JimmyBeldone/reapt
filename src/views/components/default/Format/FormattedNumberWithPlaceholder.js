@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {FormattedNumber, FormattedMessage} from 'react-intl'
+import { FormattedNumber, FormattedMessage } from 'react-intl'
 
 export default class FormattedNumberWithPlaceholder extends PureComponent {
 

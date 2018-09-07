@@ -8,7 +8,7 @@ import './styles/global.styl'
 import './assets/fonts/fonts.styl'
 
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 // import { highlightUpdates } from 'react-highlight-updates';
 
 import configureStore, { history } from './store/configureStore'

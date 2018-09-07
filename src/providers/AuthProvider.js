@@ -1,9 +1,9 @@
-import {connectedRouterRedirect} from 'redux-auth-wrapper/history4/redirect'
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper'
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
-import {routerActions} from 'connected-react-router'
+import { routerActions } from 'connected-react-router'
 
-import {PAGE_HOME, PAGE_LOGIN} from '../constants/router'
+import { PAGE_HOME, PAGE_LOGIN } from '../constants/router'
 
 export const userIsAuthenticated = connectedRouterRedirect({
     redirectPath: PAGE_LOGIN,

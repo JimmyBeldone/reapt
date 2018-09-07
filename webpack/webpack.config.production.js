@@ -43,7 +43,7 @@ const config = {
                                 cssNext,
                                 postcssFixie,
                                 MQPacker,
-                                combineSelectors({removeDuplicatedProperties: true})
+                                combineSelectors({ removeDuplicatedProperties: true })
                             ]
                         }
                     },
@@ -108,7 +108,7 @@ const config = {
         //     maxSize: 50000,
         // }),
         new MiniCssExtractPlugin({
-            publicPath: './',
+            // publicPath: './',
             filename: './[name].[hash].css',
             chunkFilename: './[id].[hash].css'
         }),

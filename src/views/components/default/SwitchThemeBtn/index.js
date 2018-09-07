@@ -1,13 +1,13 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 // import PropTypes from 'prop-types'
 
-import {ThemeConsumer} from '../../../../providers/ThemeProvider'
+import { ThemeConsumer } from '../../../../providers/ThemeProvider'
 
 const SwitchThemeBtn = () => (
     <div className="switch-theme">
         Theme:
         <ThemeConsumer>
-            {({toggleTheme, theme}) => (
+            {({ toggleTheme, theme }) => (
                 <Fragment>
                     <input
                         id="theme"
