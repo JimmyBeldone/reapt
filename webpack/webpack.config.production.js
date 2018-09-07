@@ -116,7 +116,6 @@ const config = {
             test: /\.(jpe?g|png|gif|svg)$/i
         }),
         new CompressionWebpackPlugin({
-            asset: '[path].gz[query]',
             algorithm: 'gzip',
             test: new RegExp('\\.(js|css|html)$'),
             threshold: 10240,
