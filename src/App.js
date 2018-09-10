@@ -4,14 +4,10 @@ import { Switch } from 'react-router-dom'
 import noInternet from 'no-internet'
 
 import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
-import getRoutesByEnv from './routes'
+import routes from './routes'
 import DefaultLayout from './views/layouts/DefaultLayout'
 import ModalProvider from './providers/ModalProvider'
 import ModalRoot from './views/components/default/Modals'
-
-// HMR doesn't work with react loadable,
-// so as a temporary fix, disable codesplitting in dev mode
-const routes = getRoutesByEnv(process.env.NODE_ENV)
 
 class App extends Component {
 
