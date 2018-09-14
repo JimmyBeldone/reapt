@@ -3,11 +3,15 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
+import cn from 'classnames'
 
 import './ForgottenPassword.styl'
 import { PAGE_HOME } from '../../../../constants/router'
 import { emailValidation } from '../../utils'
 import { sendEmail as resetPasswordSendEmail } from '../../actions'
+import { configAskPassword } from '../../config'
+
+const mapStateToProps = state => ({ actionMessage: state.userPassword.askPassword.message, actionError: state.userPassword.askPassword.error })
 
 const mapDispatchToProps = dispatch => ({
     resetPasswordSendEmail: (email) => dispatch(resetPasswordSendEmail(email))
@@ -16,7 +20,9 @@ const mapDispatchToProps = dispatch => ({
 class ForgottenPassword extends PureComponent {
 
     static propTypes = {
-        resetPasswordSendEmail: PropTypes.func.isRequired
+        resetPasswordSendEmail: PropTypes.func.isRequired,
+        actionMessage: PropTypes.string.isRequired,
+        actionError: PropTypes.bool.isRequired
     }
 
     state = {
@@ -26,7 +32,7 @@ class ForgottenPassword extends PureComponent {
 
     handleSubmit(e) {
         e.preventDefault()
-        const email = this.refs.input
+        const email = this.refs.inputAskResetPassword
 
         if (email !== null) {
             let hasError = false
@@ -56,32 +62,38 @@ class ForgottenPassword extends PureComponent {
 
     render() {
         const { hasError, errorField, errorMessage } = this.state
-        return (
-            <form className="forgotten-password" onSubmit={this.handleSubmit.bind(this)}>
+        const { actionMessage, actionError } = this.props
+        return (<form className="forgotten-password" onSubmit={this.handleSubmit.bind(this)}>
 
-                <div className="input-group">
-                    <label htmlFor="email">
-                        Email
-                    </label>
-                    <input name="email" className="form-control" type="text" ref="input" />
+            <div className="input-group">
+                <label htmlFor="email">
+                    {configAskPassword.inputLib}
+                </label>
+                <input name="email" className="form-control" type="text" ref="inputAskResetPassword"/>
+            </div>
+
+            <div className="error-message">
+                {
+                    hasError
+                        ? (<FormattedMessage id={errorMessage} values={{
+                                field: errorField
+                            }}/>)
+                        : null
+                }
+            </div>
+
+            <button className="btn" type="submit">Envoyer</button>
+
+            <Link to={PAGE_HOME}>
+                <div className="home-link">
+                    Revenir à l'accueil
                 </div>
-
-                <div className="error-message">
-                    {hasError ? (
-                        <FormattedMessage id={errorMessage} values={{ field: errorField }} />
-                    ) : null}
-                </div>
-
-                <button className="btn" type="submit">Envoyer</button>
-
-                <Link to={PAGE_HOME}>
-                    <div className="home-link">
-                        Revenir à l'accueil
-                    </div>
-                </Link>
-            </form>
-        )
+            </Link>
+            <div className={cn("action-message", { hasError: actionError })}>
+                {actionMessage}
+            </div>
+        </form>)
     }
 }
 
-export default connect(null, mapDispatchToProps)(ForgottenPassword)
+export default connect(mapStateToProps, mapDispatchToProps)(ForgottenPassword)

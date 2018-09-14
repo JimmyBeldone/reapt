@@ -1,20 +1,8 @@
 import UserPassword from './UserPassword'
+import AuthUser from './AuthUser'
+import UserDatas from './UserDatas'
 
-const featuresList = [
-    UserPassword
-]
-
-// export const featuresComponents = () => {
-//     const components = {}
-//
-//     featuresList.map(feature => {
-//         console.log(feature.components);
-//         // components.push(feature.components)
-//         Object.assign(feature.components, ...components)
-//     })
-//
-//     return components
-// }
+const featuresList = [UserPassword, AuthUser, UserDatas]
 
 export const featuresReducers = () => {
     const reducers = []
@@ -25,5 +13,3 @@ export const featuresReducers = () => {
 
     return reducers
 }
-
-// export const getComponent = name => featuresList.find(feature => feature.name === name)
