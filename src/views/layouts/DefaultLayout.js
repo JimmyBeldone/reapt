@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import Header from '../containers/Header/Header'
-import Footer from '../containers/Footer/Footer'
-import Nav from '../containers/Nav'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+import Nav from './Nav'
 
 class DefaultLayout extends PureComponent {
 
@@ -11,18 +11,16 @@ class DefaultLayout extends PureComponent {
         children: PropTypes.node.isRequired
     }
 
-    render () {
+    render() {
         const { children } = this.props
-        return (
-            <Fragment>
-                <Header />
-                <Nav />
-                <div className="content">
-                    {children}
-                </div>
-                <Footer />
-            </Fragment>
-        );
+        return (<Fragment>
+            <Header/>
+            <Nav/>
+            <div className="content">
+                {children}
+            </div>
+            <Footer/>
+        </Fragment>);
     }
 }
 
