@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import FormattedNumberWithPlaceholder from './FormattedNumberWithPlaceholder'
+import FormattedNumberAuto from './FormattedNumberAuto'
 
 export default class Decimal extends PureComponent {
 
     static propTypes = {
-        value: PropTypes.integer.isRequired,
-        minimumFractionDigits: PropTypes.integer,
-        maximumFractionDigits: PropTypes.integer,
+        value: PropTypes.number,
+        minimumFractionDigits: PropTypes.number,
+        maximumFractionDigits: PropTypes.number,
         className: PropTypes.string,
-        isEvolution: PropTypes.boolean
+        isEvolution: PropTypes.bool
     }
 
     static defaultProps = {
@@ -23,7 +23,7 @@ export default class Decimal extends PureComponent {
         return (
             <span className={this.props.className}>
                 {this.props.isEvolution && this.props.value > 0 && <span>+</span>}
-                <FormattedNumberWithPlaceholder {...this.props} style="decimal" />
+                <FormattedNumberAuto {...this.props} style="decimal" />
             </span>
         );
     }

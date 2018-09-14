@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import FormattedNumberWithPlaceholder from './FormattedNumberWithPlaceholder'
+import FormattedNumberAuto from './FormattedNumberAuto'
 
 export default class Percent extends PureComponent {
 
     static propTypes = {
-        value: PropTypes.integer.isRequired,
-        minimumFractionDigits: PropTypes.integer,
-        maximumFractionDigits: PropTypes.integer,
-        isEvolution: PropTypes.boolean,
+        value: PropTypes.number,
+        minimumFractionDigits: PropTypes.number,
+        maximumFractionDigits: PropTypes.number,
+        isEvolution: PropTypes.bool,
         className: PropTypes.string
     }
 
@@ -23,7 +23,7 @@ export default class Percent extends PureComponent {
         return (
             <span className={this.props.className}>
                 {this.props.isEvolution && this.props.value > 0 && <span>+</span>}
-                <FormattedNumberWithPlaceholder {...this.props} style="percent" />
+                <FormattedNumberAuto {...this.props} style="percent" />
             </span>
         );
     }

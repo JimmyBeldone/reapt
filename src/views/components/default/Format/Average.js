@@ -2,15 +2,15 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import Decimal from './Decimal'
-import FormattedNumberWithPlaceholder from './FormattedNumberWithPlaceholder'
+import FormattedNumberAuto from './FormattedNumberAuto'
 
 export default class Average extends PureComponent {
 
     static propTypes = {
-        value: PropTypes.integer.isRequired,
+        value: PropTypes.number,
         formatedMoney: PropTypes.bool,
-        minimumFractionDigits: PropTypes.integer,
-        maximumFractionDigits: PropTypes.integer,
+        minimumFractionDigits: PropTypes.number,
+        maximumFractionDigits: PropTypes.number,
         roundToThousands: PropTypes.bool
     }
 
@@ -23,10 +23,9 @@ export default class Average extends PureComponent {
     }
 
     render() {
-        let value = this.props.value
-        let formatedMoney = this.props.formatedMoney
+        let { value, formatedMoney } = this.props
         if (value === null) {
-            return <FormattedNumberWithPlaceholder {...this.props} style="currency" currency="EUR" />
+            return <FormattedNumberAuto {...this.props} style="currency" currency="EUR" />
         }
         if (this.props.roundToThousands) {
             if (formatedMoney) {
@@ -37,8 +36,8 @@ export default class Average extends PureComponent {
                     </span>
                 );
             }
-            return <FormattedNumberWithPlaceholder {...this.props} value={value} style="currency" currency="EUR" />
+            return <FormattedNumberAuto {...this.props} value={value} style="currency" currency="EUR" />
         }
-        return <FormattedNumberWithPlaceholder {...this.props} style="currency" currency="EUR" />
+        return <FormattedNumberAuto {...this.props} style="currency" currency="EUR" />
     }
 }
