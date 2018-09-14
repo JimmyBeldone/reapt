@@ -1,4 +1,5 @@
 {
+    "indentation": 4,
     "blocks": false,
     "brackets": "never",
     "colons": false,
@@ -29,7 +30,7 @@
     "prefixVarsWithDollar": "always",
     "quotePref": false,
     "reporterOptions": {
-        "columns": ["lineData", "severity", "description", "rule"],
+        "columns": [ "lineData", "severity", "description", "rule" ],
         "columnSplitter": "  ",
         "showHeaders": false,
         "truncate": true
