@@ -54,7 +54,9 @@ class InputGroup extends React.PureComponent {
     }
 
     isActive(nextProps = null) {
-        let props = (nextProps !== null) ? nextProps : this.props
+        let props = (nextProps !== null)
+            ? nextProps
+            : this.props
         return (props.value !== undefined && props.value !== null && props.value.length > 0) || props.autofocus || props.placeholder.length > 2 || props.alwaysActive
     }
 
@@ -71,7 +73,7 @@ class InputGroup extends React.PureComponent {
             }
             this.setState({ value: value })
         } else {
-            if (this.props.alwaysActive) return
+            if (this.props.alwaysActive) { return }
             this.setState({ active: false })
         }
     }
@@ -83,54 +85,42 @@ class InputGroup extends React.PureComponent {
     }
 
     render() {
-        const { classNames, title, label, component, type, value, disabled, hidden, autofocus, children, placeholder, errorField } = this.props
+        const {
+            classNames,
+            title,
+            label,
+            component,
+            type,
+            value,
+            disabled,
+            hidden,
+            autofocus,
+            children,
+            placeholder,
+            errorField
+        } = this.props
         if (type === 'checkbox') {
-            return (
-                <div
-                    className={cn("input-group", "checkbox-bloc", {
-                        error: errorField === title
-                    })}
-                >
-                    <Field
-                        id={title}
-                        name={title}
-                        component={"input"}
-                        type={"checkbox"}
-                        onChange={this.feedInput.bind(this)}
-                     />
-                    <label htmlFor={title}>
-                        {label}
-                    </label>
-                </div>
-            )
+            return (<div className={cn("input-group", "checkbox-bloc", {
+                    error: errorField === title
+                })}>
+                <Field id={title} name={title} component={"input"} type={"checkbox"} onChange={this.feedInput.bind(this)}/>
+                <label htmlFor={title}>
+                    {label}
+                </label>
+            </div>)
         }
         if (component === 'select') {
-            return (
-                <div className="input-group select">
-                    <label htmlFor={title}>
-                        {label}
-                    </label>
-                    <div className="custom-select">
-                        <Field
-                            name={title}
-                            className="form-control"
-                            component={component}
-                            type={type}
-                            placeholder={placeholder}
-                            value={this.state.value}
-                            onClick={this.activeInput.bind(this)}
-                            onFocus={this.activeInput.bind(this)}
-                            onBlur={this.getInputValue.bind(this)}
-                            onChange={this.feedInput.bind(this)}
-                            disabled={disabled}
-                            autoFocus={autofocus}
-                        >
-                            {children}
-                        </Field>
-                        <div className="icon icon-carousel-arrow"></div>
-                    </div>
+            return (<div className="input-group select">
+                <label htmlFor={title}>
+                    {label}
+                </label>
+                <div className="custom-select">
+                    <Field name={title} className="form-control" component={component} type={type} placeholder={placeholder} value={this.state.value} onClick={this.activeInput.bind(this)} onFocus={this.activeInput.bind(this)} onBlur={this.getInputValue.bind(this)} onChange={this.feedInput.bind(this)} disabled={disabled} autoFocus={autofocus}>
+                        {children}
+                    </Field>
+                    <div className="icon icon-carousel-arrow"></div>
                 </div>
-            )
+            </div>)
         }
         let errorClass = ''
         if (errorField !== null) {
@@ -140,52 +130,37 @@ class InputGroup extends React.PureComponent {
                 errorClass = errorField === title
             }
         }
-        return (
-            <div
-                className={cn("input-group", classNames, {
-                    active: (this.state.active),
-                    textarea: component === 'textarea',
-                    hidden: hidden,
-                    error: errorClass
-                })}
-            >
-                <label htmlFor={title}>
-                    {label}
-                </label>
-                <Field
-                    name={title}
-                    className="form-control"
-                    component={component}
-                    type={type}
-                    placeholder={placeholder}
-                    value={this.state.value}
-                    onClick={this.activeInput.bind(this)}
-                    onFocus={this.activeInput.bind(this)}
-                    onBlur={this.getInputValue.bind(this)}
-                    onChange={this.feedInput.bind(this)}
-                    disabled={disabled}
-                    autoFocus={autofocus}
-                >
-                    {(children !== undefined) ? children : null}
-                </Field>
-            </div>
-        );
+        return (<div className={cn("input-group", classNames, {
+                active: (this.state.active),
+                textarea: component === 'textarea',
+                hidden: hidden,
+                error: errorClass
+            })}>
+            <label htmlFor={title}>
+                {label}
+            </label>
+            <Field name={title} className="form-control" component={component} type={type} placeholder={placeholder} value={this.state.value} onClick={this.activeInput.bind(this)} onFocus={this.activeInput.bind(this)} onBlur={this.getInputValue.bind(this)} onChange={this.feedInput.bind(this)} disabled={disabled} autoFocus={autofocus}>
+                {
+                    (children !== undefined)
+                        ? children
+                        : null
+                }
+            </Field>
+        </div>);
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     if (state.form[ownProps.form] !== undefined) {
-        let value = (state.form[ownProps.form].values !== undefined && state.form[ownProps.form].values[ownProps.title] !== undefined) ? state.form[ownProps.form].values[ownProps.title] : null
-        return {
-            value: value
-        };
+        let value = (state.form[ownProps.form].values !== undefined && state.form[ownProps.form].values[ownProps.title] !== undefined)
+            ? state.form[ownProps.form].values[ownProps.title]
+            : null
+        return { value: value };
     } else {
         return {}
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-
-})
+const mapDispatchToProps = (dispatch) => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputGroup);

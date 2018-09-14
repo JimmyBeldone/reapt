@@ -9,11 +9,13 @@ const commonPaths = require('./commonPaths')
 
 const configPath = `../config/config.${process.env.NODE_ENV}.json`
 
-const icoPrefix = (process.env.NODE_ENV === 'production')
-    ? 'assets/img-[hash]/'
-    : '[hash]'
+// const icoPrefix = (process.env.NODE_ENV === 'production')
+//     ? 'assets/img-[hash]/'
+//     : '[hash]'
 
-const statsActive = process.env.WITH_DASHBOARD ? 'normal' : 'none'
+const statsActive = process.env.WITH_DASHBOARD
+    ? 'normal'
+    : 'none'
 
 const config = {
     resolve: {
@@ -31,13 +33,20 @@ const config = {
             'gif',
             '.ico'
         ],
-        modules: [
-            'src', 'node_modules'
-        ]
+        modules: ['src', 'node_modules']
     },
     entry: {
         app: path.join(__dirname, '../src/index.js'),
-        react: ['react', 'react-dom', 'react-router-dom', 'prop-types', 'react-redux', 'redux-persist', 'redux', 'redux-thunk']
+        react: [
+            'react',
+            'react-dom',
+            'react-router-dom',
+            'prop-types',
+            'react-redux',
+            'redux-persist',
+            'redux',
+            'redux-thunk'
+        ]
     },
     output: {
         filename: '[name].[hash].bundle.js',
@@ -62,7 +71,8 @@ const config = {
                 loader: 'raw-loader'
             }, {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [{
+                use: [
+                    {
                         loader: 'url-loader',
                         options: {
                             limit: 1024,

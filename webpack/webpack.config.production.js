@@ -8,9 +8,8 @@ const cssNext = require('postcss-cssnext')
 const combineSelectors = require('postcss-combine-duplicated-selectors')
 const MQPacker = require('css-mqpacker')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const Visualizer = require('webpack-visualizer-plugin')
+// const Visualizer = require('webpack-visualizer-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const chalk = require('chalk')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
@@ -19,8 +18,6 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const pjson = require('../package.json')
 
-const commonPaths = require('./commonPaths')
-
 const config = {
     mode: 'production',
     module: {
@@ -28,14 +25,12 @@ const config = {
             {
                 test: /\.styl/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    {
+                    MiniCssExtractPlugin.loader, {
                         loader: 'css-loader',
                         options: {
                             sourceMap: false
                         }
-                    },
-                    {
+                    }, {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: false,
@@ -46,14 +41,12 @@ const config = {
                                 combineSelectors({ removeDuplicatedProperties: true })
                             ]
                         }
-                    },
-                    {
+                    }, {
                         loader: 'stylus-loader',
                         options: {
                             sourceMap: false
                         }
-                    },
-                    {
+                    }, {
                         loader: 'sass-resources-loader',
                         options: {
                             resources: require(path.join(process.cwd(), './src/styles/styleConfig'))
@@ -90,11 +83,7 @@ const config = {
         },
         minimize: true,
         minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true
-            }),
+            new UglifyJsPlugin({ cache: true, parallel: true, sourceMap: true }),
             new OptimizeCSSAssetsPlugin({})
         ],
         runtimeChunk: {
@@ -112,21 +101,12 @@ const config = {
             filename: './[name].[hash].css',
             chunkFilename: './[id].[hash].css'
         }),
-        new ImageminPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i
-        }),
-        new CompressionWebpackPlugin({
-            algorithm: 'gzip',
-            test: new RegExp('\\.(js|css|html)$'),
-            threshold: 10240,
-            minRatio: 0.8
-        }),
+        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+        new CompressionWebpackPlugin({ algorithm: 'gzip', test: new RegExp('\\.(js|css|html)$'), threshold: 10240, minRatio: 0.8 }),
         // new Visualizer({
         //     filename: './stats.html'
         // }),
-        new ManifestPlugin({
-            fileName: 'asset-manifest.json'
-        }),
+        new ManifestPlugin({ fileName: 'asset-manifest.json' }),
         new PreloadWebpackPlugin(),
         new SWPrecacheWebpackPlugin({
             ontCacheBustUrlsMatching: /\.\w{8}\./,
@@ -148,10 +128,19 @@ const config = {
             short_name: pjson.name,
             background_color: '#ffffff',
             theme_color: '#ffffff',
-            icons: [{
-                src: path.resolve('src/assets/img/favicon.ico'),
-                sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-            }]
+            icons: [
+                {
+                    src: path.resolve('src/assets/img/favicon.ico'),
+                    sizes: [
+                        96,
+                        128,
+                        192,
+                        256,
+                        384,
+                        512
+                    ] // multiple sizes
+                }
+            ]
         })
     ]
 }

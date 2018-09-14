@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
 import { NotificationStack } from 'react-notification';
 import { OrderedSet } from 'immutable';
 
@@ -8,9 +6,7 @@ import Trans from '../Format/Trans'
 
 export default class Notifications extends React.PureComponent {
 
-    static propTypes = {
-
-    }
+    static propTypes = {}
 
     constructor(props) {
         super(props)
@@ -23,7 +19,6 @@ export default class Notifications extends React.PureComponent {
 
     addNotification(notif) {
         const { count, notifications } = this.state
-        const id = notifications.size + 1
         const newCount = count + 1
         return this.setState({
             count: newCount,
@@ -47,28 +42,21 @@ export default class Notifications extends React.PureComponent {
     render() {
         let notifications = this.state.notifications.toArray()
         if (notifications.length > 0) {
-            return (
-                <NotificationStack
-                    notifications={notifications}
-                    onDismiss={notification => {
-                        this.setState({ notifications: this.state.notifications.delete(notification) })
-                    }}
-                    barStyleFactory={(index, style) => ({
-                        ...style,
-                        right: 'auto',
-                        left: '-100%',
-                        bottom: `${4 + (index * 4)}rem`,
-                        top: `auto`
-                    })}
-                    activeBarStyleFactory={(index, style) => ({
-                        ...style,
-                        top: `auto`,
-                        right: 'auto',
-                        left: '1rem',
-                        bottom: `${4 + (index * 4)}rem`
-                    })}
-                />
-            )
+            return (<NotificationStack notifications={notifications} onDismiss={notification => {
+                    this.setState(state => ({ notifications: state.notifications.delete(notification) }))
+                }} barStyleFactory={(index, style) => ({
+                    ...style,
+                    right: 'auto',
+                    left: '-100%',
+                    bottom: `${4 + (index * 4)}rem`,
+                    top: `auto`
+                })} activeBarStyleFactory={(index, style) => ({
+                    ...style,
+                    top: `auto`,
+                    right: 'auto',
+                    left: '1rem',
+                    bottom: `${4 + (index * 4)}rem`
+                })}/>)
         } else {
             return null
         }

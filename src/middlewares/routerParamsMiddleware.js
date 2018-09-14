@@ -1,14 +1,16 @@
-import { LOCATION_CHANGE } from '../constants/actionTypes';
 import { matchPath } from 'react-router-dom';
-import routes from '../routes/routes';
-import {getPageName} from "../managers/routerManger";
+
+import routes from '../routes';
+import { getPageName } from "../managers/routerManger";
 
 export default store => next => (action) => {
     if (undefined !== action && (action.type === '@@router/LOCATION_CHANGE')) {
         let match = null;
         for (let i = 0, l = routes.length; i < l; i++) {
             match = matchPath(action.payload.location.pathname, routes[i]);
-            if (match !== null) break;
+            if (match !== null) {
+                break;
+            }
         }
         if (match === undefined || match === null) {
             action.payload.match = {
