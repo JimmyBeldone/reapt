@@ -1,15 +1,26 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
+import './OpenModalBtn'
 import { ModalConsumer } from '../../../../../providers/ModalProvider'
-import DefaultModal from '../DefaultModal'
 
-const OpenModalBtn = () => (
-    <ModalConsumer>
-        {({ showModal }) => (
-            <button onClick={() => showModal(DefaultModal, { className: 'test' })}>Open Modal</button>
-        )}
-    </ModalConsumer>
-)
+const OpenModalBtn = (props) => (<ModalConsumer>
+    {
+        ({ showModal }) => (<div className="open-modal-btn" onClick={() => showModal(props.modal, { className: 'test' })}>
+            {props.children}
+        </div>)
+    }
+</ModalConsumer>)
+
+OpenModalBtn.propTypes = {
+    // className: PropTypes.string.isRequired,
+    modal: PropTypes.func,
+    children: PropTypes.node
+}
+
+OpenModalBtn.defaultProps = {
+    // className: '',
+    // modal: DefaultModal,
+}
 
 export default OpenModalBtn

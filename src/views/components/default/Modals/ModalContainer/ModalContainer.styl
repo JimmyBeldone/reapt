@@ -1,0 +1,36 @@
+.modal-container
+    flexbox(rows)
+    width 450px
+    background-color white
+    radius(6px)
+
+    .modal-header
+        height 60px
+        width 100%
+        flexbox()
+        align()
+        justify(space-between)
+        border-top-left-radius 6px
+        border-top-right-radius 6px
+        padding 0 20px
+        background-image linear-gradient(257deg, $greenyBlue, $iris 40%, $cobalt)
+        color white
+        font-size 20px
+
+        .modal-title
+            proxima()
+
+        .close-modal
+            width 30px
+            height 30px
+            flexbox()
+            align()
+            justify(flex-end)
+            cursor pointer
+
+            .icon
+                font-size 20px
+                color white
+
+    .modal-content
+        width 100%
