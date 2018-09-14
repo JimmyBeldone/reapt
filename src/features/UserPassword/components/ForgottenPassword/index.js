@@ -1,13 +1,23 @@
 import React, { PureComponent } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 
 import './ForgottenPassword.styl'
 import { PAGE_HOME } from '../../../../constants/router'
 import { emailValidation } from '../../utils'
+import { sendEmail as resetPasswordSendEmail } from '../../actions'
+
+const mapDispatchToProps = dispatch => ({
+    resetPasswordSendEmail: (email) => dispatch(resetPasswordSendEmail(email))
+})
 
 class ForgottenPassword extends PureComponent {
+
+    static propTypes = {
+        resetPasswordSendEmail: PropTypes.func.isRequired
+    }
 
     state = {
         hasError: false,
@@ -35,7 +45,7 @@ class ForgottenPassword extends PureComponent {
                     errorField = 'Email'
                     errorMessage = 'errors.invalidEmail'
                 } else {
-                    console.log('ok ok');
+                    this.props.resetPasswordSendEmail(value)
                 }
             }
 
@@ -74,4 +84,4 @@ class ForgottenPassword extends PureComponent {
     }
 }
 
-export default ForgottenPassword
+export default connect(null, mapDispatchToProps)(ForgottenPassword)

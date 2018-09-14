@@ -2,15 +2,11 @@ import React from 'react'
 import Loadable from 'react-loadable'
 
 import {
-    PAGE_HOME,
-    PAGE_ABOUT,
-    PAGE_ABOUT_ONE,
-    PAGE_ABOUT_TWO,
+    PAGE_HOME, PAGE_ABOUT, PAGE_ABOUT_ONE, PAGE_ABOUT_TWO
     // PAGE_NOT_FOUND,
-    PAGE_FORGOTTEN_PASSWORD
 } from '../constants/router'
 import LoadingPage from '../views/components/default/LoadingPage/LoadingPage'
-// import {userIsAuthenticated, userIsNotAuthenticated} from '../providers/AuthProvider'
+// import { userIsAuthenticated, userIsNotAuthenticated } from '../providers/AuthProvider'
 
 const AboutOne = () => <h1>About One Page</h1>
 const AboutTwo = () => <h1>About Two Page</h1>
@@ -23,31 +19,25 @@ const AboutPage = Loadable({
     loader: () => import('../views/pages/About'),
     loading: LoadingPage
 })
-const ForgottenPasswordPage = Loadable({
-    loader: () => import('../views/pages/ForgottenPasswordPage'),
-    loading: LoadingPage
-})
 
-const routes = [{
-    path: PAGE_HOME,
-    component: HomePage,
-    exact: true
-}, {
-    path: PAGE_ABOUT,
-    component: AboutPage,
-    routes: [
-        {
-            path: PAGE_ABOUT_ONE,
-            component: AboutOne
-        }, {
-            path: PAGE_ABOUT_TWO,
-            component: AboutTwo
-        }
-    ]
-}, {
-    path: PAGE_FORGOTTEN_PASSWORD,
-    component: ForgottenPasswordPage,
-    exact: true
-}]
+const routes = [
+    {
+        path: PAGE_HOME,
+        component: HomePage,
+        exact: true
+    }, {
+        path: PAGE_ABOUT,
+        component: AboutPage,
+        routes: [
+            {
+                path: PAGE_ABOUT_ONE,
+                component: AboutOne
+            }, {
+                path: PAGE_ABOUT_TWO,
+                component: AboutTwo
+            }
+        ]
+    }
+]
 
 export default routes
