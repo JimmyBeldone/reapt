@@ -8,6 +8,7 @@ import './LoginForm.styl'
 
 import { loginUser } from '../../actions'
 import { configLogin } from '../../config'
+import { isEmptyField } from '../../utils'
 
 const mapStateToProps = state => ({
     loginError: state.auth.error,
@@ -24,42 +25,69 @@ class LoginForm extends PureComponent {
         loginUser: PropTypes.func.isRequired,
         loginError: PropTypes.bool.isRequired
     }
-    usernameInput = null
-    passwordInput = null
+
+    state = {
+        hasError: false,
+        errorField: '',
+        errorMessage: ''
+    }
 
     handleSubmit(e) {
         e.preventDefault()
-        const username = this.usernameInput === null ? '' : this.usernameInput.value.trim()
-        const password = this.passwordInput === null ? '' : this.passwordInput.value.trim()
-        if (username.length > 0 && password.length > 0) {
-            this.props.loginUser(username, password)
+        const fields = this.refs
+        const errors = []
+
+        const username = fields['input-username']
+        const password = fields['input-password']
+
+        Object.values(fields).filter(field => {
+            const value = field.value
+            if (isEmptyField(value)) {
+                console.log('empty');
+                errors.push({
+                    hasError: true,
+                    errorField: field.getAttribute('lib'),
+                    errorMessage: 'errors.emptyField'
+                })
+            }
+        })
+        if (errors.length !== 0) {
+            this.setState(errors[0])
+        } else {
+            this.setState({ hasError: false, errorField: '', errorMessage: '' })
+            this.props.loginUser(username.value.trim(), password.value.trim())
         }
     }
 
+    renderFields() {
+        return configLogin.fields.map(field => (
+            <div key={`login-input-${field.name}`} className="input-group">
+                <label htmlFor={field.name}>
+                    {field.lib}
+                </label>
+                <input name={field.name} lib={field.lib} className="form-control" type={field.type} ref={`input-${field.name}`} />
+            </div>
+        ))
+    }
+
     render() {
+        const { hasError, errorField, errorMessage } = this.state
         return (
             <form className="login-form" onSubmit={this.handleSubmit.bind(this)}>
-                <div className="input-group">
-                    <label htmlFor="login">
-                        Login
-                    </label>
-                    <input name="login" className="form-control" type="text" ref={input => { this.usernameInput = input }} />
-                </div>
-                <div className="input-group">
-                    <label htmlFor="password">
-                        Mot de passe
-                    </label>
-                    <input name="password" className="form-control" type="password" ref={input => { this.passwordInput = input }} />
-                </div>
-                <div className="login-error-message">
-                    {!this.props.loginError ? null : <FormattedMessage id="home.loginError"/>}
-                </div>
-                <button className="btn" type="submit">Valider</button>
+                {this.renderFields()}
                 <Link to={configLogin.passwordPath}>
                     <div className="home-link">
                         Mot de passe oublié ?
                     </div>
                 </Link>
+                <div className="error-message">
+                    {this.props.loginError || hasError
+                        ? <FormattedMessage id={errorMessage} values={{ field: errorField }} />
+                        : null
+                    }
+                </div>
+                <button className="btn" type="submit">Valider</button>
+
             </form>
         )
     }

@@ -14,13 +14,13 @@ export const configLogin = {
     passwordPath: '/password',
     fields: [
         {
+            lib: 'Login',
+            type: 'text',
+            name: 'username'
+        }, {
             lib: 'Mot de passe',
             type: 'password',
             name: 'password'
-        }, {
-            lib: 'Confirmer le mot de passe',
-            type: 'password',
-            name: 'password-confirm'
         }
     ],
     hasResolveAction: false,

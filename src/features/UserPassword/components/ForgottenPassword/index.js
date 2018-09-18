@@ -27,7 +27,8 @@ class ForgottenPassword extends PureComponent {
 
     state = {
         hasError: false,
-        errorField: null
+        errorField: null,
+        errorMessage: ''
     }
 
     handleSubmit(e) {
