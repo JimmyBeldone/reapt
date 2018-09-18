@@ -7,11 +7,15 @@ import cn from 'classnames'
 
 import './ForgottenPassword.styl'
 import { PAGE_HOME } from '../../../../constants/router'
-import { emailValidation } from '../../utils'
+import { emailValidation } from '../../../../utils/formValidation'
 import { sendEmail as resetPasswordSendEmail } from '../../actions'
 import { configAskPassword } from '../../config'
+import InputGroup from '../../../../views/components/default/InputGroup/InputGroup'
 
-const mapStateToProps = state => ({ actionMessage: state.userPassword.askPassword.message, actionError: state.userPassword.askPassword.error })
+const mapStateToProps = state => ({
+    actionMessage: state.userPassword.askPassword.message,
+    actionError: state.userPassword.askPassword.error
+})
 
 const mapDispatchToProps = dispatch => ({
     resetPasswordSendEmail: (email) => dispatch(resetPasswordSendEmail(email))
@@ -33,7 +37,7 @@ class ForgottenPassword extends PureComponent {
 
     handleSubmit(e) {
         e.preventDefault()
-        const email = this.refs.inputAskResetPassword
+        const email = this.refs.inputAskResetPassword.input
 
         if (email !== null) {
             let hasError = false
@@ -64,36 +68,34 @@ class ForgottenPassword extends PureComponent {
     render() {
         const { hasError, errorField, errorMessage } = this.state
         const { actionMessage, actionError } = this.props
-        return (<form className="forgotten-password" onSubmit={this.handleSubmit.bind(this)}>
+        return (
+            <form className="forgotten-password" onSubmit={this.handleSubmit.bind(this)}>
+                <InputGroup
+                    ref="inputAskResetPassword"
+                    name="email"
+                    label={configAskPassword.inputLib}
+                    errorField={errorField}
+                />
 
-            <div className="input-group">
-                <label htmlFor="email">
-                    {configAskPassword.inputLib}
-                </label>
-                <input name="email" className="form-control" type="text" ref="inputAskResetPassword"/>
-            </div>
+                <Link to={PAGE_HOME}>
+                    <div className="home-link">
+                        Revenir à l'accueil
+                    </div>
+                </Link>
 
-            <div className="error-message">
-                {
-                    hasError
-                        ? (<FormattedMessage id={errorMessage} values={{
-                                field: errorField
-                            }}/>)
-                        : null
-                }
-            </div>
-
-            <button className="btn" type="submit">Envoyer</button>
-
-            <Link to={PAGE_HOME}>
-                <div className="home-link">
-                    Revenir à l'accueil
+                <div className="error-message">
+                    {hasError ? (
+                        <FormattedMessage id={errorMessage} values={{ field: errorField }} />
+                    ) : null}
                 </div>
-            </Link>
-            <div className={cn("action-message", { hasError: actionError })}>
-                {actionMessage}
-            </div>
-        </form>)
+
+                <button className="btn" type="submit">Envoyer</button>
+
+                <div className={cn("action-message", { hasError: actionError })}>
+                    {actionMessage}
+                </div>
+            </form>
+        )
     }
 }
 

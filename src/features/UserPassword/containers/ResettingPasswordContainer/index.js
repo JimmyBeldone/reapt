@@ -34,17 +34,17 @@ class ResettingPasswordContainer extends PureComponent {
     handleReset(fields) {
         const { token, resetPassword } = this.props
 
-        const password = fields['input-password']
-        const confirm = fields['input-password-confirm']
+        const password = fields['input-password'].input
+        const confirm = fields['input-password-confirm'].input
 
         const errors = []
 
         Object.values(fields).filter(field => {
-            const value = field.value
+            const value = field.input.value
             if (isEmptyField(value)) {
                 errors.push({
                     hasError: true,
-                    errorField: field.getAttribute('lib'),
+                    errorField: field.input.getAttribute('lib'),
                     errorMessage: 'errors.emptyField'
                 })
             }

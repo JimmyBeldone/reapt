@@ -9,6 +9,7 @@ import './LoginForm.styl'
 import { loginUser } from '../../actions'
 import { configLogin } from '../../config'
 import { isEmptyField } from '../../utils'
+import InputGroup from '../../../../views/components/default/InputGroup/InputGroup'
 
 const mapStateToProps = state => ({
     loginError: state.auth.error,
@@ -37,16 +38,15 @@ class LoginForm extends PureComponent {
         const fields = this.refs
         const errors = []
 
-        const username = fields['input-username']
-        const password = fields['input-password']
+        const username = fields['input-username'].input
+        const password = fields['input-password'].input
 
         Object.values(fields).filter(field => {
-            const value = field.value
+            const value = field.input.value
             if (isEmptyField(value)) {
-                console.log('empty');
                 errors.push({
                     hasError: true,
-                    errorField: field.getAttribute('lib'),
+                    errorField: field.input.getAttribute('lib'),
                     errorMessage: 'errors.emptyField'
                 })
             }
@@ -61,12 +61,14 @@ class LoginForm extends PureComponent {
 
     renderFields() {
         return configLogin.fields.map(field => (
-            <div key={`login-input-${field.name}`} className="input-group">
-                <label htmlFor={field.name}>
-                    {field.lib}
-                </label>
-                <input name={field.name} lib={field.lib} className="form-control" type={field.type} ref={`input-${field.name}`} />
-            </div>
+            <InputGroup
+                key={`login-input-${field.name}`}
+                ref={`input-${field.name}`}
+                name={field.name}
+                type={field.type}
+                label={field.lib}
+                errorField={this.state.errorField}
+            />
         ))
     }
 
