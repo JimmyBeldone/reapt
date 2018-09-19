@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { IntlProvider, addLocaleData } from 'react-intl'
 
@@ -35,6 +35,7 @@ class ReactIntlProvider extends PureComponent {
             <IntlProvider
                 locale={language}
                 messages={flattenMessages(i18nConfig.messages[language])}
+                textComponent={Fragment}
             >
                 { React.Children.only(children) }
             </IntlProvider>
