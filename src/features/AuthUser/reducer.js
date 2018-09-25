@@ -22,7 +22,7 @@ const authReducer = (state = authState, action) => {
     switch (action.type) {
         case types.AUTH_LOGIN_PENDING:
             {
-                return { pending: true, authenticated: false, user: null, error: false, message: '' }
+                return { pending: true, authenticated: false, error: false, message: '' }
             }
         case types.AUTH_LOGIN_FULFILLED:
             {

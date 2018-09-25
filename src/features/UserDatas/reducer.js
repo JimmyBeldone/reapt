@@ -23,7 +23,7 @@ const UserReducer = (state = userState, action) => {
             return { ...state, datas: action.payload }
         }
         case types.USER_UPDATE_PENDING: {
-            return { pending: true, datas: null, error: false, message: '' }
+            return { ...state, pending: true, error: false, message: '' }
         }
         case types.USER_UPDATE_FULFILLED: {
             return { ...state, pending: false, datas: action.payload }
