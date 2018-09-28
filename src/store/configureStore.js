@@ -13,7 +13,7 @@ const reducer = combineReducers(rootReducer)
 
 function configureStoreProd(initialState) {
     const reactRouterMiddleware = routerMiddleware(history)
-    const middlewares = [routerParamsMiddleware, thunk, reactRouterMiddleware]
+    const middlewares = [thunk, reactRouterMiddleware, routerParamsMiddleware]
 
     const store = createStore(connectRouter(history)(reducer), initialState, compose(applyMiddleware(...middlewares)))
 
@@ -30,9 +30,9 @@ function configureStoreDev(initialState) {
 
         // thunk middleware can also accept an extra argument to be passed to each thunk action
         // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
-        routerParamsMiddleware,
         thunk,
-        reactRouterMiddleware
+        reactRouterMiddleware,
+        routerParamsMiddleware
     ]
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // add support for Redux dev tools

@@ -28,13 +28,16 @@ const routes = [
     }, {
         path: PAGE_ABOUT,
         component: AboutPage,
+        exact: false,
         routes: [
             {
                 path: PAGE_ABOUT_ONE,
-                component: AboutOne
+                component: AboutOne,
+                exact: true
             }, {
                 path: PAGE_ABOUT_TWO,
-                component: AboutTwo
+                component: AboutTwo,
+                exact: true
             }
         ]
     }
