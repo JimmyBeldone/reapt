@@ -15,6 +15,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 const pjson = require('../package.json')
 
@@ -82,6 +83,7 @@ const config = {
             }
         },
         minimize: true,
+        mergeDuplicateChunks: true,
         minimizer: [
             new UglifyJsPlugin({ cache: true, parallel: true, sourceMap: true }),
             new OptimizeCSSAssetsPlugin({})
@@ -141,6 +143,9 @@ const config = {
                     ] // multiple sizes
                 }
             ]
+        }),
+        new DuplicatePackageCheckerPlugin({
+            verbose: true
         })
     ]
 }
