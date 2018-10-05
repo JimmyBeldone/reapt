@@ -1,20 +1,22 @@
 const path = require('path')
 
+const glob = require('glob')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const postcssFixie = require('postcss-fixie')
-const cssNext = require('postcss-cssnext')
-const combineSelectors = require('postcss-combine-duplicated-selectors')
-const MQPacker = require('css-mqpacker')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const ImageminPlugin = require('imagemin-webpack-plugin').default
+// const ImageminPlImageminPluginugin = require('imagemin-webpack-plugin').default
 const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const postcssFixie = require('postcss-fixie')
+const combineSelectors = require('postcss-combine-duplicated-selectors')
+const MQPacker = require('css-mqpacker')
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const postcssPresetEnv = require('postcss-preset-env')
 
 const pjson = require('../package.json')
 
@@ -35,7 +37,7 @@ const config = {
                         options: {
                             sourceMap: false,
                             plugins: (loader) => [
-                                cssNext,
+                                postcssPresetEnv(),
                                 postcssFixie,
                                 MQPacker,
                                 combineSelectors({ removeDuplicatedProperties: true })
@@ -102,7 +104,10 @@ const config = {
             filename: './[name].[hash].css',
             chunkFilename: './[id].[hash].css'
         }),
-        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+        new PurgecssPlugin({
+            paths: glob.sync(`${path.join(process.cwd(), './src')}/**/*`, { nodir: true })
+        }),
+        // new ({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new CompressionWebpackPlugin({ algorithm: 'gzip', test: new RegExp('\\.(js|css|html)$'), threshold: 10240, minRatio: 0.8 }),
         new ManifestPlugin({ fileName: 'asset-manifest.json' }),
         new PreloadWebpackPlugin(),
