@@ -3,7 +3,7 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
-import logger from 'redux-logger'
+// import logger from 'redux-logger'
 
 import routerParamsMiddleware from '../middlewares/routerParamsMiddleware'
 import rootReducer from '../reducers'
@@ -33,8 +33,8 @@ function configureStoreDev(initialState) {
         // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
         thunk,
         reactRouterMiddleware,
-        routerParamsMiddleware,
-        logger
+        routerParamsMiddleware
+        // logger
     ]
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // add support for Redux dev tools
