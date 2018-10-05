@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-class ScrollToTop extends PureComponent {
+class ScrollToTop extends React.PureComponent {
 
     static propTypes = {
         children: PropTypes.node.isRequired,

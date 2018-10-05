@@ -8,7 +8,7 @@ import routes from './routes'
 import DefaultLayout from './views/layouts/DefaultLayout'
 import ModalProvider from './providers/ModalProvider'
 import ModalRoot from './views/components/default/Modals'
-import ScrollToTop from './views/containers/ScrollToTop'
+// import ScrollToTop from './views/containers/ScrollToTop'
 
 class App extends Component {
 
@@ -48,11 +48,11 @@ class App extends Component {
             <ModalProvider>
                 <ModalRoot />
                 <DefaultLayout>
-                    <Switch>
-                        <ScrollToTop>                            
+                    {/* <ScrollToTop> */}
+                        <Switch>
                             {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-                        </ScrollToTop>
-                    </Switch>
+                        </Switch>
+                    {/* </ScrollToTop> */}
                 </DefaultLayout>
                 {this.state.isOffline ? (
                     <div className="offline-info">
