@@ -8,7 +8,6 @@ const cssNext = require('postcss-cssnext')
 const combineSelectors = require('postcss-combine-duplicated-selectors')
 const MQPacker = require('css-mqpacker')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-// const Visualizer = require('webpack-visualizer-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -105,9 +104,6 @@ const config = {
         }),
         new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new CompressionWebpackPlugin({ algorithm: 'gzip', test: new RegExp('\\.(js|css|html)$'), threshold: 10240, minRatio: 0.8 }),
-        // new Visualizer({
-        //     filename: './stats.html'
-        // }),
         new ManifestPlugin({ fileName: 'asset-manifest.json' }),
         new PreloadWebpackPlugin(),
         new SWPrecacheWebpackPlugin({

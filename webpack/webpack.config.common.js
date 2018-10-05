@@ -2,7 +2,6 @@ const path = require('path')
 
 const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Stylish = require('webpack-stylish')
 
 const commonPaths = require('./commonPaths')

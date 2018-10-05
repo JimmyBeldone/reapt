@@ -1,5 +1,6 @@
-const commonConfig = require('./webpack/webpack.config.common')
 const webpackMerge = require('webpack-merge')
+
+const commonConfig = require('./webpack/webpack.config.common')
 
 const addons = (addonsArg) => {
     let addons = []
