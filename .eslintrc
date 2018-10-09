@@ -1,8 +1,12 @@
 {
-    "extends": "standard",
+    "extends": [
+    "standard",
+    "plugin:flowtype/recommended"
+    ],
     "plugins": [
         "react",
-        "import"
+        "import",
+        "flowtype"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -75,5 +79,10 @@
             "newlines-between": "always"
         }],
         "react/sort-comp": 0
+    },
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": false
+        }
     }
 }
