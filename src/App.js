@@ -1,36 +1,29 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Switch } from 'react-router-dom'
-import noInternet from 'no-internet'
+import React, { Component } from "react";
+import { Switch } from "react-router-dom";
+import noInternet from "no-internet";
 
-import RouteWithSubRoutes from './routes/RouteWithSubRoutes'
-import routes from './routes'
-import DefaultLayout from './views/layouts/DefaultLayout'
-import ModalProvider from './providers/ModalProvider'
-import ModalRoot from './views/components/default/Modals'
-// import ScrollToTop from './views/containers/ScrollToTop'
+import RouteWithSubRoutes from "./routes/RouteWithSubRoutes";
+import routes from "./routes";
+import DefaultLayout from "./views/layouts/DefaultLayout";
+import ModalProvider from "./providers/ModalProvider";
+import ModalRoot from "./views/components/default/Modals";
+import ScrollToTop from "./views/containers/ScrollToTop";
 
 class App extends Component {
-
-    static propTypes = {
-        history: PropTypes.object
-    }
-
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isOffline: false
-        }
+        };
     }
 
     componentDidMount() {
         // Single check
-        noInternet()
-        .then(offline => {
+        noInternet().then(offline => {
             if (offline) {
-                this.setState({ isOffline: true })
+                this.setState({ isOffline: true });
             }
-        })
+        });
         // Interval check
         // noInternet({
         //     callback: offline => {
@@ -43,25 +36,26 @@ class App extends Component {
         // })
     }
 
-    render () {
+    render() {
+        const { isOffline } = this.state;
         return (
             <ModalProvider>
                 <ModalRoot />
                 <DefaultLayout>
-                    {/* <ScrollToTop> */}
+                    <ScrollToTop>
                         <Switch>
-                            {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+                            {routes.map((route, i) => (
+                                <RouteWithSubRoutes key={i} {...route} />
+                            ))}
                         </Switch>
-                    {/* </ScrollToTop> */}
+                    </ScrollToTop>
                 </DefaultLayout>
-                {this.state.isOffline ? (
-                    <div className="offline-info">
-                        You are offline
-                    </div>
+                {isOffline ? (
+                    <div className="offline-info">You are offline</div>
                 ) : null}
             </ModalProvider>
-        )
+        );
     }
 }
 
-export default App
+export default App;

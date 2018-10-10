@@ -1,22 +1,21 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
 class ErrorBoundary extends PureComponent {
-
     static propTypes = {
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node,
             PropTypes.string
         ]).isRequired
-    }
+    };
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             hasError: false,
             info: null
-        }
+        };
     }
 
     componentDidCatch(error, info) {
@@ -24,19 +23,25 @@ class ErrorBoundary extends PureComponent {
         this.setState(state => ({
             ...state,
             hasError: error,
-            info: info
-        }))
+            info
+        }));
     }
 
     render() {
-        if (this.state.hasError) {
+        const { hasError, info } = this.state;
+        const { children } = this.props;
+        if (hasError) {
             return [
-                <div key="A" className="error">Une erreur est survenue : </div>,
-                <div key="B" className="error-info">{this.state.info}</div>
-            ]
+                <div key="A" className="error">
+                    Une erreur est survenue :{" "}
+                </div>,
+                <div key="B" className="error-info">
+                    {info}
+                </div>
+            ];
         }
-        return this.props.children
+        return children;
     }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

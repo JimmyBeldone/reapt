@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cn from 'classnames'
+import React from "react";
+import PropTypes from "prop-types";
+import cn from "classnames";
 
 // import './InputGroup.styl'
 
 class InputGroup extends React.PureComponent {
-
     static propTypes = {
         name: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
@@ -13,45 +12,50 @@ class InputGroup extends React.PureComponent {
         classNames: PropTypes.string,
         disabled: PropTypes.bool,
         hidden: PropTypes.bool,
-        autofocus: PropTypes.bool,
         placeholder: PropTypes.string,
         errorField: PropTypes.string
-    }
+    };
 
     static defaultProps = {
-        type: 'text',
-        classNames: '',
+        type: "text",
+        classNames: "",
         disabled: false,
         hidden: false,
-        autofocus: false,
-        placeholder: '',
-        errorField: ''
-    }
+        placeholder: "",
+        errorField: ""
+    };
 
-    input = null
+    input = null;
 
     render() {
         console.log(this.props);
         // console.log(React.getKey());
-        const { classNames, name, label, type, disabled, hidden, autofocus, placeholder, errorField } = this.props
-        let errorClass = ''
+        const {
+            classNames,
+            name,
+            label,
+            type,
+            disabled,
+            hidden,
+            placeholder,
+            errorField
+        } = this.props;
+        let errorClass = "";
         if (errorField !== null) {
             if (Array.isArray(errorField)) {
-                errorClass = errorField.includes(label)
+                errorClass = errorField.includes(label);
             } else {
-                errorClass = errorField === label
+                errorClass = errorField === label;
             }
         }
         return (
             <div
                 className={cn("input-group", classNames, {
-                    hidden: hidden,
+                    hidden,
                     error: errorClass
                 })}
             >
-                <label htmlFor={name}>
-                    {label}
-                </label>
+                <label htmlFor={name}>{label}</label>
                 <input
                     name={name}
                     lib={label}
@@ -59,12 +63,13 @@ class InputGroup extends React.PureComponent {
                     type={type}
                     placeholder={placeholder}
                     disabled={disabled}
-                    autoFocus={autofocus}
-                    ref={el => { this.input = el }}
+                    ref={el => {
+                        this.input = el;
+                    }}
                 />
             </div>
         );
     }
 }
 
-export default InputGroup
+export default InputGroup;

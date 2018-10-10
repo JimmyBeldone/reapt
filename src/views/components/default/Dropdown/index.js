@@ -1,57 +1,56 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import cn from 'classnames'
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import cn from "classnames";
 
-import './Dropdown.styl'
+import "./Dropdown.styl";
 
 class Dropdown extends PureComponent {
-
     static propTypes = {
         dropdownTrigger: PropTypes.node.isRequired,
         dropdownContent: PropTypes.node.isRequired,
-        buttonHeight: PropTypes.number.isRequired,
-        elemHeight: PropTypes.number.isRequired,
-        dropdownContentClassName: PropTypes.string.isRequired,
-        elemClassName: PropTypes.string.isRequired
-    }
+        buttonHeight: PropTypes.number,
+        elemHeight: PropTypes.number,
+        dropdownContentClassName: PropTypes.string,
+        elemClassName: PropTypes.string
+    };
 
     static defaultProps = {
         buttonHeight: 40,
         elemHeight: 40,
-        dropdownContentClassName: '',
-        elemClassName: ''
-    }
+        dropdownContentClassName: "",
+        elemClassName: ""
+    };
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isActiveMenu: false
-        }
-        this.mounted = false
-        this.showMenu = this.showMenu.bind(this)
-        this.hideMenu = this.hideMenu.bind(this)
+        };
+        this.mounted = false;
+        this.showMenu = this.showMenu.bind(this);
+        this.hideMenu = this.hideMenu.bind(this);
     }
 
     componentDidMount() {
-        this.mounted = true
+        this.mounted = true;
     }
 
     componentWillUnmount() {
-        this.mounted = false
+        this.mounted = false;
     }
 
     showMenu(e) {
-        e.preventDefault()
+        e.preventDefault();
         this.setState({ isActiveMenu: true }, () => {
-            document.addEventListener('click', this.hideMenu)
-        })
+            document.addEventListener("click", this.hideMenu);
+        });
     }
 
-    hideMenu(e) {
+    hideMenu() {
         if (this.mounted) {
             this.setState({ isActiveMenu: false }, () => {
-                document.removeEventListener('click', this.hideMenu)
-            })
+                document.removeEventListener("click", this.hideMenu);
+            });
         }
         // if (!this.refs.dropdownContent.contains(e.target)) {
         //     this.setState({isActiveMenu: false}, () => {
@@ -61,7 +60,7 @@ class Dropdown extends PureComponent {
     }
 
     renderContent() {
-        const { elemClassName, dropdownContent, elemHeight } = this.props
+        const { elemClassName, dropdownContent, elemHeight } = this.props;
         return dropdownContent.map((elem, i) => (
             <div
                 key={`dropdown-content-elem-${i}`}
@@ -70,32 +69,39 @@ class Dropdown extends PureComponent {
             >
                 {elem}
             </div>
-        ))
+        ));
     }
 
     render() {
-        const { dropdownTrigger, buttonHeight, dropdownContentClassName } = this.props
+        const {
+            dropdownTrigger,
+            buttonHeight,
+            dropdownContentClassName
+        } = this.props;
+        const { isActiveMenu } = this.state;
         return (
             <div className="dropdown-menu">
-                <div
+                <button
+                    type="button"
                     className="dropdown-trigger"
                     onClick={this.showMenu.bind(this)}
                     style={{ height: buttonHeight }}
                 >
                     {dropdownTrigger}
-                </div>
+                </button>
                 <div
-                    className={
-                        cn("dropdown-content",
+                    className={cn(
+                        "dropdown-content",
                         dropdownContentClassName,
-                        { hidden: !this.state.isActiveMenu })
-                    }
-                    ref="dropdownContent">
+                        { hidden: !isActiveMenu }
+                    )}
+                    // ref="dropdownContent"
+                >
                     {this.renderContent()}
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default Dropdown
+export default Dropdown;

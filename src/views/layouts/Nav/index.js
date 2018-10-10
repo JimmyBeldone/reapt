@@ -1,25 +1,22 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from "react";
 // import PropTypes from 'prop-types'
 
-import NavTemplate from './NavTemplate'
+import NavTemplate from "./NavTemplate";
 
 class Nav extends PureComponent {
+    static propTypes = {};
 
-    static propTypes = {}
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            hasError: false
-        }
-    }
+    state = {
+        hasError: false
+    };
 
     render() {
-        if (this.state.hasError) {
-            return <div>Une erreur est survenue</div>
+        const { hasError } = this.state;
+        if (hasError) {
+            return <div>Une erreur est survenue</div>;
         }
-        return <NavTemplate/>
+        return <NavTemplate />;
     }
 }
 
-export default Nav
+export default Nav;

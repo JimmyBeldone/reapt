@@ -1,27 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import RouteWithSubRoutes from '../../../routes/RouteWithSubRoutes'
+import RouteWithSubRoutes from "../../../routes/RouteWithSubRoutes";
 
-import AboutTemplate from './AboutTemplate'
-import './About.styl'
+import AboutTemplate from "./AboutTemplate";
+import "./About.styl";
 
-class About extends Component {
+const About = ({ routes }) => (
+    <div>
+        <AboutTemplate />
+        {/* Nested routes */}
+        {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+        ))}
+    </div>
+);
 
-    static propTypes = {
-        routes: PropTypes.array
-    }
+About.propTypes = {
+    routes: PropTypes.array.isRequired
+};
 
-    render() {
-        const { routes } = this.props
-        return (
-            <div>
-                <AboutTemplate />
-                {/* Nested routes */}
-                {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-            </div>
-        )
-    }
-}
-
-export default About
+export default About;

@@ -1,89 +1,100 @@
-const path = require('path')
+const path = require("path");
 
-const webpack = require('webpack')
-const HTMLPlugin = require('html-webpack-plugin')
-const Stylish = require('webpack-stylish')
+const webpack = require("webpack");
+const HTMLPlugin = require("html-webpack-plugin");
+const Stylish = require("webpack-stylish");
 
-const commonPaths = require('./commonPaths')
+const configDev = require("../config/config.development.json");
+const configStaging = require("../config/config.staging.json");
+const configProd = require("../config/config.production.json");
 
-const configPath = `../config/config.${process.env.NODE_ENV}.json`
+const commonPaths = require("./commonPaths");
+
+const configFile =
+    process.env.NODE_ENV === "development"
+        ? configDev
+        : process.env.NODE_ENV === "staging"
+            ? configStaging
+            : configProd;
 
 // const icoPrefix = (process.env.NODE_ENV === 'production')
 //     ? 'assets/img-[hash]/'
 //     : '[hash]'
 
-const statsActive = process.env.WITH_DASHBOARD
-    ? 'normal'
-    : 'none'
+const statsActive = process.env.WITH_DASHBOARD ? "normal" : "none";
 
 const config = {
     resolve: {
         extensions: [
-            '*',
-            '.js',
-            '.jsx',
-            '.json',
-            '.styl',
-            '.css',
-            'jpeg',
-            'jpg',
-            'png',
-            'svg',
-            'gif',
-            '.ico'
+            "*",
+            ".js",
+            ".jsx",
+            ".json",
+            ".styl",
+            ".css",
+            "jpeg",
+            "jpg",
+            "png",
+            "svg",
+            "gif",
+            ".ico"
         ],
-        modules: ['src', 'node_modules']
+        modules: ["src", "node_modules"]
     },
     entry: {
-        app: path.join(__dirname, '../src/index.js'),
+        app: path.join(__dirname, "../src/index.js"),
         react: [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'prop-types',
-            'react-redux',
-            'redux-persist',
-            'redux',
-            'redux-thunk'
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "prop-types",
+            "react-redux",
+            "redux-persist",
+            "redux",
+            "redux-thunk"
         ]
     },
     output: {
-        filename: '[name].[hash].bundle.js',
-        chunkFilename: '[name].[hash].bundle.js',
+        filename: "[name].[hash].bundle.js",
+        chunkFilename: "[name].[hash].bundle.js",
         path: commonPaths.outputPath,
-        publicPath: '/'
+        publicPath: "/"
     },
     stats: statsActive,
     module: {
         rules: [
             {
-                enforce: 'pre',
+                enforce: "pre",
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'eslint-loader'
-            }, {
+                loader: "eslint-loader"
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
-            }, {
+                use: ["babel-loader"]
+            },
+            {
                 test: /\.html$/,
-                loader: 'raw-loader'
-            }, {
+                loader: "raw-loader"
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: "url-loader",
                         options: {
                             limit: 1024,
-                            name: './assets/fonts/[name].[hash].[ext]' // Output below ./fonts
+                            name: "./assets/fonts/[name].[hash].[ext]" // Output below ./fonts
                         }
                     }
                 ]
-            }, {
+            },
+            {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: "url-loader",
                         options: {
                             limit: 10000
                         }
@@ -94,14 +105,14 @@ const config = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            "process.env": {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         }),
         new webpack.ProgressPlugin(),
         new HTMLPlugin({
-            template: 'src/index.html',
-            favicon: 'src/assets/img/favicon.ico',
+            template: "src/index.html",
+            favicon: "src/assets/img/favicon.ico",
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -118,8 +129,8 @@ const config = {
         new Stylish()
     ],
     externals: {
-        'Config': JSON.stringify(require(configPath))
+        Config: JSON.stringify(configFile)
     }
-}
+};
 
 module.exports = config;

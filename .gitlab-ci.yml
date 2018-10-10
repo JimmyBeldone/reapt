@@ -1,0 +1,85 @@
+# image: doubleyo/docker-php-node
+#
+# stages:
+#   - build
+#   - deploy
+# cache:
+#   key: ${CI_COMMIT_SHA}
+#   paths:
+#     - node_modules
+#     - dist
+#
+# build:staging:
+#   stage: build
+#   before_script:
+#     - node --version
+#     - echo "Building branch:$CI_COMMIT_REF_NAME commit:$CI_COMMIT_SHA"
+#   script:
+#     - yarn
+#     - yarn staging
+#   artifacts:
+#     expire_in: 1 week
+#     paths:
+#       - dist/
+#
+# # build:production:
+# #   stage: build
+# #   before_script:
+# #     - node --version
+# #     - echo "Building branch:$CI_COMMIT_REF_NAME commit:$CI_COMMIT_SHA"
+# #   script:
+# #     - yarn
+# #     - yarn build
+# #   artifacts:
+# #     expire_in: 1 week
+# #     paths:
+# #       - dist/
+#
+# deploy:staging:
+#   stage: deploy
+#   before_script:
+#     - echo "Deploy to staging server branch:$CI_COMMIT_REF_NAME commit:$CI_COMMIT_SHA"
+#     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+#     - eval $(ssh-agent -s)
+#     - ssh-add <(echo "$SSH_PRIVATE_KEY")
+#     - mkdir -p ~/.ssh
+#     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+#     - echo "SSH Key installed"
+#     - composer global require deployer/deployer
+#     - export PATH="$PATH:$HOME/.composer/vendor/bin"
+#   script:
+#     - echo "Deploying on staging server"
+#     - dep deploy staging
+#   environment:
+#     name: staging
+#     url: http://172.16.11.35:81
+#   when: manual
+#   only:
+#     - develop
+#     - master
+#   dependencies:
+#     - build:staging
+#
+# # deploy:production:
+# #   stage: deploy
+# #   before_script:
+# #     - echo "Deploy to production server branch:$CI_COMMIT_REF_NAME commit:$CI_COMMIT_SHA"
+# #     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+# #     - eval $(ssh-agent -s)
+# #     - ssh-add <(echo "$SSH_PRIVATE_KEY")
+# #     - mkdir -p ~/.ssh
+# #     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+# #     - echo "SSH Key installed"
+# #     - composer global require deployer/deployer
+# #     - export PATH="$PATH:$HOME/.composer/vendor/bin"
+# #   script:
+# #     - echo "Deploying on production server"
+# #     - dep deploy production
+# #   environment:
+# #     name: production
+# #     url: http://help.hevaweb.com
+# #   when: manual
+# #   only:
+# #     - master
+# #   dependencies:
+# #     - build:production

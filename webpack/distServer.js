@@ -1,8 +1,8 @@
-const browserSync = require('browser-sync')
-const historyApiFallback = require('connect-history-api-fallback')
-const chalk = require('chalk')
+const browserSync = require("browser-sync");
+const historyApiFallback = require("connect-history-api-fallback");
+const chalk = require("chalk");
 
-console.log(chalk.blue('Opening production build...'));
+console.log(chalk.blue("Opening production build..."));
 
 browserSync({
     port: 4000,
@@ -10,10 +10,10 @@ browserSync({
         port: 4001
     },
     server: {
-        baseDir: 'dist'
+        baseDir: "dist"
     },
 
-    files: ['src/*.html'],
+    files: ["src/*.html"],
 
     middleware: [historyApiFallback()]
 });

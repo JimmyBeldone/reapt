@@ -1,6 +1,9 @@
 import {
-    PAGE_HOME, PAGE_ABOUT, PAGE_ABOUT_ONE, PAGE_ABOUT_TWO
-} from '../constants/router'
+    PAGE_HOME,
+    PAGE_ABOUT,
+    PAGE_ABOUT_ONE,
+    PAGE_ABOUT_TWO
+} from "../constants/router";
 
 const routesPath = [
     {
@@ -19,6 +22,6 @@ const routesPath = [
         path: PAGE_ABOUT_TWO,
         exact: true
     }
-]
+];
 
-export default routesPath
+export default routesPath;

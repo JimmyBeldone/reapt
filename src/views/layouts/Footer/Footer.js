@@ -1,16 +1,12 @@
-import React, { PureComponent } from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
 
-import './Footer.styl'
+import "./Footer.styl";
 
-class Footer extends PureComponent {
-    render () {
-        return (
-            <footer>
-                <h1>Footer</h1>
-            </footer>
-        );
-    }
-}
+const Footer = () => (
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+);
 
-export default Footer
+export default Footer;

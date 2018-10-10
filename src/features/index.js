@@ -1,15 +1,15 @@
-import UserPassword from './UserPassword'
-import AuthUser from './AuthUser'
-import UserDatas from './UserDatas'
+import UserPassword from "./UserPassword";
+import AuthUser from "./AuthUser";
+import UserDatas from "./UserDatas";
 
-const featuresList = [UserPassword, AuthUser, UserDatas]
+const featuresList = [UserPassword, AuthUser, UserDatas];
 
 export const featuresReducers = () => {
-    const reducers = []
+    const reducers = [];
 
     featuresList.map(feature => {
-        reducers.push(feature.reducer)
-    })
+        reducers.push(feature.reducer);
+    });
 
-    return reducers
-}
+    return reducers;
+};

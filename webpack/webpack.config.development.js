@@ -1,36 +1,37 @@
-const path = require('path')
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
-let plugins = []
+const styleResources = require("../src/styles/styleConfig");
+
+const plugins = [];
 
 if (process.env.WITH_DASHBOARD) {
-    const DashboardPlugin = require('webpack-dashboard/plugin')
-    plugins.push(new DashboardPlugin())
+    plugins.push(new DashboardPlugin());
 }
 
 const config = {
-    mode: 'development',
-    devtool: 'source-map',
+    mode: "development",
+    devtool: "source-map",
     module: {
         rules: [
             {
                 test: /\.styl$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'stylus-loader',
+                    "style-loader",
+                    "css-loader",
+                    "stylus-loader",
                     {
-                        loader: 'sass-resources-loader',
+                        loader: "sass-resources-loader",
                         options: {
-                            resources: require(path.join(process.cwd(), './src/styles/styleConfig'))
+                            resources: styleResources
                         }
                     }
                 ]
             }
         ]
     },
-    plugins: plugins,
+    plugins,
     devServer: {
-        contentBase: './dist',
+        contentBase: "./dist",
         historyApiFallback: true,
         inline: true,
         hot: true,
@@ -42,8 +43,8 @@ const config = {
         port: 3020,
         open: true,
         noInfo: true,
-        host: 'localhost'
+        host: "localhost"
     }
-}
+};
 
 module.exports = config;

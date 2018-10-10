@@ -1,19 +1,15 @@
-import React, { PureComponent } from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
 
-import './Header.styl'
-import SwitchLangBtn from '../../components/default/SwitchLangBtn'
-import SwitchThemeBtn from '../../components/default/SwitchThemeBtn'
+import "./Header.styl";
+import SwitchLangBtn from "../../components/default/SwitchLangBtn";
+import SwitchThemeBtn from "../../components/default/SwitchThemeBtn";
 
-class Header extends PureComponent {
-    render () {
-        return (
-            <header>
-                <SwitchThemeBtn />
-                <SwitchLangBtn />
-            </header>
-        );
-    }
-}
+const Header = () => (
+    <header>
+        <SwitchThemeBtn />
+        <SwitchLangBtn />
+    </header>
+);
 
-export default Header
+export default Header;

@@ -1,44 +1,52 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import cn from 'classnames'
-import Modal from 'react-modal'
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import cn from "classnames";
+import Modal from "react-modal";
 
-import './Modal.styl'
-import './DefaultModal.styl'
+import "./Modal.styl";
+import "./DefaultModal.styl";
 
-Modal.setAppElement('#app')
+Modal.setAppElement("#app");
 
-const DefaultModal = ({ onRequestClose, ...props }) => (
-    <Modal
-        isOpen
-        contentLabel="Default Modal"
-        overlayClassName="ReactModalPortalDark"
-        className={cn('default-modal', props.classNames)}
-        style={{ overlay: {}, content: {} }}
-        onRequestClose={onRequestClose}
-        shouldCloseOnOverlayClick={true}
-        shouldReturnFocusAfterClose={false}
-    >
-        <Fragment>
-            <div className="close-modal" onClick={onRequestClose}>
-                x
-            </div>
-            <div className="modal-content">
-                {/* {(children !== null) ? React.Children.only(children) : null} */}
-                I'm a modal
-            </div>
-        </Fragment>
-    </Modal>
-)
+const DefaultModal = ({ onRequestClose, ...props }) => {
+    const { classNames } = props;
+    return (
+        <Modal
+            isOpen
+            contentLabel="Default Modal"
+            overlayClassName="ReactModalPortalDark"
+            className={cn("default-modal", classNames)}
+            style={{ overlay: {}, content: {} }}
+            onRequestClose={onRequestClose}
+            shouldCloseOnOverlayClick={true}
+            shouldReturnFocusAfterClose={false}
+        >
+            <Fragment>
+                <div
+                    className="close-modal"
+                    onClick={onRequestClose}
+                    role="button"
+                    tabIndex={0}
+                >
+                    x
+                </div>
+                <div className="modal-content">
+                    {/* {children !== null ? React.Children.only(children) : null} */}
+                    I&apos;m a modal
+                </div>
+            </Fragment>
+        </Modal>
+    );
+};
 
 DefaultModal.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.element.isRequired,
     classNames: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired
-}
+};
 
 DefaultModal.defaultProps = {
-    classNames: ''
-}
+    classNames: ""
+};
 
-export default DefaultModal
+export default DefaultModal;

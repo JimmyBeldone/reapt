@@ -1,30 +1,30 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import FormattedNumberAuto from './FormattedNumberAuto'
+import FormattedNumberAuto from "./FormattedNumberAuto";
 
-export default class Percent extends PureComponent {
+/* eslint react/style-prop-object: 0 */
 
-    static propTypes = {
-        value: PropTypes.number,
-        minimumFractionDigits: PropTypes.number,
-        maximumFractionDigits: PropTypes.number,
-        isEvolution: PropTypes.bool,
-        className: PropTypes.string
-    }
+const Percent = ({ className, isEvolution, value, ...props }) => (
+    <span className={className}>
+        {isEvolution && value > 0 && <span>+</span>}
+        <FormattedNumberAuto {...props} style="percent" />
+    </span>
+);
 
-    static defaultProps = {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1,
-        isEvolution: false
-    }
+Percent.propTypes = {
+    value: PropTypes.number.isRequired,
+    minimumFractionDigits: PropTypes.number,
+    maximumFractionDigits: PropTypes.number,
+    isEvolution: PropTypes.bool,
+    className: PropTypes.string
+};
 
-    render() {
-        return (
-            <span className={this.props.className}>
-                {this.props.isEvolution && this.props.value > 0 && <span>+</span>}
-                <FormattedNumberAuto {...this.props} style="percent" />
-            </span>
-        );
-    }
-}
+Percent.defaultProps = {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+    isEvolution: false,
+    className: ""
+};
+
+export default Percent;

@@ -1,16 +1,17 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
-import { Link } from 'react-router-dom'
-import cn from 'classnames'
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
+import { Link } from "react-router-dom";
+import cn from "classnames";
 
-import './NewPasswordForm.styl'
+import "./NewPasswordForm.styl";
 
-import InputGroup from '../../../../views/components/default/InputGroup/InputGroup'
-import { PAGE_HOME } from '../../../../constants/router'
+import InputGroup from "../../../../views/components/default/InputGroup/InputGroup";
+import { PAGE_HOME } from "../../../../constants/router";
+
+/* eslint react/no-string-refs: 0 */
 
 class NewPasswordForm extends PureComponent {
-
     static propTypes = {
         handleAction: PropTypes.func.isRequired,
         hasError: PropTypes.bool.isRequired,
@@ -18,22 +19,22 @@ class NewPasswordForm extends PureComponent {
         errorMessage: PropTypes.string.isRequired,
         actionMessage: PropTypes.string.isRequired,
         actionError: PropTypes.bool.isRequired,
-        isPublic: PropTypes.bool.isRequired,
+        isPublic: PropTypes.bool,
         fields: PropTypes.array.isRequired
-    }
+    };
 
     static defaultProps = {
         isPublic: true
-    }
+    };
 
     handleSubmit(e) {
-        e.preventDefault()
-        const fields = this.refs
-        this.props.handleAction(this.refs)
+        e.preventDefault();
+        const { handleAction } = this.props;
+        handleAction(this.refs);
     }
 
     renderFields() {
-        const { hasError, errorField, errorMessage, fields } = this.props
+        const { errorField, fields } = this.props;
         return fields.map(field => (
             <InputGroup
                 key={`new-password-input-${field.name}`}
@@ -43,38 +44,54 @@ class NewPasswordForm extends PureComponent {
                 label={field.lib}
                 errorField={errorField}
             />
-        ))
+        ));
     }
 
     render() {
-        const { hasError, errorField, errorMessage, actionMessage, actionError, isPublic } = this.props
+        const {
+            hasError,
+            errorField,
+            errorMessage,
+            actionMessage,
+            actionError,
+            isPublic
+        } = this.props;
         return (
-            <form className="new-password-form" onSubmit={this.handleSubmit.bind(this)}>
-
+            <form
+                className="new-password-form"
+                onSubmit={this.handleSubmit.bind(this)}
+            >
                 {this.renderFields()}
 
                 {isPublic ? (
                     <Link to={PAGE_HOME}>
                         <div className="home-link">
-                            Revenir à l'accueil
+                            Revenir à l&apos;accueil
                         </div>
                     </Link>
                 ) : null}
 
                 <div className="error-message">
                     {hasError ? (
-                        <FormattedMessage id={errorMessage} values={{ field: errorField }} />
+                        <FormattedMessage
+                            id={errorMessage}
+                            values={{ field: errorField }}
+                        />
                     ) : null}
                 </div>
 
-                <button className="btn" type="submit">Modifier</button>
+                <button className="btn" type="submit">
+                    Modifier
+                </button>
 
-                <div className={cn("action-message", { hasError: actionError })}>
+                <div
+                    className={cn("action-message", { hasError: actionError })}
+                >
                     {actionMessage}
                 </div>
             </form>
-        )
+        );
     }
 }
 
-export default NewPasswordForm
+export default NewPasswordForm;

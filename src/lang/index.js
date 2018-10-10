@@ -1,6 +1,9 @@
-module.exports = {
-    'fr-FR': require('./fr'),
-    'fr': require('./fr'),
-    'en-US': require('./en'),
-    'en': require('./en')
-}
+import fr from "./fr";
+import en from "./en";
+
+export default {
+    "fr-FR": fr,
+    fr,
+    "en-US": en,
+    en
+};

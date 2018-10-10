@@ -1,19 +1,16 @@
-import React, { PureComponent } from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
-import './LoginPage.styl'
-import Login from '../../components/Login'
+import "./LoginPage.styl";
+import Login from "../../components/Login";
 
-class LoginPage extends PureComponent {
+const LoginPage = () => (
+    <div id="loginpage">
+        <div className="login-bloc">
+            <Login />
+        </div>
+    </div>
+);
 
-    render() {
-        return (<div id="loginpage">
-            <div className="login-bloc">
-                <Login/>
-            </div>
-        </div>)
-    }
-}
-
-export default withRouter(LoginPage)
+export default withRouter(LoginPage);

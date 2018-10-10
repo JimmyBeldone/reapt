@@ -1,34 +1,31 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { FormattedPlural } from 'react-intl'
+import React from "react";
+import PropTypes from "prop-types";
+import { FormattedPlural } from "react-intl";
 
-export default class FormattedPluralAuto extends PureComponent {
+const FormattedPluralAuto = ({ id, value, ...props }, { intl }) => {
+    const newValue = value === null ? 0 : value;
 
-    static contextTypes = {
-        intl: PropTypes.object.isRequired
-    }
+    return (
+        <FormattedPlural
+            {...props}
+            value={newValue}
+            one={intl.formatMessage({ id: `${id}.one` })}
+            other={intl.formatMessage({ id: `${id}.other` })}
+        />
+    );
+};
 
-    static propTypes = {
-        id: PropTypes.string.isRequired,
-        value: PropTypes.number
-    };
+FormattedPluralAuto.contextTypes = {
+    intl: PropTypes.object.isRequired
+};
 
-    static defaultProps = {
-        value: 0
-    }
+FormattedPluralAuto.propTypes = {
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number
+};
 
-    render() {
-        const { id } = this.props;
-        let { value } = this.props;
+FormattedPluralAuto.defaultProps = {
+    value: 0
+};
 
-        if (value === null) {
-            value = 0;
-        }
-
-        return (
-            <FormattedPlural {...this.props} value={value}
-                             one={this.context.intl.formatMessage({ id: `${id}.one` })}
-                             other={this.context.intl.formatMessage({ id: `${id}.other` })}/>
-        );
-    }
-}
+export default FormattedPluralAuto;

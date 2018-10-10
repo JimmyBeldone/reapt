@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import ForgottenPassword from '../../../features/UserPassword/components/ForgottenPassword'
+import ForgottenPassword from "../../../features/UserPassword/components/ForgottenPassword";
 
-const ForgottenPasswordPage = () => (
-    <ForgottenPassword />
-)
+const ForgottenPasswordPage = () => <ForgottenPassword />;
 
-export default ForgottenPasswordPage
+export default ForgottenPasswordPage;

@@ -1,34 +1,38 @@
-import { createStore, compose, applyMiddleware } from 'redux'
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
-import thunk from 'redux-thunk'
-import createHistory from 'history/createBrowserHistory'
-import { connectRouter, routerMiddleware } from 'connected-react-router'
-import { persistStore, persistCombineReducers } from 'redux-persist'
-import storage from 'redux-persist/es/storage'
+import { createStore, compose, applyMiddleware } from "redux";
+import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
+import thunk from "redux-thunk";
+import createHistory from "history/createBrowserHistory";
+import { connectRouter, routerMiddleware } from "connected-react-router";
+import { persistStore, persistCombineReducers } from "redux-persist";
+import storage from "redux-persist/es/storage";
 
-import routerParamsMiddleware from '../middlewares/routerParamsMiddleware'
-import rootReducer from '../reducers'
+import routerParamsMiddleware from "../middlewares/routerParamsMiddleware";
+import rootReducer from "../reducers";
 
 const config = {
-    key: 'root',
+    key: "root",
     storage
-}
-export const history = createHistory()
-const reducer = persistCombineReducers(config, rootReducer)
+};
+export const history = createHistory();
+const reducer = persistCombineReducers(config, rootReducer);
 
 function configureStoreProd(initialState) {
-    const reactRouterMiddleware = routerMiddleware(history)
-    const middlewares = [routerParamsMiddleware, thunk, reactRouterMiddleware]
+    const reactRouterMiddleware = routerMiddleware(history);
+    const middlewares = [routerParamsMiddleware, thunk, reactRouterMiddleware];
 
-    const store = createStore(connectRouter(history)(reducer), initialState, compose(applyMiddleware(...middlewares)))
+    const store = createStore(
+        connectRouter(history)(reducer),
+        initialState,
+        compose(applyMiddleware(...middlewares))
+    );
 
-    persistStore(store)
+    persistStore(store);
 
-    return store
+    return store;
 }
 
 function configureStoreDev(initialState) {
-    const reactRouterMiddleware = routerMiddleware(history)
+    const reactRouterMiddleware = routerMiddleware(history);
     const middlewares = [
         // Add other middleware on this line...
 
@@ -40,25 +44,31 @@ function configureStoreDev(initialState) {
         routerParamsMiddleware,
         thunk,
         reactRouterMiddleware
-    ]
+    ];
 
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // add support for Redux dev tools
-    const store = createStore(connectRouter(history)(reducer), initialState, composeEnhancers(applyMiddleware(...middlewares)))
+    const composeEnhancers =
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+    const store = createStore(
+        connectRouter(history)(reducer),
+        initialState,
+        composeEnhancers(applyMiddleware(...middlewares))
+    );
 
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducers', () => {
-            const nextReducer = require('../reducers').default // eslint-disable-line global-require
-            store.replaceReducer(connectRouter(history)(nextReducer))
-        })
+        module.hot.accept("../reducers", () => {
+            const nextReducer = require("../reducers").default; // eslint-disable-line global-require
+            store.replaceReducer(connectRouter(history)(nextReducer));
+        });
     }
 
-    persistStore(store)
+    persistStore(store);
 
-    return store
+    return store;
 }
-const configureStore = process.env.NODE_ENV === 'production'
-    ? configureStoreProd
-    : configureStoreDev
+const configureStore =
+    process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging"
+        ? configureStoreProd
+        : configureStoreDev;
 
-export default configureStore
+export default configureStore;

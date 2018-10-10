@@ -1,8 +1,8 @@
 module.exports = {
     home: {
-        hello: 'hello',
+        hello: "hello",
         content: {
-            test: 'content'
+            test: "content"
         }
     }
-}
+};

@@ -1,30 +1,30 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import FormattedNumberAuto from './FormattedNumberAuto'
+import FormattedNumberAuto from "./FormattedNumberAuto";
 
-export default class Currency extends PureComponent {
+/* eslint react/style-prop-object: 0 */
 
-    static propTypes = {
-        value: PropTypes.number,
-        minimumFractionDigits: PropTypes.number,
-        maximumFractionDigits: PropTypes.number,
-        className: PropTypes.string,
-        isEvolution: PropTypes.bool
-    }
+const Currency = ({ className, isEvolution, value, ...props }) => (
+    <span className={className}>
+        {isEvolution && value > 0 && <span>+</span>}
+        <FormattedNumberAuto {...props} style="currency" currency="EUR" />
+    </span>
+);
 
-    static defaultProps = {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-        isEvolution: false
-    }
+Currency.propTypes = {
+    value: PropTypes.number.isRequired,
+    minimumFractionDigits: PropTypes.number,
+    maximumFractionDigits: PropTypes.number,
+    className: PropTypes.string,
+    isEvolution: PropTypes.bool
+};
 
-    render() {
-        return (
-            <span className={this.props.className}>
-                {this.props.isEvolution && this.props.value > 0 && <span>+</span>}
-                <FormattedNumberAuto {...this.props} style="currency" currency="EUR" />
-            </span>
-        );
-    }
-}
+Currency.defaultProps = {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+    isEvolution: false,
+    className: ""
+};
+
+export default Currency;

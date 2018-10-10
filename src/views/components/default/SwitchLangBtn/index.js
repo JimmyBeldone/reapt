@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
 
-import './SwitchLangBtn.styl'
-import { LanguageConsumer } from '../../../../providers/LanguageProvider'
+import "./SwitchLangBtn.styl";
+import { LanguageConsumer } from "../../../../providers/LanguageProvider";
+
+/* eslint jsx-a11y/no-onchange: 0 */
 
 const SwitchLangBtn = () => (
     <LanguageConsumer>
@@ -15,6 +17,6 @@ const SwitchLangBtn = () => (
             </div>
         )}
     </LanguageConsumer>
-)
+);
 
-export default SwitchLangBtn
+export default SwitchLangBtn;

@@ -1,12 +1,19 @@
 import { PAGE_HOME } from "../constants/router";
 
 export function getParams(pageName) {
+    let params;
     switch (pageName) {
         case PAGE_HOME:
-            return []
+            params = [];
     }
+    return params;
 }
-export function getPath(routerStore = null, newPageName = null, newParams = {}) {
+
+export function getPath(
+    routerStore = null,
+    newPageName = null,
+    newParams = {}
+) {
     let currentPageName = null;
     let currentParams = {};
     if (routerStore !== null) {
@@ -21,7 +28,7 @@ export function getPath(routerStore = null, newPageName = null, newParams = {}) 
     }
     let path = pageName;
     getParams(pageName).forEach(item => {
-        path += '/';
+        path += "/";
         if (newParams.hasOwnProperty(item.name)) {
             path += newParams[item.name];
         } else if (currentParams.hasOwnProperty(item.name)) {
@@ -36,9 +43,11 @@ export function getPath(routerStore = null, newPageName = null, newParams = {}) 
 
 export function generateRouteConfigPath(pageName) {
     let routeParams = pageName;
-    getParams(pageName).map(item => '/:' + item.name).forEach(item => {
-        routeParams += item;
-    });
+    getParams(pageName)
+        .map(item => `/:${item.name}`)
+        .forEach(item => {
+            routeParams += item;
+        });
 
     return routeParams;
 }
