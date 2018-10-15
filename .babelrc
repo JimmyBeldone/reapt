@@ -5,10 +5,7 @@
             {
                 "modules": false,
                 "targets": {
-                    "browsers": [
-                        "last 2 versions",
-                        "safari >= 7"
-                    ]
+                    "browsers": ["last 2 versions", "safari >= 7", "ie >= 11"]
                 },
                 "useBuiltIns": "usage"
             }
@@ -22,8 +19,11 @@
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-proposal-class-properties",
         "react-loadable/babel",
-        [ "@babel/plugin-proposal-decorators", {
-            "legacy": true
-        } ]
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ]
     ]
 }
