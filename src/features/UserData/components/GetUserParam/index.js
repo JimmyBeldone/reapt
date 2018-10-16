@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import cn from "classnames";
 
 const mapStateToProps = (state, ownProps) => ({
-    userParam: state.user.datas.hasOwnProperty(ownProps.param)
-        ? state.user.datas[ownProps.param]
+    userParam: state.user.data.hasOwnProperty(ownProps.param)
+        ? state.user.data[ownProps.param]
         : null
 });
 

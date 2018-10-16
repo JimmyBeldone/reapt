@@ -6,16 +6,16 @@ import * as types from "./types";
 import { configLogin, configRefreshToken, apiUtil } from "./config";
 
 export const logUser = response => dispatch => {
-    const userDatas = response.data.data.user;
-    const userCredentials = pick(userDatas, ["id", "username", "email"]);
+    const userData = response.data.data.user;
+    const userCredentials = pick(userData, ["id", "username", "email"]);
 
     cookie.save("userCredentials", userCredentials, { path: "/" });
-    cookie.save("user", userDatas, { path: "/" });
+    cookie.save("user", userData, { path: "/" });
     cookie.save("token", response.data.token, { path: "/" });
     cookie.save("refresh_token", response.data.refresh_token, { path: "/" });
 
     dispatch({ type: types.AUTH_LOGIN_FULFILLED, payload: userCredentials });
-    dispatch({ type: types.USER_INIT, payload: userDatas });
+    dispatch({ type: types.USER_INIT, payload: userData });
 };
 
 export const loginUser = (_username, _password) => dispatch => {

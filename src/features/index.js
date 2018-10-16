@@ -1,8 +1,8 @@
 import UserPassword from "./UserPassword";
 import AuthUser from "./AuthUser";
-import UserDatas from "./UserDatas";
+import UserData from "./UserData";
 
-const featuresList = [UserPassword, AuthUser, UserDatas];
+const featuresList = [UserPassword, AuthUser, UserData];
 
 export const featuresReducers = () => {
     const reducers = [];

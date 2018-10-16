@@ -4,7 +4,7 @@ import * as utils from "./utils";
 import reducer from "./reducer";
 
 export default {
-    name: "UserDatas",
+    name: "UserData",
     actions,
     reducer,
     types,

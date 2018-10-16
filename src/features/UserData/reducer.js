@@ -12,7 +12,7 @@ if (token) {
 
 const userState = {
     pending: false,
-    datas: user,
+    data: user,
     error: false,
     message: ""
 };
@@ -20,13 +20,13 @@ const userState = {
 const UserReducer = (state = userState, action) => {
     switch (action.type) {
         case types.USER_INIT: {
-            return { ...state, datas: action.payload };
+            return { ...state, data: action.payload };
         }
         case types.USER_UPDATE_PENDING: {
             return { ...state, pending: true, error: false, message: "" };
         }
         case types.USER_UPDATE_FULFILLED: {
-            return { ...state, pending: false, datas: action.payload };
+            return { ...state, pending: false, data: action.payload };
         }
         case types.USER_UPDATE_REJECTED: {
             return { ...state, pending: false, error: true };

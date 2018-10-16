@@ -10,17 +10,13 @@ export const userUpdate = user => dispatch => {
     apiUtil(false, dispatch)
         .post(configUserUpdate.apiRoute, qs.stringify(user))
         .then(response => {
-            const userDatas = response.data.data.user;
-            const userCredentials = pick(userDatas, [
-                "id",
-                "username",
-                "email"
-            ]);
+            const userData = response.data.data.user;
+            const userCredentials = pick(userData, ["id", "username", "email"]);
 
             cookie.save("userCredentials", userCredentials, { path: "/" });
-            cookie.save("user", userDatas, { path: "/" });
+            cookie.save("user", userData, { path: "/" });
 
-            dispatch({ type: types.USER_UPDATE_FULFILLED, payload: userDatas });
+            dispatch({ type: types.USER_UPDATE_FULFILLED, payload: userData });
             dispatch({
                 type: types.USER_CREDENTIALS_UPDATE,
                 payload: userCredentials
