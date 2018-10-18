@@ -8349,10 +8349,10 @@ postcss-colormin@^2.1.8:
     postcss "^5.0.13"
     postcss-value-parser "^3.2.3"
 
-postcss-combine-duplicated-selectors@^6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-6.0.4.tgz#7ecdce82b04b0786aa60f8a9966ee09d5191fcab"
-  integrity sha512-cC8o2/H/T/2BQ4TRt5c0tAlImeJTOCZrDctUyaQ6iI1RlSVEtH1FszwUKS1dIXwj+qSwJkAG/ubApyILJM0GpQ==
+postcss-combine-duplicated-selectors@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-6.1.0.tgz#cb7b4e971b9b2dbe6f195c2eeb274c288a113d07"
+  integrity sha512-ooQddDdMVd0UimcfezSh/1kRlKtGZ5llDVkzD6W/279yD4yZ/GWXGDX/MmaX/LYp+4ja3e5zcXbUJpEA7GkVtA==
   dependencies:
     postcss "^7.0.0"
     postcss-selector-parser "^4.0.0"
@@ -9287,10 +9287,10 @@ react-hot-loader@^4.3.11:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
 
-react-icons@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.2.0.tgz#fc1bf36cb4d231d61d1aa1de3a6ba773d07e47d2"
-  integrity sha512-ZWqIiOr5wTqtE6NNM9JgWBgNbq2JRi79rmqf2j50V1ewC6LiwKFhq7J/AjaVKBi5oPE4/9JN/jMKaVrJlIQoiw==
+react-icons@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.2.1.tgz#6f7f9ccbeec05ff7076df070703e03238903ac30"
+  integrity sha512-NQhnh7G5hWCAK7pXPeeI944RkeZ85mtvFATx3wfcVQRTW4ejaQgriemYF72gQIFIyoApMXLTdb01BKp8PaXlrg==
 
 react-intl@^2.7.1:
   version "2.7.1"
@@ -11596,10 +11596,10 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-webpack-bundle-analyzer@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.0.2.tgz#22f19ea6d1b5a15fd7a90baae0bc0f39bd1e4d48"
-  integrity sha512-cZG4wSQtKrSpk5RJ33dxiaAyo8bP0V+JvycAyIDFEiDIhw4LHhhVKhn40YT1w6TR9E4scHA00LnIoBtTA13Mow==
+webpack-bundle-analyzer@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.0.3.tgz#dbc7fff8f52058b6714a20fddf309d0790e3e0a0"
+  integrity sha512-naLWiRfmtH4UJgtUktRTLw6FdoZJ2RvCR9ePbwM9aRMsS/KjFerkPZG9epEvXRAw5d5oPdrs9+3p+afNjxW8Xw==
   dependencies:
     acorn "^5.7.3"
     bfj "^6.1.1"
@@ -11743,10 +11743,10 @@ webpack-stylish@^0.1.8:
     text-table "^0.2.0"
     wordwrap "^1.0.0"
 
-webpack@^4.20.2:
-  version "4.20.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.20.2.tgz#89f6486b6bb276a91b0823453d377501fc625b5a"
-  integrity sha512-75WFUMblcWYcocjSLlXCb71QuGyH7egdBZu50FtBGl2Nso8CK3Ej+J7bTZz2FPFq5l6fzCisD9modB7t30ikuA==
+webpack@^4.21.0:
+  version "4.21.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.21.0.tgz#bd03605c0f48c0d4aaaef78ead2769485e5afd92"
+  integrity sha512-CGBeop4AYR0dcmk9Afl33qQULwTHQCXQPAIBTHMJoy9DpY8FPUDna/NUlAGTr5o5y9QC901Ww3wCY4wNo1X9Lw==
   dependencies:
     "@webassemblyjs/ast" "1.7.8"
     "@webassemblyjs/helper-module-context" "1.7.8"
