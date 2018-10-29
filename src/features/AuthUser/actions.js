@@ -1,13 +1,13 @@
 import qs from "qs";
 import cookie from "react-cookies";
-import { pick } from "lodash";
 
 import * as types from "./types";
 import { configLogin, configRefreshToken, apiUtil } from "./config";
 
 export const logUser = response => dispatch => {
     const userData = response.data.data.user;
-    const userCredentials = pick(userData, ["id", "username", "email"]);
+    const { id, username, email } = userData;
+    const userCredentials = { id, username, email };
 
     cookie.save("userCredentials", userCredentials, { path: "/" });
     cookie.save("user", userData, { path: "/" });

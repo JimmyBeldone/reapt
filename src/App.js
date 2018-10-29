@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { Switch } from "react-router-dom";
 import noInternet from "no-internet";
 
@@ -8,6 +8,7 @@ import DefaultLayout from "./views/layouts/DefaultLayout";
 import ModalProvider from "./providers/ModalProvider";
 import ModalRoot from "./views/components/default/Modals";
 import ScrollToTop from "./views/containers/ScrollToTop";
+import LoadingPage from "./views/components/default/LoadingPage/LoadingPage";
 
 class App extends Component {
     constructor(props) {
@@ -43,11 +44,13 @@ class App extends Component {
                 <ModalRoot />
                 <DefaultLayout>
                     <ScrollToTop>
-                        <Switch>
-                            {routes.map((route, i) => (
-                                <RouteWithSubRoutes key={i} {...route} />
-                            ))}
-                        </Switch>
+                        <Suspense fallback={LoadingPage}>
+                            <Switch>
+                                {routes.map((route, i) => (
+                                    <RouteWithSubRoutes key={i} {...route} />
+                                ))}
+                            </Switch>
+                        </Suspense>
                     </ScrollToTop>
                 </DefaultLayout>
                 {isOffline ? (

@@ -49,7 +49,6 @@ const config = {
             "react-router-dom",
             "prop-types",
             "react-redux",
-            "redux-persist",
             "redux",
             "redux-thunk"
         ]
