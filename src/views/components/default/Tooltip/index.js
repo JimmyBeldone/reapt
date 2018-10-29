@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import RCTooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap_white.css";
@@ -9,7 +9,7 @@ const align = {
     offset: [0, 7]
 };
 
-const Tooltip = ({ placement, content, trigger, children }) => (
+const Tooltip = memo(({ placement, content, trigger, children }) => (
     <RCTooltip
         placement={placement}
         overlay={content}
@@ -18,7 +18,7 @@ const Tooltip = ({ placement, content, trigger, children }) => (
     >
         {children}
     </RCTooltip>
-);
+));
 
 Tooltip.propTypes = {
     placement: PropTypes.string.isRequired,

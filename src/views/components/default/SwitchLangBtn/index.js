@@ -1,12 +1,11 @@
-import React from "react";
-// import PropTypes from 'prop-types'
+import React, { memo } from "react";
 
 import "./SwitchLangBtn.styl";
 import { LanguageConsumer } from "../../../../providers/LanguageProvider";
 
 /* eslint jsx-a11y/no-onchange: 0 */
 
-const SwitchLangBtn = () => (
+const SwitchLangBtn = memo(() => (
     <LanguageConsumer>
         {({ lang, updateLanguage }) => (
             <div className="swith-lang-bloc">
@@ -17,6 +16,6 @@ const SwitchLangBtn = () => (
             </div>
         )}
     </LanguageConsumer>
-);
+));
 
 export default SwitchLangBtn;

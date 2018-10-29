@@ -1,6 +1,5 @@
-import React from "react";
-// import PropTypes from 'prop-types'
+import React, { memo } from "react";
 
-const LoadingPage = () => <div>Loading</div>;
+const LoadingPage = memo(() => <div>Loading</div>);
 
 export default LoadingPage;

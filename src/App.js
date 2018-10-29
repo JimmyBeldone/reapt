@@ -44,7 +44,7 @@ class App extends Component {
                 <ModalRoot />
                 <DefaultLayout>
                     <ScrollToTop>
-                        <Suspense fallback={LoadingPage}>
+                        <Suspense fallback={<LoadingPage />}>
                             <Switch>
                                 {routes.map((route, i) => (
                                     <RouteWithSubRoutes key={i} {...route} />

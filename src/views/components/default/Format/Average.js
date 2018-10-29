@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 
 import Decimal from "./Decimal";
@@ -6,7 +6,7 @@ import FormattedNumberAuto from "./FormattedNumberAuto";
 
 /* eslint react/style-prop-object: 0 */
 
-const Average = ({ value, formatedMoney, roundToThousands, ...props }) => {
+const Average = memo(({ value, formatedMoney, roundToThousands, ...props }) => {
     if (value === null) {
         return (
             <FormattedNumberAuto {...props} style="currency" currency="EUR" />
@@ -32,7 +32,7 @@ const Average = ({ value, formatedMoney, roundToThousands, ...props }) => {
         );
     }
     return <FormattedNumberAuto {...props} style="currency" currency="EUR" />;
-};
+});
 
 Average.propTypes = {
     value: PropTypes.number,

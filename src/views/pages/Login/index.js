@@ -1,16 +1,14 @@
-import React from "react";
-// import PropTypes from 'prop-types'
-import { withRouter } from "react-router-dom";
+import React, { memo } from "react";
 
 import "./LoginPage.styl";
 import Login from "../../components/Login";
 
-const LoginPage = () => (
+const LoginPage = memo(() => (
     <div id="loginpage">
         <div className="login-bloc">
             <Login />
         </div>
     </div>
-);
+));
 
-export default withRouter(LoginPage);
+export default LoginPage;

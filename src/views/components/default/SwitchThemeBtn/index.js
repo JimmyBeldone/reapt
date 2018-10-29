@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 // import PropTypes from 'prop-types'
 
 import { ThemeConsumer } from "../../../../providers/ThemeProvider";
 
-const SwitchThemeBtn = () => (
+const SwitchThemeBtn = memo(() => (
     <div className="switch-theme">
         Theme:
         <ThemeConsumer>
@@ -20,6 +20,6 @@ const SwitchThemeBtn = () => (
             )}
         </ThemeConsumer>
     </div>
-);
+));
 
 export default SwitchThemeBtn;

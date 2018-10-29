@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { FormattedPlural } from "react-intl";
 
-const FormattedPluralAuto = ({ id, value, ...props }, { intl }) => {
+const FormattedPluralAuto = memo(({ id, value, ...props }, { intl }) => {
     const newValue = value === null ? 0 : value;
 
     return (
@@ -13,7 +13,7 @@ const FormattedPluralAuto = ({ id, value, ...props }, { intl }) => {
             other={intl.formatMessage({ id: `${id}.other` })}
         />
     );
-};
+});
 
 FormattedPluralAuto.contextTypes = {
     intl: PropTypes.object.isRequired

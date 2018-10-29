@@ -1,22 +1,13 @@
-import React, { PureComponent } from "react";
-// import PropTypes from 'prop-types'
+import React, { memo } from "react";
+import { Link } from "react-router-dom";
 
-import NavTemplate from "./NavTemplate";
+import "./Nav.styl";
 
-class Nav extends PureComponent {
-    static propTypes = {};
-
-    state = {
-        hasError: false
-    };
-
-    render() {
-        const { hasError } = this.state;
-        if (hasError) {
-            return <div>Une erreur est survenue</div>;
-        }
-        return <NavTemplate />;
-    }
-}
+const Nav = memo(() => (
+    <div id="main-nav">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+    </div>
+));
 
 export default Nav;

@@ -1,28 +1,25 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { FormattedNumber, FormattedMessage } from "react-intl";
 import cn from "classnames";
 
-const FormattedNumberAuto = ({
-    value,
-    withPlaceholder,
-    className,
-    ...props
-}) => {
-    if (withPlaceholder && value === null) {
-        return <span className={cn("placeholder", className)}>…</span>;
-    }
+const FormattedNumberAuto = memo(
+    ({ value, withPlaceholder, className, ...props }) => {
+        if (withPlaceholder && value === null) {
+            return <span className={cn("placeholder", className)}>…</span>;
+        }
 
-    if (value === null || Number.isNaN(value)) {
-        return (
-            <span className={cn("number-na", className)}>
-                <FormattedMessage id="abbreviation.na" />
-            </span>
-        );
-    }
+        if (value === null || Number.isNaN(value)) {
+            return (
+                <span className={cn("number-na", className)}>
+                    <FormattedMessage id="abbreviation.na" />
+                </span>
+            );
+        }
 
-    return <FormattedNumber {...props} />;
-};
+        return <FormattedNumber {...props} />;
+    }
+);
 
 FormattedNumberAuto.propTypes = {
     value: PropTypes.number.isRequired,
