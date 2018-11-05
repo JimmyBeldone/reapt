@@ -1,23 +1,21 @@
-import { createStore, compose, applyMiddleware, combineReducers } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import thunk from "redux-thunk";
 import createHistory from "history/createBrowserHistory";
-import { connectRouter, routerMiddleware } from "connected-react-router";
+import { routerMiddleware } from "connected-react-router";
 // import logger from 'redux-logger'
 
 import routerParamsMiddleware from "../middlewares/routerParamsMiddleware";
-import rootReducer from "../reducers";
+import createRootReducer from "../reducers";
 
 export const history = createHistory();
-
-const reducer = combineReducers(rootReducer);
 
 function configureStoreProd(initialState) {
     const reactRouterMiddleware = routerMiddleware(history);
     const middlewares = [thunk, reactRouterMiddleware, routerParamsMiddleware];
 
     const store = createStore(
-        connectRouter(history)(reducer),
+        createRootReducer(history),
         initialState,
         compose(applyMiddleware(...middlewares))
     );
@@ -45,7 +43,7 @@ function configureStoreDev(initialState) {
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 
     const store = createStore(
-        connectRouter(history)(reducer),
+        createRootReducer(history),
         initialState,
         composeEnhancers(applyMiddleware(...middlewares))
     );
@@ -53,10 +51,8 @@ function configureStoreDev(initialState) {
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers
         module.hot.accept("../reducers", () => {
-            const nextReducer = require("../reducers").default; // eslint-disable-line global-require
-            store.replaceReducer(
-                connectRouter(history)(combineReducers(nextReducer))
-            );
+            // const nextReducer = require("../reducers").default; // eslint-disable-line global-require
+            store.replaceReducer(createRootReducer(history));
         });
     }
 

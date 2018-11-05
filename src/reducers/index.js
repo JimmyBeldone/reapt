@@ -1,20 +1,23 @@
-// import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
+
 import { featuresReducers } from "../features";
 
 import exempleReducer from "./exempleReducer";
 
-let rootReducer = {
-    exempleReducer
+export default history => {
+    let rootReducer = {
+        exempleReducer,
+        router: connectRouter(history)
+    };
+
+    // Add all reducers from features
+    featuresReducers().map(reducer => {
+        rootReducer = Object.assign(
+            { [reducer.name]: reducer.reducer },
+            rootReducer
+        );
+    });
+
+    return combineReducers(rootReducer);
 };
-
-// Add all reducers from features
-featuresReducers().map(reducer => {
-    rootReducer = Object.assign(
-        { [reducer.name]: reducer.reducer },
-        rootReducer
-    );
-});
-
-const reducers = rootReducer;
-
-export default reducers;
