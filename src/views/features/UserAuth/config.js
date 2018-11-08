@@ -24,6 +24,7 @@ export const configLogin = {
             name: "password"
         }
     ],
+    formBtn: "pages.login.btn",
     hasResolveAction: false,
     resolveAction: () =>
         console.log("RESET_PASSWORD_ACTION - Add function to log user")

@@ -100,7 +100,7 @@ class LoginForm extends PureComponent {
                     ) : null}
                 </div>
                 <button className="btn" type="submit">
-                    Valider
+                    <FormattedMessage id={configLogin.formBtn} />
                 </button>
             </form>
         );
