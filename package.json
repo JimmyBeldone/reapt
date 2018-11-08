@@ -112,7 +112,7 @@
         "imagemin-webpack-plugin": "^2.3.0",
         "json-loader": "^0.5.7",
         "mini-css-extract-plugin": "^0.4.4",
-        "mk-react-comp": "^1.0.6",
+        "mk-react-comp": "^1.1.0",
         "optimize-css-assets-webpack-plugin": "^4.0.3",
         "postcss-combine-duplicated-selectors": "^6.1.0",
         "postcss-fixie": "^2.0.0",
