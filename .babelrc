@@ -5,13 +5,12 @@
             {
                 "modules": false,
                 "targets": {
-                    "browsers": [ "last 2 versions", "safari >= 7", "ie >= 11" ]
+                    "browsers": ["last 2 versions", "safari >= 7", "ie >= 11"]
                 },
                 "useBuiltIns": "usage"
             }
         ],
-        "@babel/preset-react",
-        "@babel/preset-flow"
+        "@babel/preset-react"
     ],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
