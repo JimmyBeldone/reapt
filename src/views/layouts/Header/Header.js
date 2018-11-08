@@ -3,12 +3,19 @@ import React, { memo } from "react";
 
 import "./Header.styl";
 import SwitchLangBtn from "../../components/default/SwitchLangBtn";
-import SwitchThemeBtn from "../../components/default/SwitchThemeBtn";
+// import SwitchThemeBtn from "../../components/default/SwitchThemeBtn";
+import Nav from "../Nav";
 
 const Header = memo(() => (
     <header>
-        <SwitchThemeBtn />
-        <SwitchLangBtn />
+        <div className="container">
+            <div className="content">
+                <h1>REAPT</h1>
+                <Nav />
+                {/* <SwitchThemeBtn /> */}
+                <SwitchLangBtn />
+            </div>
+        </div>
     </header>
 ));
 

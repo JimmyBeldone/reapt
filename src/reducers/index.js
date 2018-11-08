@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 
-import { featuresReducers } from "../features";
+import { featuresReducers } from "../views/features";
 
 import exempleReducer from "./exempleReducer";
 

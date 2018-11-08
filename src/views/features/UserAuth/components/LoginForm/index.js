@@ -9,7 +9,7 @@ import "./LoginForm.styl";
 import { loginUser } from "../../actions";
 import { configLogin } from "../../config";
 import { isEmptyField } from "../../utils";
-import InputGroup from "../../../../views/components/default/InputGroup/InputGroup";
+import InputGroup from "../../../../components/default/InputGroup/InputGroup";
 
 /* eslint react/no-string-refs: 0 */
 

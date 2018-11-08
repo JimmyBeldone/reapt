@@ -1,13 +1,11 @@
 import React, { memo } from "react";
 
 import "./LoginPage.styl";
-import Login from "../../components/Login";
+import LoginForm from "../../features/UserAuth/components/LoginForm";
 
 const LoginPage = memo(() => (
     <div id="loginpage">
-        <div className="login-bloc">
-            <Login />
-        </div>
+        <LoginForm />
     </div>
 ));
 

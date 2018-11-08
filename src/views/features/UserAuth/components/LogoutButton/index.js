@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl";
 import { push } from "connected-react-router";
 import cn from "classnames";
 
-import "./Logoutbutton.styl";
+import "../../../AuthUser/components/LogoutButton/Logoutbutton.styl";
 
 import { logoutUser } from "../../actions";
 import { configLogout } from "../../config";

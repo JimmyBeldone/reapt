@@ -1,95 +1,127 @@
-fontsize($value)
-	/* add PX (or original $value) as backup */
-	font-size: $value
+fs($value)
+    font-size: $value
 
-	if ($value == inherit)
-		/* do nothing, "inherit" has no unit */
-	else
-		font-size: remify($value)
+    if ($value == inherit)
+        /* nothing */
+    else
+        font-size: remify($value)
+
+fw($value)
+    font-weight: $value
+
+remify($value)
+    u = unit($value)
+
+    if (u == 'px')
+        return unit(($value / 16), 'rem')
+    else
+        return unit($value, u)
 
 radius($value)
-	border-radius: $value
+    border-radius: $value
 
 gradient($name)
-	$colors = gradients[$name]
-	$colors = values($colors)
-	$colors = join(', ', $colors)
-	$colors = unquote($colors)
-	background-image: linear-gradient(to right, $colors)
+    $colors = gradients[$name]
+    $colors = values($colors)
+    $colors = join(', ', $colors)
+    $colors = unquote($colors)
+    background-image: linear-gradient(to right, $colors)
 
-truncate($fontsize = 16px)
-	flex()
-	height: $fontsize + 2px
-	white-space: nowrap
-	overflow: hidden
-	text-overflow: ellipsis
+truncate($fontsize = 14px)
+    flex()
+    height: $fontsize + 4px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
 
 truncateMulti($font-size, $line-height, $lines-to-show)
-	display: block
-	display: -webkit-box
-	height: $font-size * $line-height / $lines-to-show
-	margin: 0 auto
-	font-size($font-size)
-	line-height: $line-height
-	-webkit-line-clamp: $lines-to-show
-	-webkit-box-orient: vertical
-	overflow: hidden
-	text-overflow: ellipsis
+    display: block
+    display: -webkit-box
+    height: $font-size * $line-height / $lines-to-show
+    margin: 0 auto
+    fs($font-size)
+    line-height: $line-height
+    -webkit-line-clamp: $lines-to-show
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis
 
 flexbox($value = row)
-	display: flex
-	flex-direction: $value
+    display: flex
+    flex-direction: $value
 
 wrap($value = wrap)
-	flex-wrap: wrap
+    flex-wrap: wrap
 
 justify($value = center)
-	justify-content: $value
+    justify-content: $value
 
 align($value = center)
-	align-items: $value
+    align-items: $value
 
 center($direction = row)
-	flexbox($direction)
-	justify()
-	align()
+    flexbox($direction)
+    justify()
+    align()
+
+centerAbsolute()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 
 shadowDepth($n, $color = black)
-	if ($n == 0)
-		box-shadow: none !important
+    if ($n == 0)
+        box-shadow: none !important
 
-	if ($n == 1)
-		box-shadow: 0 2px 2px 0 rgba($color, .14), 0 1px 5px 0 rgba($color, .12), 0 3px 1px -2px rgba($color, .2)
+    if ($n == 1)
+        box-shadow: 0 2px 2px 0 rgba($color, .14), 0 1px 5px 0 rgba($color, .12), 0 3px 1px -2px rgba($color, .2)
 
-	if ($n == 2)
-		box-shadow: 0 4px 5px 0 rgba($color, .14), 0 1px 10px 0 rgba($color, .12), 0 2px 4px -1px rgba($color, .3)
+    if ($n == 2)
+        box-shadow: 0 4px 5px 0 rgba($color, .14), 0 1px 10px 0 rgba($color, .12), 0 2px 4px -1px rgba($color, .3)
 
-	if ($n == 3)
-		box-shadow: 0 6px 10px 0 rgba($color, .14), 0 1px 18px 0 rgba($color, .12), 0 3px 5px -1px rgba($color, .3)
+    if ($n == 3)
+        box-shadow: 0 6px 10px 0 rgba($color, .14), 0 1px 18px 0 rgba($color, .12), 0 3px 5px -1px rgba($color, .3)
 
-	if ($n == 4)
-		box-shadow: 0 8px 10px 1px rgba($color, .14), 0 3px 14px 2px rgba($color, .12), 0 5px 5px -3px rgba($color, .3)
+    if ($n == 4)
+        box-shadow: 0 8px 10px 1px rgba($color, .14), 0 3px 14px 2px rgba($color, .12), 0 5px 5px -3px rgba($color, .3)
 
-	if ($n == 5)
-		box-shadow: 0 16px 24px 2px rgba($color, .14), 0 6px 30px 5px rgba($color, .12), 0 8px 10px -5px rgba($color, .3)
+    if ($n == 5)
+        box-shadow: 0 16px 24px 2px rgba($color, .14), 0 6px 30px 5px rgba($color, .12), 0 8px 10px -5px rgba($color, .3)
 
 hover(bgColor, $textColor, $darkenValue = 12%)
-	background: bgColor
-	color: $textColor
-	transition: background .25s
+    background: bgColor
+    color: $textColor
+    transition: background .25s
 
-	&:hover
-		background: darken(bgColor, $darkenValue)
+    &:hover
+        background: darken(bgColor, $darkenValue)
 
 hoverText($textColor, $darkenValue = 12%)
-	color: $textColor
-	transition: color .25s
+    color: $textColor
+    transition: color .25s
 
-	&:hover
-		color: darken($textColor, $darkenValue)
+    &:hover
+        color: darken($textColor, $darkenValue)
 
 shadowHover($depth = 1, $hoverDepth = 3)
-	shadowDepth($depth)
+    shadowDepth($depth)
 
-	&:hover
-		shadowDepth($hoverDepth)
+    &:hover
+        shadowDepth($hoverDepth)
+
+placeholder-color(color)
+    &::-webkit-input-placeholder
+        color: color !important
+
+    &:-moz-placeholder
+        color: color !important
+
+    &::-moz-placeholder
+        color: color !important
+
+    &:-ms-input-placeholder
+        color: color !important
+
+    &::placeholder
+        color: color !important

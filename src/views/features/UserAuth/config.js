@@ -1,5 +1,5 @@
-import api from "../../utils/api";
-import { PAGE_HOME } from "../../constants/router";
+import api from "../../../utils/api";
+import { PAGE_HOME, PAGE_FORGOTTEN_PASSWORD } from "../../../constants/router";
 
 /** ****
  * resolveAction : function
@@ -11,7 +11,7 @@ export const configLogin = {
     messageError: "Une erreur s'est produite",
     withIntl: false,
     apiRoute: "/log",
-    passwordPath: "/password",
+    passwordPath: PAGE_FORGOTTEN_PASSWORD,
     fields: [
         {
             lib: "Login",

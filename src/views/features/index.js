@@ -1,5 +1,5 @@
 import UserPassword from "./UserPassword";
-import AuthUser from "./AuthUser";
+import AuthUser from "./UserAuth";
 import UserData from "./UserData";
 
 const featuresList = [UserPassword, AuthUser, UserData];

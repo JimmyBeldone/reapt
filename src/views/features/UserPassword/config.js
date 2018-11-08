@@ -1,5 +1,5 @@
-import api from "../../utils/api";
-import { logUser } from "../AuthUser/actions";
+import api from "../../../utils/api";
+import { logUser } from "../UserAuth/actions";
 
 /** ****
  * resolveAction : function

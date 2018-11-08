@@ -6,6 +6,7 @@ import "./Nav.styl";
 const Nav = memo(() => (
     <div id="main-nav">
         <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
         <Link to="/about">About</Link>
     </div>
 ));

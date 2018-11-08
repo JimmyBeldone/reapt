@@ -28,8 +28,6 @@ class InputGroup extends React.PureComponent {
     input = null;
 
     render() {
-        console.log(this.props);
-        // console.log(React.getKey());
         const {
             classNames,
             name,

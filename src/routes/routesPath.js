@@ -2,7 +2,8 @@ import {
     PAGE_HOME,
     PAGE_ABOUT,
     PAGE_ABOUT_ONE,
-    PAGE_ABOUT_TWO
+    PAGE_ABOUT_TWO,
+    PAGE_LOGIN
 } from "../constants/router";
 
 const routesPath = [
@@ -12,6 +13,10 @@ const routesPath = [
     },
     {
         path: PAGE_ABOUT,
+        exact: true
+    },
+    {
+        path: PAGE_LOGIN,
         exact: true
     },
     {

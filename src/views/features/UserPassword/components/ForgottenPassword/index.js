@@ -6,11 +6,11 @@ import { FormattedMessage } from "react-intl";
 import cn from "classnames";
 
 import "./ForgottenPassword.styl";
-import { PAGE_HOME } from "../../../../constants/router";
+import { PAGE_HOME } from "../../../../../constants/router";
 import { emailValidation } from "../../utils";
 import { sendEmail as resetPasswordSendEmail } from "../../actions";
 import { configAskPassword } from "../../config";
-import InputGroup from "../../../../views/components/default/InputGroup/InputGroup";
+import InputGroup from "../../../../components/default/InputGroup/InputGroup";
 
 const mapStateToProps = state => ({
     actionMessage: state.userPassword.askPassword.message,
