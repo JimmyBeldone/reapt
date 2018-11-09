@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 
@@ -73,8 +73,8 @@ class NewPasswordForm extends PureComponent {
 
                 <div className="error-message">
                     {hasError ? (
-                        <FormattedMessage
-                            id={errorMessage}
+                        <Trans
+                            i18nKey={errorMessage}
                             values={{ field: errorField }}
                         />
                     ) : null}

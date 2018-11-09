@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
-import { FormattedNumber, FormattedMessage } from "react-intl";
+import { FormattedNumber } from "react-intl";
+import { Trans } from "react-i18next";
 import cn from "classnames";
 
 const FormattedNumberAuto = memo(
@@ -12,7 +13,7 @@ const FormattedNumberAuto = memo(
         if (value === null || Number.isNaN(value)) {
             return (
                 <span className={cn("number-na", className)}>
-                    <FormattedMessage id="abbreviation.na" />
+                    <Trans i18nKey="abbreviation.na" />
                 </span>
             );
         }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import { Trans } from "react-i18next";
 
 export default class GeoLib extends PureComponent {
     static propTypes = {
@@ -30,7 +30,7 @@ export default class GeoLib extends PureComponent {
             return (
                 <span>
                     {newLib} +<br />
-                    {count} <FormattedMessage id={tradKey} />
+                    {count} <Trans i18nKey={tradKey} />
                 </span>
             );
         }

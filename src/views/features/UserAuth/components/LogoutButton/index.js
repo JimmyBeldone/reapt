@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
+import { Trans } from "react-i18next";
 import { push } from "connected-react-router";
 import cn from "classnames";
 
@@ -42,7 +42,7 @@ class LogoutButton extends PureComponent {
                 onClick={this.handleLogout.bind(this)}
                 type="button"
             >
-                {configLogout.withIntl ? <FormattedMessage id={lib} /> : lib}
+                {configLogout.withIntl ? <Trans i18nKey={lib} /> : lib}
             </button>
         );
     }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
+import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import "./LoginForm.styl";
@@ -93,14 +93,14 @@ class LoginForm extends PureComponent {
                 </Link>
                 <div className="error-message">
                     {loginError || hasError ? (
-                        <FormattedMessage
-                            id={errorMessage}
+                        <Trans
+                            i18nKey={errorMessage}
                             values={{ field: errorField }}
                         />
                     ) : null}
                 </div>
                 <button className="btn" type="submit">
-                    <FormattedMessage id={configLogin.formBtn} />
+                    <Trans i18nKey={configLogin.formBtn} />
                 </button>
             </form>
         );

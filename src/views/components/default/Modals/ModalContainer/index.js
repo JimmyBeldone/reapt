@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import Modal from "react-modal";
 import cn from "classnames";
-import { FormattedMessage } from "react-intl";
+import { Trans } from "react-i18next";
 
 import "./ModalContainer";
 
@@ -32,7 +32,7 @@ const ModalContainer = ({
         <Fragment>
             <div className="modal-header">
                 <div className="modal-title">
-                    {withIntl ? <FormattedMessage id={title} /> : title}
+                    {withIntl ? <Trans i18nKey={title} /> : title}
                 </div>
                 <button
                     className="close-modal"
