@@ -1,8 +1,9 @@
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
 import detector from "i18next-browser-languagedetector";
+import numbro from "numbro";
 
-const resources = require("../lang").default;
+import resources from "../lang";
 
 i18n.use(detector)
     .use(reactI18nextModule)
@@ -18,6 +19,7 @@ i18n.use(detector)
             wait: true
         }
     });
-console.log(i18n);
+
+numbro.setLanguage(i18n.language);
 
 export default i18n;
