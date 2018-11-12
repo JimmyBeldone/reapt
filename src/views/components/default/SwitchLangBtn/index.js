@@ -24,9 +24,6 @@ const SwitchLangBtn = () => {
                         {lang.lib}
                     </option>
                 ))}
-                {/* <option value="fr-FR">FR</option>
-                <option value="en-US">EN</option>
-                <option value="en-GB">EN(GB)</option> */}
             </select>
         </div>
     );

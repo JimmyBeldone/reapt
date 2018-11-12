@@ -1,30 +1,39 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
-
-import FormattedNumberAuto from "./FormattedNumberAuto";
+import numbro from "numbro";
 
 /* eslint react/style-prop-object: 0 */
 
-const Currency = memo(({ className, isEvolution, value, ...props }) => (
-    <span className={className}>
-        {isEvolution && value > 0 && <span>+</span>}
-        <FormattedNumberAuto {...props} style="currency" currency="EUR" />
-    </span>
-));
+const Currency = memo(
+    ({ className, isEvolution, value, fractionDigits, average }) => (
+        <span className={className}>
+            {value === null || Number.isNaN(value)
+                ? "N/A"
+                : numbro(value).formatCurrency({
+                      mantissa: fractionDigits,
+                      forceSign: isEvolution && value > 0,
+                      average,
+                      thousandSeparated: true,
+                      spaceSeparated: true,
+                      optionalMantissa: true
+                  })}
+        </span>
+    )
+);
 
 Currency.propTypes = {
     value: PropTypes.number.isRequired,
-    minimumFractionDigits: PropTypes.number,
-    maximumFractionDigits: PropTypes.number,
     className: PropTypes.string,
-    isEvolution: PropTypes.bool
+    isEvolution: PropTypes.bool,
+    fractionDigits: PropTypes.number.isRequired,
+    average: PropTypes.bool.isRequired
 };
 
 Currency.defaultProps = {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
     isEvolution: false,
-    className: ""
+    className: "",
+    fractionDigits: 2,
+    average: false
 };
 
 export default Currency;

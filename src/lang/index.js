@@ -21,6 +21,11 @@ const resources = {
     numbro.registerLanguage(lang);
 });
 
+numbro.registerLanguage({
+    ...numbroFr,
+    abbreviations: { ...numbroFr.abbreviations, thousand: "K", million: "M" }
+});
+
 export const languages = [
     {
         key: "fr-FR",

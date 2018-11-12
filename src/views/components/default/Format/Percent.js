@@ -1,30 +1,36 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
-
-import FormattedNumberAuto from "./FormattedNumberAuto";
+import numbro from "numbro";
 
 /* eslint react/style-prop-object: 0 */
 
-const Percent = memo(({ className, isEvolution, value, ...props }) => (
+const Percent = memo(({ className, isEvolution, value, fractionDigits }) => (
     <span className={className}>
-        {isEvolution && value > 0 && <span>+</span>}
-        <FormattedNumberAuto {...props} style="percent" />
+        {value === null || Number.isNaN(value)
+            ? "N/A"
+            : numbro(value).format({
+                  mantissa: fractionDigits,
+                  forceSign: isEvolution && value > 0,
+                  thousandSeparated: true,
+                  spaceSeparated: false,
+                  optionalMantissa: true,
+                  output: "percent"
+              })}
     </span>
 ));
 
 Percent.propTypes = {
     value: PropTypes.number.isRequired,
-    minimumFractionDigits: PropTypes.number,
-    maximumFractionDigits: PropTypes.number,
+    className: PropTypes.string,
     isEvolution: PropTypes.bool,
-    className: PropTypes.string
+    fractionDigits: PropTypes.number.isRequired,
+    average: PropTypes.bool.isRequired
 };
 
 Percent.defaultProps = {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
     isEvolution: false,
-    className: ""
+    className: "",
+    fractionDigits: 1
 };
 
 export default Percent;
