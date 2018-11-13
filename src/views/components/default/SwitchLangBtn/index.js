@@ -1,6 +1,7 @@
 import React from "react";
 import "./SwitchLangBtn.styl";
 import numbro from "numbro";
+import dayjs from "dayjs";
 
 import i18nProvider from "../../../../providers/i18nProvider";
 import { languages } from "../../../../lang";
@@ -11,6 +12,7 @@ const SwitchLangBtn = () => {
     const updateLanguage = e => {
         i18nProvider.changeLanguage(e.currentTarget.value);
         numbro.setLanguage(e.currentTarget.value);
+        dayjs.locale(e.currentTarget.value.substring(0, 2));
     };
 
     return (

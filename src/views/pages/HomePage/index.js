@@ -2,6 +2,7 @@ import React from "react";
 import { Trans } from "react-i18next";
 
 import "./HomePage.styl";
+
 import OpenModalBtn from "../../components/default/Modals/OpenModalBtn";
 import DefaultModal from "../../components/default/Modals/DefaultModal";
 

@@ -1,6 +1,9 @@
 import numbro from "numbro";
+// Import Numbro lang files
 import numbroFr from "numbro/dist/languages/fr-FR.min.js";
 import numbroEnGB from "numbro/dist/languages/en-GB.min.js";
+// Import DayJs lang files
+import "dayjs/locale/fr";
 
 import fr from "./fr";
 import en from "./en";

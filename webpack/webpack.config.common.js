@@ -14,8 +14,8 @@ const configFile =
     process.env.NODE_ENV === "development"
         ? configDev
         : process.env.NODE_ENV === "staging"
-            ? configStaging
-            : configProd;
+        ? configStaging
+        : configProd;
 
 // const icoPrefix = (process.env.NODE_ENV === 'production')
 //     ? 'assets/img-[hash]/'
@@ -74,7 +74,7 @@ const config = {
                 use: ["babel-loader"]
             },
             {
-                test: /\.html$/,
+                test: /\.(html|md)$/,
                 loader: "raw-loader"
             },
             {
