@@ -14,6 +14,10 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
                 test: /\.styl$/,
                 use: [
                     "style-loader",
