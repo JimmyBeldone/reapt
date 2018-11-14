@@ -42,16 +42,7 @@ const config = {
         modules: ["src", "node_modules"]
     },
     entry: {
-        app: path.join(__dirname, "../src/index.js"),
-        react: [
-            "react",
-            "react-dom",
-            "react-router-dom",
-            "prop-types",
-            "react-redux",
-            "redux",
-            "redux-thunk"
-        ]
+        app: path.join(__dirname, "../src/index.js")
     },
     output: {
         filename: "[name].[hash].bundle.js",
@@ -103,6 +94,7 @@ const config = {
         ]
     },
     plugins: [
+        new webpack.HashedModuleIdsPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)

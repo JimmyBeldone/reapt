@@ -68,17 +68,32 @@ const config = {
     optimization: {
         noEmitOnErrors: true,
         concatenateModules: true,
+        runtimeChunk: "single",
         splitChunks: {
+            chunks: "all",
+            maxInitialRequests: Infinity,
+            minSize: 0,
             cacheGroups: {
-                commons: {
+                vendor: {
                     test: /[\\/]node_modules[\\/]/,
-                    name: "vendors",
+                    name(module) {
+                        // get the name. E.g. node_modules/packageName/not/this/part.js
+                        // or node_modules/packageName
+                        const packageName = module.context.match(
+                            /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                        )[1];
+                        // npm package names are URL-safe, but some servers don't like @ symbols
+                        return `npm.${packageName.replace("@", "")}`;
+                    },
                     chunks: "all",
-                    priority: -20
+                    priority: 20
                 },
-                react: {
-                    name: "react",
-                    test: "react",
+                common: {
+                    name: "common",
+                    minChunks: 2,
+                    chunks: "async",
+                    priority: 10,
+                    reuseExistingChunk: true,
                     enforce: true
                 },
                 // CSS Chunks
@@ -98,11 +113,17 @@ const config = {
                 parallel: true,
                 sourceMap: true
             }),
-            new OptimizeCSSAssetsPlugin({})
-        ],
-        runtimeChunk: {
-            name: "manifest"
-        }
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    map: {
+                        inline: false,
+                        annotation: true
+                    },
+                    safe: true,
+                    discardComments: true
+                }
+            })
+        ]
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
