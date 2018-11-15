@@ -1,4 +1,7 @@
 module.exports = {
+    general: {
+        lang: "lang"
+    },
     home: {
         hello: "hello",
         content: {

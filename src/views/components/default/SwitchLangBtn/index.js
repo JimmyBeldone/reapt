@@ -1,8 +1,9 @@
 import React from "react";
-import "./SwitchLangBtn.styl";
 import numbro from "numbro";
 import dayjs from "dayjs";
+import { Trans } from "react-i18next";
 
+import "./SwitchLangBtn.styl";
 import i18nProvider from "../../../../providers/i18nProvider";
 import { languages } from "../../../../lang";
 
@@ -17,7 +18,11 @@ const SwitchLangBtn = () => {
 
     return (
         <div className="swith-lang-bloc">
+            <label htmlFor="lang-select">
+                <Trans i18nKey="general.lang" />
+            </label>
             <select
+                id="lang-select"
                 onChange={e => updateLanguage(e)}
                 defaultValue={i18nProvider.language}
             >
