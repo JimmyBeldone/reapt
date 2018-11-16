@@ -1,18 +1,21 @@
-const webpackMerge = require('webpack-merge')
+/* eslint-disable global-require */
+const merge = require("webpack-merge");
 
-const commonConfig = require('./webpack/webpack.config.common')
+const addons = addonsArg => {
+    const addons = [].concat.apply([], [addonsArg]).filter(Boolean);
 
-const addons = (addonsArg) => {
-    let addons = []
-        .concat.apply([], [addonsArg])
-        .filter(Boolean)
-
-    return addons.map((addonName) => require(`./webpack/addons/webpack.${addonName}.js`))
-}
+    return addons.map(addonName =>
+        // eslint-disable-next-line import/no-dynamic-require
+        require(`./webpack/addons/webpack.${addonName}.js`)
+    );
+};
 
 module.exports = () => {
-    const envConfig = require(`./webpack/webpack.config.${process.env.NODE_ENV}.js`)
-    const mergedConfig = webpackMerge(commonConfig, envConfig, ...addons(process.env.ADDONS))
+    // eslint-disable-next-line import/no-dynamic-require
+    const envConfig = require(`./webpack/webpack.config.${
+        process.env.NODE_ENV
+    }.js`);
+    const mergedConfig = merge(envConfig, ...addons(process.env.ADDONS));
 
-    return mergedConfig
-}
+    return mergedConfig;
+};

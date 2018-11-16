@@ -5,7 +5,6 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 // const ImageminPlImageminPluginugin = require('imagemin-webpack-plugin').default
-const ManifestPlugin = require("webpack-manifest-plugin");
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
@@ -127,7 +126,6 @@ const config = {
             threshold: 10240,
             minRatio: 0.8
         }),
-        new ManifestPlugin({ fileName: "asset-manifest.json" }),
         new PreloadWebpackPlugin(),
         new SWPrecacheWebpackPlugin({
             ontCacheBustUrlsMatching: /\.\w{8}\./,
