@@ -55,7 +55,7 @@ module.exports = {
         basePath: ""
     },
     workboxConfig: {
-        // swDest: ,
+        swDest: "sw.js",
         clientsClaim: true,
         skipWaiting: true
     },

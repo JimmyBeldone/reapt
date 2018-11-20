@@ -3,7 +3,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 // Webpack plugins
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Stylish = require("webpack-stylish");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
@@ -152,7 +152,7 @@ const legacyConfig = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin(settings.copyWebpackConfig),
+        // new CopyWebpackPlugin(settings.copyWebpackConfig),
         new ManifestPlugin(configureManifest("manifest-legacy.json"))
     ]
 };
