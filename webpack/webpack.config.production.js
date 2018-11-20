@@ -7,11 +7,15 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const merge = require("webpack-merge");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const HTMLPlugin = require("html-webpack-plugin");
+const LinkTypePlugin = require("html-webpack-link-type-plugin")
+    .HtmlWebpackLinkTypePlugin;
+const HtmlWebpackMultiBuildPlugin = require("html-webpack-multi-build-plugin");
 // const ImageminPlImageminPluginugin = require('imagemin-webpack-plugin').default
-const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 // const PreloadWebpackPlugin = require("preload-webpack-plugin");
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+// const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 
@@ -22,7 +26,9 @@ const configureOptimization = require("./utils/production/optimization");
 const {
     configureBanner,
     configureBundleAnalyzer,
-    configurePwa
+    configurePwaManifest,
+    configureWorkbox,
+    configureHtml
 } = require("./utils/production/plugins.js");
 const {
     configureStyleLoader,
@@ -38,26 +44,26 @@ const legacyConfig = {
     },
     mode: "production",
     devtool: "source-map",
-    optimization: configureOptimization(),
+    optimization: configureOptimization(LEGACY_CONFIG),
     module: {
-        rules: [
-            configureStyleLoader(LEGACY_CONFIG),
-            configureImageLoader(LEGACY_CONFIG)
-        ]
+        rules: [configureStyleLoader(), configureImageLoader(LEGACY_CONFIG)]
     },
     plugins: [
+        new webpack.BannerPlugin(configureBanner()),
+        new HTMLPlugin(configureHtml()),
+        new LinkTypePlugin(),
+        new HtmlWebpackMultiBuildPlugin(),
         new MiniCssExtractPlugin({
             // publicPath: './',
-            filename: "./[name].[hash].css",
-            chunkFilename: "./[id].[hash].css"
+            filename: "[name].[hash].css",
+            chunkFilename: "[id].[hash].css"
         }),
         new PurgecssPlugin({
             paths: glob.sync(`${path.join(process.cwd(), "./src")}/**/*`, {
                 nodir: true
             })
         }),
-        new webpack.BannerPlugin(configureBanner()),
-        new WebpackPwaManifest(configurePwa()),
+        new WebpackPwaManifest(configurePwaManifest()),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new CompressionWebpackPlugin({
             algorithm: "gzip",
@@ -65,29 +71,40 @@ const legacyConfig = {
             threshold: 10240,
             minRatio: 0.8
         }),
-        new DuplicatePackageCheckerPlugin({
-            verbose: true
-        }),
+        // new DuplicatePackageCheckerPlugin({
+        //     verbose: true
+        // }),
         new BundleAnalyzerPlugin(configureBundleAnalyzer(LEGACY_CONFIG))
     ]
 };
 
 const modernConfig = {
     output: {
-        filename: path.join("./", "[name].[hash].js")
+        filename: path.join("./", "[name]-modern.[hash].js")
     },
     mode: "production",
     devtool: "source-map",
-    optimization: configureOptimization(),
+    optimization: configureOptimization(MODERN_CONFIG),
     module: {
-        rules: [
-            configureStyleLoader(MODERN_CONFIG),
-            configureImageLoader(MODERN_CONFIG)
-        ]
+        rules: [configureStyleLoader(), configureImageLoader(MODERN_CONFIG)]
     },
     plugins: [
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.BannerPlugin(configureBanner()),
+        new HTMLPlugin(configureHtml()),
+        new LinkTypePlugin(),
+        new HtmlWebpackMultiBuildPlugin(),
+        new WebpackPwaManifest(configurePwaManifest()),
+        new MiniCssExtractPlugin({
+            // publicPath: './',
+            filename: "[name].[hash].css",
+            chunkFilename: "[id].[hash].css"
+        }),
+        new PurgecssPlugin({
+            paths: glob.sync(`${path.join(process.cwd(), "./src")}/**/*`, {
+                nodir: true
+            })
+        }),
         new ImageminWebpWebpackPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new CompressionWebpackPlugin({
@@ -96,23 +113,10 @@ const modernConfig = {
             threshold: 10240,
             minRatio: 0.8
         }),
-        new DuplicatePackageCheckerPlugin({
-            verbose: true
-        }),
-        new SWPrecacheWebpackPlugin({
-            ontCacheBustUrlsMatching: /\.\w{8}\./,
-            filename: "service-worker.js",
-            logger(message) {
-                if (message.indexOf("Total precache size is") === 0) {
-                    // This message occurs for every build and is a bit too noisy.
-                    return;
-                }
-                console.log(message);
-            },
-            minify: true, // minify and uglify the script
-            navigateFallback: "/index.html",
-            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
-        }),
+        // new DuplicatePackageCheckerPlugin({
+        //     verbose: true
+        // }),
+        new WorkboxPlugin.GenerateSW(configureWorkbox()),
         new BundleAnalyzerPlugin(configureBundleAnalyzer(MODERN_CONFIG))
     ]
 };

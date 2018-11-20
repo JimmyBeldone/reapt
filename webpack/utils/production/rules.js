@@ -12,52 +12,41 @@ const LEGACY_CONFIG = "legacy";
 const MODERN_CONFIG = "modern";
 
 // eslint-disable-next-line consistent-return
-exports.configureStyleLoader = buildType => {
-    if (buildType === MODERN_CONFIG) {
-        return {
-            test: /\.styl$/,
-            loader: "ignore-loader"
-        };
-    }
-    if (buildType === LEGACY_CONFIG) {
-        return {
-            test: /\.styl$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                {
-                    loader: "css-loader",
-                    options: {
-                        importLoaders: 2,
-                        sourceMap: true
-                    }
-                },
-                "resolve-url-loader",
-                {
-                    loader: "postcss-loader",
-                    options: {
-                        sourceMap: false,
-                        plugins: () => [
-                            postcssPresetEnv(),
-                            postcssFixie,
-                            MQPacker,
-                            combineSelectors({
-                                removeDuplicatedProperties: true
-                            })
-                        ]
-                    }
-                },
-                "stylus-loader",
-                {
-                    loader: "sass-resources-loader",
-                    options: {
-                        resources: styleResources
-                    }
-                }
-            ]
-        };
-    }
-    return null;
-};
+exports.configureStyleLoader = () => ({
+    test: /\.styl$/,
+    use: [
+        MiniCssExtractPlugin.loader,
+        {
+            loader: "css-loader",
+            options: {
+                importLoaders: 2,
+                sourceMap: true
+            }
+        },
+        "resolve-url-loader",
+        {
+            loader: "postcss-loader",
+            options: {
+                sourceMap: false,
+                plugins: () => [
+                    postcssPresetEnv(),
+                    postcssFixie,
+                    MQPacker,
+                    combineSelectors({
+                        removeDuplicatedProperties: true
+                    })
+                ]
+            }
+        },
+        "stylus-loader",
+        {
+            loader: "sass-resources-loader",
+            options: {
+                resources: styleResources
+            }
+        }
+    ]
+});
 
 // eslint-disable-next-line consistent-return
 exports.configureImageLoader = buildType => {

@@ -8,7 +8,6 @@ import { render } from "react-dom";
 
 import configureStore, { history } from "./store/configureStore";
 import Root from "./Root";
-import registerServiceWorker from "./registerServiceWorker";
 
 const store = configureStore();
 window.lang = "fr";
@@ -18,4 +17,16 @@ render(
     document.getElementById("app")
 );
 
-registerServiceWorker();
+// register service worker
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("/sw.js")
+            .then(registration => {
+                console.log("SW registered: ", registration);
+            })
+            .catch(registrationError => {
+                console.log("SW registration failed: ", registrationError);
+            });
+    });
+}

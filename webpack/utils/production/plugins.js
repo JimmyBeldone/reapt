@@ -35,7 +35,21 @@ exports.configureBundleAnalyzer = buildType => {
     return { analyzerMode: "static", reportFilename: "report-modern.html" };
 };
 
-exports.configurePwa = () => ({
+exports.configureCriticalCss = () =>
+    new CriticalCssPlugin({
+        base: "dist/",
+        src: "index.html",
+        dest: "index.html",
+        extract: false,
+        inline: false,
+        minify: true,
+        width: 375,
+        height: 565
+    });
+
+exports.configureWorkbox = () => settings.workboxConfig;
+
+exports.configurePwaManifest = () => ({
     name: pkg.name,
     description: pkg.description,
     short_name: pkg.name,
@@ -49,14 +63,29 @@ exports.configurePwa = () => ({
     ]
 });
 
-exports.configureCriticalCss = () =>
-    new CriticalCssPlugin({
-        base: "dist/",
-        src: "index.html",
-        dest: "index.html",
-        extract: false,
-        inline: false,
-        minify: true,
-        width: 375,
-        height: 565
-    });
+exports.configureHtml = () => ({
+    // template: "src/index.html",
+    inject: false,
+    title: "Reapt",
+    lang: "fr",
+    charset: "utf-8",
+    viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+    "X-UA-Compatible": { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
+    description: "React Starterkit",
+    template: path.join("src", "index.ejs"),
+    favicon: "src/assets/img/favicon.ico"
+    // favicon: "src/assets/img/favicon.ico",
+    // minify: {
+    //     inject: true,
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     removeRedundantAttributes: true,
+    //     useShortDoctype: true,
+    //     removeEmptyAttributes: true,
+    //     removeStyleLinkTypeAttributes: true,
+    //     keepClosingSlash: true,
+    //     minifyJS: true,
+    //     minifyCSS: true,
+    //     minifyURLs: true
+    // }
+});

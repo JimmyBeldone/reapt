@@ -3,8 +3,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 // Webpack plugins
-const HTMLPlugin = require("html-webpack-plugin");
-// const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Stylish = require("webpack-stylish");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
@@ -29,7 +28,7 @@ const configureBabelLoader = browserList => ({
                     "@babel/preset-env",
                     {
                         modules: false,
-                        useBuiltIns: "usage",
+                        useBuiltIns: "entry",
                         targets: {
                             browsers: browserList
                         }
@@ -46,6 +45,12 @@ const configureBabelLoader = browserList => ({
                     "@babel/plugin-proposal-decorators",
                     {
                         legacy: true
+                    }
+                ],
+                [
+                    "@babel/plugin-transform-runtime",
+                    {
+                        regenerator: true
                     }
                 ]
             ]
@@ -135,23 +140,6 @@ const baseConfig = {
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.ProgressPlugin(),
-        new HTMLPlugin({
-            template: "src/index.html",
-            favicon: "src/assets/img/favicon.ico",
-            minify: {
-                inject: true,
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true
-            }
-        }),
         new Stylish()
     ]
 };
@@ -164,7 +152,7 @@ const legacyConfig = {
         ]
     },
     plugins: [
-        // new CopyWebpackPlugin(settings.copyWebpackConfig),
+        new CopyWebpackPlugin(settings.copyWebpackConfig),
         new ManifestPlugin(configureManifest("manifest-legacy.json"))
     ]
 };
@@ -180,6 +168,6 @@ const modernConfig = {
 };
 
 module.exports = {
-    legacyConfig: merge(baseConfig, legacyConfig),
-    modernConfig: merge(baseConfig, modernConfig)
+    legacyConfig: merge(legacyConfig, baseConfig),
+    modernConfig: merge(modernConfig, baseConfig)
 };

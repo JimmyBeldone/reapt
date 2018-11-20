@@ -29,7 +29,7 @@ const configureDevServer = () => ({
         warnings: true,
         errors: true
     },
-    // compress: true,
+    compress: true,
     open: true,
     noInfo: true,
     watchOptions: {

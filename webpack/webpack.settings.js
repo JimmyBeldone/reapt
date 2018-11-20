@@ -25,8 +25,8 @@ module.exports = {
     },
     copyWebpackConfig: [
         {
-            from: "./src/js/workbox-catch-handler.js",
-            to: "js/[name].[ext]"
+            from: "./src/sw.js",
+            to: "[name].[ext]"
         }
     ],
     criticalCssConfig: {
@@ -53,5 +53,16 @@ module.exports = {
     },
     manifestConfig: {
         basePath: ""
+    },
+    workboxConfig: {
+        // swDest: ,
+        clientsClaim: true,
+        skipWaiting: true
+    },
+    htmlConfig: {
+        title: "Reapt",
+        charset: "utf-8",
+        viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        description: "React Starterkit"
     }
 };

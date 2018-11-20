@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="<%= htmlWebpackPlugin.options.lang %>">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Reapt</title>
+        <meta name="description" content="React Starterkit">
+        <% for (key in htmlWebpackPlugin.files.css) { %>
+            <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet" media="nope!" onload="this.media='all'">
+        <% } %>
+    </head>
+    <body>
+
+        <script type="module">
+                <% for (key in htmlWebpackPlugin.options.modernScripts) { %>
+                    var script<%= [key] %> = document.createElement('script');
+                    script<%= [key] %>.type = 'text/javascript';
+                    script<%= [key] %>.src = '<%= htmlWebpackPlugin.options.modernScripts[key] %>';
+                    document.body.appendChild(script<%= [key] %>);
+                <% } %>
+        </script>
+
+        <script nomodule>
+                <% for (key in htmlWebpackPlugin.options.legacyScripts) { %>
+                    var script<%= [key] %> = document.createElement('script');
+                    script<%= [key] %>.type = 'text/javascript';
+                    script<%= [key] %>.src = '<%= htmlWebpackPlugin.options.legacyScripts[key] %>';
+                    document.body.appendChild(script<%= [key] %>);
+                <% } %>
+        </script>
+        <div id="app" ></div>
+
+    </body>
+    <noscript>Your browser does not support JavaScript!</noscript>
+</html>
