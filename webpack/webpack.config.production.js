@@ -34,9 +34,7 @@ const {
     configureStyleLoader,
     configureImageLoader
 } = require("./utils/production/rules.js");
-
-const LEGACY_CONFIG = "legacy";
-const MODERN_CONFIG = "modern";
+const { LEGACY_CONFIG, MODERN_CONFIG } = require("./utils/constants");
 
 const legacyConfig = {
     output: {

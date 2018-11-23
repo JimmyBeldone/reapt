@@ -14,59 +14,10 @@ const configDev = require("../config/config.development.json");
 const configStaging = require("../config/config.staging.json");
 const configProd = require("../config/config.production.json");
 
-const settings = require("./webpack.settings.js");
-const commonPaths = require("./commonPaths");
-
-const configureBabelLoader = browserList => ({
-    test: /\.(js|jsx)$/,
-    exclude: /node_modules/,
-    use: {
-        loader: "babel-loader",
-        options: {
-            presets: [
-                [
-                    "@babel/preset-env",
-                    {
-                        modules: false,
-                        useBuiltIns: "entry",
-                        targets: {
-                            browsers: browserList
-                        }
-                    }
-                ],
-                "@babel/preset-react"
-            ],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "react-hot-loader/babel",
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
-                [
-                    "@babel/plugin-proposal-decorators",
-                    {
-                        legacy: true
-                    }
-                ],
-                [
-                    "@babel/plugin-transform-runtime",
-                    {
-                        regenerator: true
-                    }
-                ]
-            ]
-        }
-    }
-});
-
-// Configure Manifest
-const configureManifest = fileName => ({
-    fileName,
-    basePath: settings.manifestConfig.basePath,
-    map: file => {
-        file.name = file.name.replace(/(\.[a-f0-9]{32})(\..*)$/, "$2");
-        return file;
-    }
-});
+const settings = require("./webpack.settings");
+const { configureBabelLoader } = require("./utils/common/rules");
+const { configureManifest } = require("./utils/common/plugins");
+const { LEGACY_CONFIG, MODERN_CONFIG } = require("./utils/constants");
 
 const configFile =
     process.env.NODE_ENV === "development"
@@ -78,12 +29,12 @@ const configFile =
 const baseConfig = {
     name: pkg.name,
     entry: {
-        app: path.join(__dirname, "../src/index.js")
+        app: path.resolve(__dirname, "../src/index.js")
     },
     output: {
         filename: "[name].[hash].bundle.js",
         chunkFilename: "[name].[hash].bundle.js",
-        path: commonPaths.outputPath,
+        path: settings.paths.dist.base,
         publicPath: "/"
     },
     resolve: {
@@ -128,6 +79,7 @@ const baseConfig = {
         ]
     },
     plugins: [
+        new ManifestPlugin(configureManifest("manifest.json")),
         new WebpackNotifierPlugin({
             title: "Webpack",
             excludeWarnings: true,
@@ -147,24 +99,15 @@ const baseConfig = {
 // Legacy webpack config
 const legacyConfig = {
     module: {
-        rules: [
-            configureBabelLoader(Object.values(pkg.browserslist.legacyBrowsers))
-        ]
-    },
-    plugins: [
-        // new CopyWebpackPlugin(settings.copyWebpackConfig),
-        new ManifestPlugin(configureManifest("manifest-legacy.json"))
-    ]
+        rules: [configureBabelLoader(LEGACY_CONFIG)]
+    }
 };
 
 // Modern webpack config
 const modernConfig = {
     module: {
-        rules: [
-            configureBabelLoader(Object.values(pkg.browserslist.modernBrowsers))
-        ]
-    },
-    plugins: [new ManifestPlugin(configureManifest("manifest.json"))]
+        rules: [configureBabelLoader(MODERN_CONFIG)]
+    }
 };
 
 module.exports = {

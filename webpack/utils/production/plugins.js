@@ -6,8 +6,7 @@ const CriticalCssPlugin = require("critical-css-webpack-plugin");
 
 const settings = require("../../webpack.settings");
 const pkg = require("../../../package.json");
-
-const LEGACY_CONFIG = "legacy";
+const { LEGACY_CONFIG } = require("../constants");
 
 exports.configureBanner = () => ({
     banner: [

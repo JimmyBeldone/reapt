@@ -20,7 +20,7 @@
 // });
 const path = require("path");
 
-const settings = require("./webpack.settings.js");
+const settings = require("../webpack.settings.js");
 
 const configureDevServer = () => ({
     public: settings.devServerConfig.public(),

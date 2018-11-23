@@ -7,9 +7,7 @@ const MQPacker = require("css-mqpacker");
 const postcssPresetEnv = require("postcss-preset-env");
 
 const styleResources = require("../../../src/styles/styleConfig");
-
-const LEGACY_CONFIG = "legacy";
-const MODERN_CONFIG = "modern";
+const { LEGACY_CONFIG, MODERN_CONFIG } = require("../constants");
 
 // eslint-disable-next-line consistent-return
 exports.configureStyleLoader = () => ({

@@ -1,7 +1,8 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-// Configure terser
+const { LEGACY_CONFIG } = require("../constants");
+
 const configureTerser = () => ({
     cache: true,
     parallel: true,
@@ -9,7 +10,7 @@ const configureTerser = () => ({
 });
 
 const configureOptimization = buildType => {
-    if (buildType === "legacy") {
+    if (buildType === LEGACY_CONFIG) {
         return {
             noEmitOnErrors: true,
             runtimeChunk: "single",

@@ -7,6 +7,7 @@
         "setup": "node webpack/setup/setupMessage.js && yarn && node webpack/setup/setup.js",
         "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.config.development.js --hot",
         "build": "yarn clean-dist && cross-env NODE_ENV=production webpack --config webpack/webpack.config.production.js --progress --hide-modules",
+        "build:staging": "yarn clean-dist && cross-env NODE_ENV=staging webpack --config webpack/webpack.config.production.js --progress --hide-modules",
         "build:srv": "cross-env NODE_ENV=production http-server dist -g -p 4000 -o",
         "analyze": "yarn clean-dist && cross-env NODE_ENV=production ADDONS=bundleanalyze webpack",
         "clean-dist": "yarn remove-dist && mkdir dist",
@@ -45,30 +46,6 @@
         "mk-react-comp"
     ],
     "license": "MIT",
-    "browserslist": {
-        "production": [
-            "> 1%",
-            "last 2 versions",
-            "Firefox ESR"
-        ],
-        "legacyBrowsers": [
-            "> 1%",
-            "last 2 versions",
-            "Firefox ESR"
-        ],
-        "modernBrowsers": [
-            "last 2 Chrome versions",
-            "not Chrome < 60",
-            "last 2 Safari versions",
-            "not Safari < 10.1",
-            "last 2 iOS versions",
-            "not iOS < 10.3",
-            "last 2 Firefox versions",
-            "not Firefox < 54",
-            "last 2 Edge versions",
-            "not Edge < 15"
-        ]
-    },
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"

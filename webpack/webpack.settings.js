@@ -7,7 +7,7 @@ module.exports = {
             base: "./src/"
         },
         dist: {
-            base: "./web/dist/",
+            base: path.join(__dirname, "../dist/"),
             clean: ["./img", "./criticalcss", "./css", "./js"]
         }
     },
