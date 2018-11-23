@@ -8,9 +8,6 @@ import { NamespacesConsumer } from "react-i18next";
 
 import ThemeProvider, { ThemeConsumer } from "./providers/ThemeProvider";
 import "./providers/i18nProvider";
-// import LanguageProvider, {
-//     LanguageConsumer
-// } from "./providers/LanguageProvider";
 import App from "./App";
 
 const Root = memo(({ store, history }) => (
@@ -18,10 +15,6 @@ const Root = memo(({ store, history }) => (
         <ThemeConsumer>
             {({ theme }) => (
                 <div className={cn("theme", `theme-${theme}`)}>
-                    {/* <LanguageProvider>
-                        <LanguageConsumer>
-                            {({ lang }) => ( */}
-                    {/* <i18nProvider language={lang}> */}
                     <NamespacesConsumer>
                         {() => (
                             <Provider store={store}>
@@ -31,10 +24,6 @@ const Root = memo(({ store, history }) => (
                             </Provider>
                         )}
                     </NamespacesConsumer>
-                    {/* </i18nProvider> */}
-                    {/* )}
-                        </LanguageConsumer>
-                    </LanguageProvider> */}
                 </div>
             )}
         </ThemeConsumer>

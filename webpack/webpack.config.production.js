@@ -14,7 +14,6 @@ const HtmlWebpackMultiBuildPlugin = require("html-webpack-multi-build-plugin");
 // const ImageminPlImageminPluginugin = require('imagemin-webpack-plugin').default
 const WorkboxPlugin = require("workbox-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-// const PreloadWebpackPlugin = require("preload-webpack-plugin");
 // const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");

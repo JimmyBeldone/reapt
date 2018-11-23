@@ -3,7 +3,6 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 // Webpack plugins
-// const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Stylish = require("webpack-stylish");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
