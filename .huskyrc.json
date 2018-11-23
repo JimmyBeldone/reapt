@@ -1,0 +1,5 @@
+{
+    "husky": {
+        "pre-commit": "lint-staged"
+    }
+}
