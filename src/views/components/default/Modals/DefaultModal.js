@@ -40,7 +40,7 @@ const DefaultModal = ({ onRequestClose, ...props }) => {
 };
 
 DefaultModal.propTypes = {
-    children: PropTypes.element.isRequired,
+    // children: PropTypes.element.isRequired,
     classNames: PropTypes.string,
     onRequestClose: PropTypes.func.isRequired
 };
