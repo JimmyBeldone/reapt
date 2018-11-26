@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import cn from "classnames";
 import { Trans } from "react-i18next";
 
-import "./ModalContainer";
+import "./ModalContainer.styl";
 
 Modal.setAppElement("#app");
 
@@ -14,12 +14,14 @@ const ModalContainer = ({
     title,
     withIntl,
     children,
-    overlayClassName
+    overlayClassName,
+    portalClassName
 }) => (
     <Modal
         isOpen="isOpen"
         contentLabel="App Modal"
         overlayClassName={overlayClassName}
+        portalClassName={portalClassName}
         className={cn("modal-container", className)}
         style={{
             overlay: {},
@@ -53,13 +55,15 @@ ModalContainer.propTypes = {
     title: PropTypes.string.isRequired,
     withIntl: PropTypes.bool,
     children: PropTypes.node.isRequired,
-    overlayClassName: PropTypes.string
+    overlayClassName: PropTypes.string,
+    portalClassName: PropTypes.string
 };
 
 ModalContainer.defaultProps = {
     className: "",
     withIntl: true,
-    overlayClassName: "ReactModalPortalgradient"
+    portalClassName: "ReactModalPortalgradient",
+    overlayClassName: "ReactModal__Overlay"
 };
 
 export default ModalContainer;

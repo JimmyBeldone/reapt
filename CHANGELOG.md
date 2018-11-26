@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.2"></a>
+## [1.9.2](https://github.com/JimmyBeldone/reapt/compare/v1.9.1...v1.9.2) (2018-11-26)
+
+
+### Bug Fixes
+
+* **modal:** missing class ReactModal__Overlay ([fbd5ad0](https://github.com/JimmyBeldone/reapt/commit/fbd5ad0))
+
+
+
 <a name="1.9.1"></a>
 ## [1.9.1](https://github.com/JimmyBeldone/reapt/compare/v1.9.0...v1.9.1) (2018-11-26)
 
