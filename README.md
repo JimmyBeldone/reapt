@@ -2,7 +2,7 @@
 
 A complete React Redux starterkit, configured with Webpack
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![](https://badgen.net/david/dep/JimmyBeldone/reapt) ![](https://badgen.net/travis/JimmyBeldone/reapt)
 
 ## Init
