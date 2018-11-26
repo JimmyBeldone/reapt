@@ -2,8 +2,8 @@
 
 A complete React Redux starterkit, configured with Webpack
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
-![](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![](https://badgen.net/david/dep/JimmyBeldone/reapt) ![](https://badgen.net/travis/JimmyBeldone/reapt)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/)  [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+![](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![](https://badgen.net/david/dep/JimmyBeldone/reapt) ![](https://badgen.net/david/dev/JimmyBeldone/reapt) ![](https://badgen.net/travis/JimmyBeldone/reapt)
 
 ## Init
 
