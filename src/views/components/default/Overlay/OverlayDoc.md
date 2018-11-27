@@ -1,11 +1,10 @@
-# How to use :
+# How to use
 
 **Props :**
 
-- **children** - *[ < node > | [ < nodes > ] | string ]* (required)
-- **closeIcon** - *[ < node > | string ]* (Default : 'x', required)
-- **classNameIcon** - *[ string ]* (Default : 'overlay-icon-close', required)
-
+- **children** *\[ < node > | \[ < nodes > ] | string ]* (required)
+- **closeIcon** *\[ < node > | string ]* (Default: 'x', required)
+- **classNameIcon** *\[ string ]* (Default: 'overlay-icon-close', required)
 
 This component uses *React Portals*,
 You can import Overlay component anywhere,
