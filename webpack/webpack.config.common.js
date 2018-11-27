@@ -10,21 +10,11 @@ const Dotenv = require("dotenv-webpack");
 
 // config files
 const pkg = require("../package.json");
-const configDev = require("../config/config.development.json");
-const configStaging = require("../config/config.staging.json");
-const configProd = require("../config/config.production.json");
 
 const settings = require("./webpack.settings");
 const { configureBabelLoader } = require("./utils/common/rules");
 const { configureManifest } = require("./utils/common/plugins");
 const { LEGACY_CONFIG, MODERN_CONFIG } = require("./utils/constants");
-
-const configFile =
-    process.env.NODE_ENV === "development"
-        ? configDev
-        : process.env.NODE_ENV === "staging"
-        ? configStaging
-        : configProd;
 
 const baseConfig = {
     name: pkg.name,
