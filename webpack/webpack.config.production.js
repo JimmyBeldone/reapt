@@ -41,7 +41,7 @@ const legacyConfig = {
     },
     mode: "production",
     devtool: "source-map",
-    optimization: configureOptimization(LEGACY_CONFIG),
+    optimization: configureOptimization(),
     module: {
         rules: [configureStyleLoader(), configureImageLoader(LEGACY_CONFIG)]
     },
@@ -81,7 +81,7 @@ const modernConfig = {
     },
     mode: "production",
     devtool: "source-map",
-    optimization: configureOptimization(MODERN_CONFIG),
+    optimization: configureOptimization(),
     module: {
         rules: [configureStyleLoader(), configureImageLoader(MODERN_CONFIG)]
     },
