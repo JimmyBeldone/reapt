@@ -4,7 +4,7 @@ A complete React Redux starterkit, configured with Webpack
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f59ccb6d3a14e95b9d71f9e8a2f8e1c)](https://app.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&utm_medium=referral&utm_content=JimmyBeldone/reapt&utm_campaign=Badge_Grade_Settings)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/)  [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
-![](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![](https://badgen.net/david/dep/JimmyBeldone/reapt) ![](https://badgen.net/david/dev/JimmyBeldone/reapt) ![](https://badgen.net/travis/JimmyBeldone/reapt)
+![Release](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![Dependencies](https://badgen.net/david/dep/JimmyBeldone/reapt) ![DevDependencies](https://badgen.net/david/dev/JimmyBeldone/reapt) ![Travis](https://badgen.net/travis/JimmyBeldone/reapt)
 
 ## Init
 
@@ -41,7 +41,6 @@ yarn mk [action] <component name || array of components> [options]
 
 It use [mk-react-comp](https://www.npmjs.com/package/mk-react-comp) without global install. Full details and documentation on the webpage
 
-
 ## React
 
 | **React Default Components**                                                 | **Description**                                                                                                                                                          |
@@ -53,7 +52,7 @@ It use [mk-react-comp](https://www.npmjs.com/package/mk-react-comp) without glob
 | [React-simple-dropdown](https://github.com/Fauntleroy/react-simple-dropdown) | Non-prescriptive React.js dropdown toolkit                                                                                                                               |
 | [Redux-form](http://redux-form.com/6.8.0/)                                   | The best way to manage your form state in Redux                                                                                                                          |
 | [React-Paginate](https://github.com/AdeleD/react-paginate)                   | A ReactJS component to render a pagination                                                                                                                               |
-| [React Sticky](https://github.com/captivationsoftware/react-sticky)          | Sticky component for awesome React apps                                                                                                                              |
+| [React Sticky](https://github.com/captivationsoftware/react-sticky)          | Sticky component for awesome React apps                                                                                                                                  |
 | [Redux Persist](https://github.com/rt2zz/redux-persist)                      | Persist and rehydrate a redux store                                                                                                                                      |
 | [React Helmet](https://github.com/nfl/react-helmet)                          | A document head manager for React                                                                                                                                        |
 | [React Loadable](https://github.com/jamiebuilds/react-loadable)              | A higher order component for loading components with dynamic imports                                                                                                     |
@@ -79,5 +78,5 @@ It use [mk-react-comp](https://www.npmjs.com/package/mk-react-comp) without glob
 
 ## Next
 
-- [ ] Add unit tests
-- [ ] Create CLI tool to choose between React or NextJs
+- [ ]  Add unit tests
+- [ ]  Create CLI tool to choose between React or NextJs
