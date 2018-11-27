@@ -1,8 +1,0 @@
-export const isEmptyField = value => value.trim().length === 0;
-
-export const passwordConfirm = (a, b) => a.trim() === b.trim();
-
-export const emailValidation = email => {
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(email);
-};

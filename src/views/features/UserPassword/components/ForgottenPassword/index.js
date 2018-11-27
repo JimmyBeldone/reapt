@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import cn from "classnames";
+import isEmail from "validator/lib/isEmail";
 
 import "./ForgottenPassword.styl";
 import { PAGE_HOME } from "../../../../../constants/router";
-import { emailValidation } from "../../utils";
 import { sendEmail as resetPasswordSendEmail } from "../../actions";
 import { configAskPassword } from "../../config";
 import InputGroup from "../../../../components/default/InputGroup/InputGroup";
@@ -52,7 +52,7 @@ class ForgottenPassword extends PureComponent {
                 hasError = true;
                 errorField = "Email";
                 errorMessage = "errors.emptyField";
-            } else if (!emailValidation(value)) {
+            } else if (!isEmail(value)) {
                 hasError = true;
                 errorField = "Email";
                 errorMessage = "errors.invalidEmail";

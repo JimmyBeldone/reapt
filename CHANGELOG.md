@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.3"></a>
+## [1.9.3](https://github.com/JimmyBeldone/reapt/compare/v1.9.2...v1.9.3) (2018-11-27)
+
+
+### Bug Fixes
+
+* replace regex with validador ([d581222](https://github.com/JimmyBeldone/reapt/commit/d581222))
+
+
+
 <a name="1.9.2"></a>
 ## [1.9.2](https://github.com/JimmyBeldone/reapt/compare/v1.9.1...v1.9.2) (2018-11-26)
 

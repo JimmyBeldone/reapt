@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
+import isEmpty from "validator/lib/isEmpty";
 
 import "./LoginForm.styl";
 
 import { loginUser } from "../../actions";
 import { configLogin } from "../../config";
-import { isEmptyField } from "../../utils";
 import InputGroup from "../../../../components/default/InputGroup/InputGroup";
 
 /* eslint react/no-string-refs: 0 */
@@ -45,7 +45,7 @@ class LoginForm extends PureComponent {
 
         Object.values(fields).filter(field => {
             const { value } = field.input;
-            if (isEmptyField(value)) {
+            if (isEmpty(value)) {
                 errors.push({
                     hasError: true,
                     errorField: field.input.getAttribute("lib"),

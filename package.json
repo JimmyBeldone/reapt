@@ -1,6 +1,6 @@
 {
   "name": "reapt",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "A complete React Redux starterkit, configured with Webpack, stop wasting time configuring, adopt it and just code",
   "main": "src/index.js",
   "scripts": {
@@ -91,7 +91,8 @@
     "redux-auth-wrapper": "^2.0.3",
     "redux-form": "^7.4.2",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -135,6 +136,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^2.0.0",
     "git-rev-sync": "^1.12.0",
