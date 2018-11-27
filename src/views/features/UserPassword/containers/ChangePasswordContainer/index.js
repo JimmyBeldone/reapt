@@ -1,9 +1,10 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import equals from "validator/lib/equals";
+import isEmpty from "validator/lib/isEmpty";
 
 import NewPasswordForm from "../../components/NewPasswordForm";
-import { isEmptyField, passwordConfirm } from "../../utils";
 import { changePassword } from "../../actions";
 import { configChangePassword } from "../../config";
 
@@ -40,7 +41,7 @@ class ChangePasswordContainer extends PureComponent {
 
         Object.values(fields).filter(field => {
             const { value } = field.input;
-            if (isEmptyField(value)) {
+            if (isEmpty(value)) {
                 errors.push({
                     hasError: true,
                     errorField: field.input.getAttribute("lib"),
@@ -49,7 +50,7 @@ class ChangePasswordContainer extends PureComponent {
             }
         });
 
-        if (passwordConfirm(password.value, current.value)) {
+        if (equals(password.value, current.value)) {
             errors.push({
                 hasError: true,
                 errorField: password.getAttribute("lib"),
@@ -57,7 +58,7 @@ class ChangePasswordContainer extends PureComponent {
             });
         }
 
-        if (!passwordConfirm(password.value, confirm.value)) {
+        if (!equals(password.value, confirm.value)) {
             errors.push({
                 hasError: true,
                 errorField: confirm.getAttribute("lib"),

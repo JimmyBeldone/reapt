@@ -10,6 +10,7 @@ const RouterParamsMiddleware = () => next => action => {
     if (action.type === LOCATION_CHANGE) {
         let match = null;
         for (let i = 0, l = routesPath.length; i < l; i += 1) {
+            // eslint-disable-next-line security/detect-object-injection
             match = matchPath(action.payload.location.pathname, routesPath[i]);
             if (match !== null) {
                 break;
