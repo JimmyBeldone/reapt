@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.4"></a>
+## [1.9.4](https://github.com/JimmyBeldone/reapt/compare/v1.9.3...v1.9.4) (2018-11-27)
+
+
+### Bug Fixes
+
+* **.env:** put sensible information in .env ([6583c3f](https://github.com/JimmyBeldone/reapt/commit/6583c3f)), closes [#2](https://github.com/JimmyBeldone/reapt/issues/2)
+
+
+
 <a name="1.9.3"></a>
 ## [1.9.3](https://github.com/JimmyBeldone/reapt/compare/v1.9.2...v1.9.3) (2018-11-27)
 
