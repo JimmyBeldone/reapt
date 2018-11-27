@@ -6,6 +6,7 @@ const webpack = require("webpack");
 const Stylish = require("webpack-stylish");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
+const Dotenv = require("dotenv-webpack");
 
 // config files
 const pkg = require("../package.json");
@@ -54,9 +55,9 @@ const baseConfig = {
         modules: ["src", "node_modules"]
     },
     stats: "normal",
-    externals: {
-        Config: JSON.stringify(configFile)
-    },
+    // externals: {
+    //     Config: JSON.stringify(configFile)
+    // },
     module: {
         rules: [
             {
@@ -91,7 +92,10 @@ const baseConfig = {
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.ProgressPlugin(),
-        new Stylish()
+        new Stylish(),
+        new Dotenv({
+            safe: true
+        })
     ]
 };
 

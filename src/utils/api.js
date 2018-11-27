@@ -1,5 +1,4 @@
 import axios from "axios";
-import Config from "Config";
 import cookie from "react-cookies";
 import jwtDecode from "jwt-decode";
 
@@ -12,9 +11,7 @@ const isExpired = token => {
 };
 
 const api = (isPublic = false, dispatch = null) => {
-    const instance = axios.create({
-        baseURL: Config.apiURL
-    });
+    const instance = axios.create({ baseURL: process.env.API_URL });
 
     const token = cookie.load("token");
     const refreshToken = cookie.load("refresh_token");
