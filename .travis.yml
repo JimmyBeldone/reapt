@@ -11,3 +11,5 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 cache:
   yarn: true
+env:
+  - API_URL=http://127.0.0.1:3001
