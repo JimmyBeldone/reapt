@@ -2,6 +2,7 @@
 
 A complete React Redux starterkit, configured with Webpack
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f59ccb6d3a14e95b9d71f9e8a2f8e1c)](https://app.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&utm_medium=referral&utm_content=JimmyBeldone/reapt&utm_campaign=Badge_Grade_Settings)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/)  [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![](https://badgen.net/david/dep/JimmyBeldone/reapt) ![](https://badgen.net/david/dev/JimmyBeldone/reapt) ![](https://badgen.net/travis/JimmyBeldone/reapt)
 
