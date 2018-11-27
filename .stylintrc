@@ -11,7 +11,7 @@
     "depthLimit": false,
     "duplicates": true,
     "efficient": "always",
-    "exclude": [],
+    "exclude": ["src/styles/vendors/*", "node_modules/**/*", "src/styles/config/*"],
     "extendPref": false,
     "globalDupe": false,
     "groupOutputByFile": true,

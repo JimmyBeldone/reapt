@@ -13,7 +13,7 @@
     "clean-dist": "yarn remove-dist && mkdir dist",
     "pretty": "prettier --find-config-path '.prettierrc' && prettier --write 'src/**/*.js'",
     "lint": "eslint src webpack --fix",
-    "stylint": "stylint src",
+    "stylint": "stylint",
     "commit": "git-cz",
     "release": "standard-version",
     "post-release": "git push --follow-tags origin",

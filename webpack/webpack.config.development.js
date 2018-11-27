@@ -2,7 +2,6 @@ const path = require("path");
 
 const merge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackMultiBuildPlugin = require("html-webpack-multi-build-plugin");
 
 const common = require("./webpack.config.common.js");
 const settings = require("./webpack.settings.js");
@@ -40,9 +39,7 @@ const devConfig = buildType => {
             new HtmlWebpackPlugin({
                 template: path.join("src", "index.html"),
                 favicon: "./src/assets/img/favicon.ico"
-                // inject: false
             })
-            // new HtmlWebpackMultiBuildPlugin()
         ]
     };
 };

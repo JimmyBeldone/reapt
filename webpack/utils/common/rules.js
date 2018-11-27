@@ -28,6 +28,7 @@ exports.configureBabelLoader = buildType => ({
                         modules: false,
                         useBuiltIns: "entry",
                         targets: {
+                            // eslint-disable-next-line security/detect-object-injection
                             browsers: browserslist[buildType]
                         }
                     }

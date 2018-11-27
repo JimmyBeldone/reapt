@@ -1,5 +1,4 @@
 const styleResources = require("../../../src/styles/styleConfig");
-const { LEGACY_CONFIG, MODERN_CONFIG } = require("../constants");
 
 exports.configureLinter = () => ({
     enforce: "pre",
@@ -13,7 +12,7 @@ exports.configureCss = () => ({
     use: ["style-loader", "css-loader"]
 });
 
-exports.configureStyleLoader = buildType => ({
+exports.configureStyleLoader = () => ({
     test: /\.styl$/,
     use: [
         "style-loader",

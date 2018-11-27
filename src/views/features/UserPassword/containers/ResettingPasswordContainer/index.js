@@ -60,6 +60,7 @@ class ResettingPasswordContainer extends PureComponent {
 
         if (errors.length !== 0) {
             this.setState(errors[0]);
+            // eslint-disable-next-line security/detect-possible-timing-attacks
         } else if (token !== undefined) {
             this.setState({
                 hasError: false,
