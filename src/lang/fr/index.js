@@ -36,12 +36,9 @@ module.exports = {
         notIdentical: "Les mots de passe ne sont pas identiques",
         wrongPassword: "L'ancien mot de passe est incorrect",
         wrongCredentials: "Vos identifiants sont incorrects",
-        outdatedSubscription: "Votre abonnement est expiré",
         tokenNotFound: "Clef d'inscription introuvable",
         passwordNotFound: "Mot de passe non renseigné",
         userNotFoundWithToken:
-            "Utilisateur introuvable avec cette clef d'inscription",
-        accountDisabled: "Compte désactivé",
-        noDatas: "Pas de données pour les actes selectionnés"
+            "Utilisateur introuvable avec cette clef d'inscription"
     }
 };
