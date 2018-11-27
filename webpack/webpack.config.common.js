@@ -84,7 +84,8 @@ const baseConfig = {
         new webpack.ProgressPlugin(),
         new Stylish(),
         new Dotenv({
-            safe: true
+            safe: true,
+            systemvars: true
         })
     ]
 };
