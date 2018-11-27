@@ -1,6 +1,6 @@
 {
   "name": "reapt",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "A complete React Redux starterkit, configured with Webpack, stop wasting time configuring, adopt it and just code",
   "main": "src/index.js",
   "scripts": {
@@ -124,6 +124,7 @@
     "css-mqpacker": "^7.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "dotenv": "^6.1.0",
+    "dotenv-webpack": "^1.5.7",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
