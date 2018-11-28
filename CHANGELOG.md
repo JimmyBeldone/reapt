@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.11"></a>
+## [1.9.11](https://github.com/JimmyBeldone/reapt/compare/v1.9.10...v1.9.11) (2018-11-28)
+
+
+### Bug Fixes
+
+* **modal:** remove duplication & simplify ([e86576f](https://github.com/JimmyBeldone/reapt/commit/e86576f))
+* **react-icons:** import mjs file to reduce bundle size ([2d1663e](https://github.com/JimmyBeldone/reapt/commit/2d1663e))
+
+
+
 <a name="1.9.10"></a>
 ## [1.9.10](https://github.com/JimmyBeldone/reapt/compare/v1.9.9...v1.9.10) (2018-11-27)
 
