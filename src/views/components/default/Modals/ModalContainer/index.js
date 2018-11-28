@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Modal from "react-modal";
 import cn from "classnames";
 import { Trans } from "react-i18next";
-import { MdClose } from "react-icons/md";
+import { MdClose } from "react-icons/md/index.mjs";
 
 import "../Modal.styl";
 import "./ModalContainer.styl";

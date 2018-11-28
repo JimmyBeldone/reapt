@@ -30,6 +30,7 @@ const baseConfig = {
     resolve: {
         extensions: [
             "*",
+            ".mjs",
             ".js",
             ".jsx",
             ".json",
