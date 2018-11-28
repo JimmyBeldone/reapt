@@ -29,6 +29,11 @@ module.exports = {
             userNotFound: "Utilisateur introuvable avec cette adresse email"
         }
     },
+    modals: {
+        default: {
+            title: "Example modal title"
+        }
+    },
     errors: {
         emptyField: "Field {field} is empty",
         invalidEmail: "Invalid mail format",

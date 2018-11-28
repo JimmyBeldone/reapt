@@ -1,9 +1,16 @@
 .modal-container
-    flexbox(rows)
+    position fixed
+    flexbox(column)
+    justify(flex-start)
+    top: 10%
     max-width 450px
+    min-height: 500px
+    max-height: 80%
+    min-width: 310px
     width: 100%
-    background-color white
+    margin 0 auto
     radius(6px)
+    background-color white
 
     .modal-header
         height 60px
@@ -18,20 +25,22 @@
         color white
         font-size 20px
 
-        .modal-title
-            proxima()
-
         .close-modal
+            position: absolute
+            center()
+            top: 14px
+            right: 14px
             width 30px
             height 30px
-            flexbox()
-            align()
-            justify(flex-end)
             cursor pointer
 
             .icon
-                font-size 20px
+                center()
+                font-size 24px
                 color white
 
     .modal-content
+        flex(column)
+        overflow: auto
         width 100%
+        padding: 20px

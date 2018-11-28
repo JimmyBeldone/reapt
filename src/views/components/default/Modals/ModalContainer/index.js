@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import Modal from "react-modal";
 import cn from "classnames";
 import { Trans } from "react-i18next";
+import { MdClose } from "react-icons/md";
 
+import "../Modal.styl";
 import "./ModalContainer.styl";
 
 Modal.setAppElement("#app");
@@ -15,10 +17,11 @@ const ModalContainer = ({
     withIntl,
     children,
     overlayClassName,
-    portalClassName
+    portalClassName,
+    isOpen
 }) => (
     <Modal
-        isOpen="isOpen"
+        isOpen={isOpen}
         contentLabel="App Modal"
         overlayClassName={overlayClassName}
         portalClassName={portalClassName}
@@ -41,7 +44,9 @@ const ModalContainer = ({
                     onClick={onRequestClose}
                     type="button"
                 >
-                    <div className="icon icon-Circle-Cancel" />
+                    <div className="icon">
+                        <MdClose />
+                    </div>
                 </button>
             </div>
             <div className="modal-content">{children}</div>
@@ -56,14 +61,15 @@ ModalContainer.propTypes = {
     withIntl: PropTypes.bool,
     children: PropTypes.node.isRequired,
     overlayClassName: PropTypes.string,
-    portalClassName: PropTypes.string
+    portalClassName: PropTypes.string,
+    isOpen: PropTypes.bool.isRequired
 };
 
 ModalContainer.defaultProps = {
     className: "",
     withIntl: true,
-    portalClassName: "ReactModalPortalgradient",
-    overlayClassName: "ReactModal__Overlay"
+    portalClassName: "ReactModal__Overlay",
+    overlayClassName: "ReactModalPortalgradient"
 };
 
 export default ModalContainer;
