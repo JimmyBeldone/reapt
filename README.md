@@ -2,9 +2,23 @@
 
 A complete React Redux starterkit, configured with Webpack
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f59ccb6d3a14e95b9d71f9e8a2f8e1c)](https://app.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&utm_medium=referral&utm_content=JimmyBeldone/reapt&utm_campaign=Badge_Grade_Settings)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1dca985e69234d6fb20b8c37e505cb36)](https://www.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JimmyBeldone/reapt&amp;utm_campaign=Badge_Grade)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/)  [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Release](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![Dependencies](https://badgen.net/david/dep/JimmyBeldone/reapt) ![DevDependencies](https://badgen.net/david/dev/JimmyBeldone/reapt) ![Travis](https://badgen.net/travis/JimmyBeldone/reapt)
+
+* ReactJS
+* Redux
+* Webpack 4
+* Babel 7
+* Stylus
+* HMR
+* Code Splitting with **React.lazy** & **React.Suspense**
+* Code Formatter (Prettier)
+* Legacy & modern browser output build
+* Eslint configured extended with Airbnb style guide & support for prettier
+* Jest & Enzyme Configured
+* Automatically lint & format code, when committing it. [Husky/Lint-Staged]
+* Progressive Web App
 
 ## Init
 
@@ -16,21 +30,21 @@ yarn setup
 
 ---> Remove git repository, install dependencies, and set package.json infos
 
-**Update :**
-
-```bash
-yarn upgrade-interactive --latest (optionnal)
-```
-
 ## Available command lines
 
 ```bash
-yarn start        // Start dev server
-yarn dashboard    // Start dev server with Webpack-Dashboard
-yarn build        // Compile Project
-yarn build:srv    // Compile Project && Launch server for testing new build
-yarn debug        // Debug in chrome://inspect
-yarn analyse      // Show some stats
+yarn start                  // Start dev server
+yarn build                  // Compile Project
+yarn build:srv              // Compile Project && Launch server for testing new build
+
+yarn test                   // Execute tests with Jest
+yarn test:watch             // Execute tests with Jest an watch mode
+yarn test:coverage          // Generate coverage report based on the tests
+
+yarn commit                 // Run Commitizen to write beautiful commits
+yarn release                // Run standard-version which generate changelog from commits names and increment release version
+yarn post-release [branch]  // Push to remote branch with tags
+
 ```
 
 Also, you can use this command to speed up your workflow :
