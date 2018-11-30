@@ -1,15 +1,18 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 script:
-  - "yarn lint"
-  - "yarn stylint"
-  - "yarn build"
+- yarn lint
+- yarn stylint
+- yarn test:coverage
+- yarn build
 sudo: false
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
-  - export PATH=$HOME/.yarn/bin:$PATH
+- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
+- export PATH=$HOME/.yarn/bin:$PATH
 cache:
   yarn: true
 env:
+  matrix:
   - API_URL=http://127.0.0.1:3001
+  - secure: GhV8vaT7ITa3Yd38ez/etrauTtCeSTfX6A03JyoN/G1kGu97/lAAjkEtDSxJCbhv7ngJVXAJTtVeKUCOL/8eVqdcloEdlIhg1IlGHYkM5orZabAvlKTvMPfvQime7evIQ8X6bJqMfr6qZq4PX6FTzLOQoWxBRp7uJtT+rNu5axh0vISMrcY1T820yZD6Fs+qTKddKomKTybd4YKgauJy1wfE8kxsIaZyih/aqoJrRga8R7YFVhcvZlRVtd6uKJ3k8ZvBYYXcr7XDxHNOb9yKzrYQ5S08ZNyroUXNjnL3NNKTUoAlFdeGKktd0Hr7bgnHCh0zwSlA30194M9iplwAGDMkYVy9oX6UhBvZgZ3zJQ0lo/yQOfwFxE2MZL1gNOScoLrOFkYcKu68PG6EPDT/v3eXSLafp50mPI/gPBlE/uCKiH6aEN1aiUPTimkIkyZPf6r7ySYtdNhUUDX9XVbaRoVivUY+RyY+V840l1L695/xIjKxngSk3jJ9KOkkxfftvlxHGWfsSM3Kz9HRZ9YJiEAxfbInXD6suNeU4iBbx1RO/FK2kNdhOSXPxRAsM5C6/OD5Lxb6baKkXg9iWFgN9psGBFSMNVrylcQQq+WRAQNDQ3uw2sxogn1fKRSQ4JMk4r3hP/CxRQiSbdHXYxM3FUNa/V4sVmV4PHdcfi3IipE=
