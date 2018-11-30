@@ -168,7 +168,7 @@
     "imagemin-optipng": "^6.0.0",
     "imagemin-svgo": "^7.0.0",
     "imagemin-webp": "^4.1.0",
-    "imagemin-webp-webpack-plugin": "^1.0.2",
+    "imagemin-webp-webpack-plugin": "^2.0.0",
     "imagemin-webpack-plugin": "^2.3.0",
     "img-loader": "^3.0.1",
     "jest": "^23.6.0",
