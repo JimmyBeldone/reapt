@@ -64,7 +64,6 @@ describe("Test Decimal Component with numeric format options", () => {
 
     it("Should render us currency", () => {
         const wrapper = render(<DecimalTest value={245} isCurrency />);
-        console.log(wrapper.text());
         expect(wrapper.text()).toBe("$245");
     });
 
@@ -72,7 +71,6 @@ describe("Test Decimal Component with numeric format options", () => {
         const wrapper = render(
             <DecimalTest value={245643} isCurrency average fractionDigits={0} />
         );
-        console.log(wrapper.text());
         expect(wrapper.text()).toBe("$246k");
     });
 });
