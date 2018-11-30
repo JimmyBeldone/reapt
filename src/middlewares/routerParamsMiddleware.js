@@ -2,7 +2,6 @@ import { matchPath } from "react-router-dom";
 import { LOCATION_CHANGE } from "connected-react-router";
 
 import routesPath from "../routes/routesPath";
-import { getPageName } from "../managers/routerManger";
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -24,7 +23,7 @@ const RouterParamsMiddleware = () => next => action => {
             action.payload.pageName = "404";
         } else {
             action.payload.match = match;
-            action.payload.pageName = getPageName(match.url);
+            action.payload.pageName = match.url;
         }
     }
     next(action);
