@@ -20,7 +20,7 @@ const DateRelative = ({ className, value, relativeTo, relativeNow }) => (
 
 DateRelative.propTypes = {
     className: PropTypes.string,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     relativeTo: PropTypes.bool,
     relativeNow: PropTypes.bool
 };
@@ -28,7 +28,8 @@ DateRelative.propTypes = {
 DateRelative.defaultProps = {
     className: "",
     relativeTo: true,
-    relativeNow: false
+    relativeNow: false,
+    value: null
 };
 
 export default DateRelative;

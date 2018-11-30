@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test DateRelative Component Should render date relative from now 1`] = `"a few seconds ago"`;
