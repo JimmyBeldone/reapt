@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/JimmyBeldone/reapt/compare/v1.9.11...v1.10.0) (2018-11-30)
+
+
+### Features
+
+* **test:** add jest and enzyme ([8f298f9](https://github.com/JimmyBeldone/reapt/commit/8f298f9))
+
+
+
 <a name="1.9.11"></a>
 ## [1.9.11](https://github.com/JimmyBeldone/reapt/compare/v1.9.10...v1.9.11) (2018-11-28)
 
