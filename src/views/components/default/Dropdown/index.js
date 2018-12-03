@@ -26,17 +26,8 @@ class Dropdown extends PureComponent {
         this.state = {
             isActiveMenu: false
         };
-        this.mounted = false;
         this.showMenu = this.showMenu.bind(this);
         this.hideMenu = this.hideMenu.bind(this);
-    }
-
-    componentDidMount() {
-        this.mounted = true;
-    }
-
-    componentWillUnmount() {
-        this.mounted = false;
     }
 
     showMenu(e) {
@@ -47,16 +38,9 @@ class Dropdown extends PureComponent {
     }
 
     hideMenu() {
-        if (this.mounted) {
-            this.setState({ isActiveMenu: false }, () => {
-                document.removeEventListener("click", this.hideMenu);
-            });
-        }
-        // if (!this.refs.dropdownContent.contains(e.target)) {
-        //     this.setState({isActiveMenu: false}, () => {
-        //         document.removeEventListener('click', this.hideMenu)
-        //     })
-        // }
+        this.setState({ isActiveMenu: false }, () => {
+            document.removeEventListener("click", this.hideMenu);
+        });
     }
 
     renderContent() {
