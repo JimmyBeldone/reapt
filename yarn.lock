@@ -3714,6 +3714,15 @@ cwebp-bin@^4.0.0:
     bin-wrapper "^3.0.1"
     logalot "^2.0.0"
 
+cwebp-bin@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/cwebp-bin/-/cwebp-bin-5.0.0.tgz#3d408f30ada69bc45b4306e88b50c382ba01a9b6"
+  integrity sha512-7//DAQG0yFr+YGrQ0of50sPlPm+8mIRv1TGxXtlOeq1S0Y56iY2lHlX/aLz+AOTWH/2YVNthNtH97pxRl7q33A==
+  dependencies:
+    bin-build "^3.0.0"
+    bin-wrapper "^4.0.1"
+    logalot "^2.1.0"
+
 cycle@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
@@ -6970,10 +6979,10 @@ imagemin-svgo@^7.0.0:
     is-svg "^3.0.0"
     svgo "^1.0.5"
 
-imagemin-webp-webpack-plugin@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/imagemin-webp-webpack-plugin/-/imagemin-webp-webpack-plugin-1.0.2.tgz#0a3b7f4a94b21d2be639747585cdf04b53c72194"
-  integrity sha512-jG7Iv3RBNA6uYjbO+U8wNstctDBVMRfMLmi1Mk+GMn4itgWMMMy538kcTzZ7T39Xib3ZF+axPRbeBAB4nl+oRQ==
+imagemin-webp-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/imagemin-webp-webpack-plugin/-/imagemin-webp-webpack-plugin-2.0.0.tgz#e70dbcba903f429d838c6d94241e9f903a9888f3"
+  integrity sha512-dWfqSDJocIC7mfnmTYaXHVHZ9H69VFARJ2Jq7PACoFnTqzPgSCkRS97KVZg//TAzHFRhNYldD/HvkwGGcFB0Ng==
   dependencies:
     imagemin "^6.0.0"
     imagemin-webp "^4.1.0"
@@ -6984,6 +6993,15 @@ imagemin-webp@^4.1.0:
   integrity sha1-7/0AFg2EVrlcveX9JsMtZLAxgGI=
   dependencies:
     cwebp-bin "^4.0.0"
+    exec-buffer "^3.0.0"
+    is-cwebp-readable "^2.0.1"
+
+imagemin-webp@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/imagemin-webp/-/imagemin-webp-5.0.0.tgz#f8a491fc0959e438575e0b0e5f480485e6aa79e7"
+  integrity sha512-e3LnIlitWfyGzYGPwaKdne7hIawgewHPKW+Sf2KgG96hzStqwDguOrzsi5srWZY0QrtxjfmJbw5UYES9N59Rtg==
+  dependencies:
+    cwebp-bin "^5.0.0"
     exec-buffer "^3.0.0"
     is-cwebp-readable "^2.0.1"
 
