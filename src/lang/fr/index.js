@@ -35,7 +35,7 @@ module.exports = {
         }
     },
     errors: {
-        emptyField: "Veillez remplir le champ {field}",
+        emptyField: "Veillez remplir le champ {{field}}",
         invalidEmail: "Le format d'email est invalide",
         identical: "L'ancien mot de passe est identique au nouveau",
         notIdentical: "Les mots de passe ne sont pas identiques",

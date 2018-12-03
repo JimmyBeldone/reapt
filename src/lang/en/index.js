@@ -35,7 +35,7 @@ module.exports = {
         }
     },
     errors: {
-        emptyField: "Field {field} is empty",
+        emptyField: "Field {{field}} is empty",
         invalidEmail: "Invalid mail format",
         identical: "Old password equals new password",
         notIdentical: "Password are not equals",
