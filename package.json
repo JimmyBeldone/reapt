@@ -11,7 +11,7 @@
     "build:srv": "cross-env NODE_ENV=production http-server dist -g -p 4000 -o",
     "clean-dist": "yarn remove-dist && mkdir dist",
     "test": "jest",
-    "test:watch": "jest --watch --verbose",
+    "test:watch": "jest --watchAll --verbose",
     "test:coverage": "jest --coverage --colors && cat ./coverage/lcov.info | yarn dotenv-cli codacy-coverage -t CODACY_PROJECT_TOKEN",
     "pretty": "prettier --find-config-path '.prettierrc' && prettier --write 'src/**/*.js'",
     "lint": "eslint src webpack --fix",
