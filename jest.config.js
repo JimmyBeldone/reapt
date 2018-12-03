@@ -8,6 +8,12 @@ module.exports = {
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     collectCoverageFrom: ["src/**/*.{js,jsx,mjs}"],
 
+    moduleNameMapper: {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+            "<rootDir>/fileMock.js",
+        "\\.(css|styl)$": "<rootDir>/fileMock.js"
+    },
+
     // Ignore coverage
     coveragePathIgnorePatterns: [
         "<rootDir>/src/lang/",
@@ -22,7 +28,7 @@ module.exports = {
     moduleFileExtensions: ["js", "json", "jsx"],
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    // setupFiles: ["<rootDir>/enzyme.config.js"],
+    // setupFiles: ["<rootDir>/testSetup.js"],
 
     // The test environment that will be used for testing
     testEnvironment: "jsdom",
@@ -43,7 +49,7 @@ module.exports = {
     verbose: false,
 
     // Add jest-extended
-    setupTestFrameworkScriptFile: "<rootDir>/enzyme.config.js"
+    setupTestFrameworkScriptFile: "<rootDir>/testSetup.js"
 
     // transform: {
     //     "^.+\\.jsx?$": "babel-jest"
