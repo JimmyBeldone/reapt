@@ -7,14 +7,14 @@ import moment from "moment-timezone";
 describe("Test DateRelative Component", () => {
     it("Should render date relative from another date", () => {
         const wrapper = render(<DateRelative value="2015-24-01" />);
-        expect(wrapper.text()).toBe("in 2 years");
+        expect(wrapper.text()).toBe("in 3 years");
     });
 
     it("Should render date relative to another date", () => {
         const wrapper = render(
             <DateRelative relativeTo={false} value="2015-24-01" />
         );
-        expect(wrapper.text()).toBe("2 years ago");
+        expect(wrapper.text()).toBe("3 years ago");
     });
 
     it("Should render date relative from now", () => {
