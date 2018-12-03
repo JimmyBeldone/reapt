@@ -74,7 +74,7 @@ const baseConfig = {
         new WebpackNotifierPlugin({
             title: "Webpack",
             excludeWarnings: true,
-            alwaysNotify: true
+            alwaysNotify: false
         }),
         new webpack.DefinePlugin({
             "process.env": {
