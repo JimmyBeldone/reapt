@@ -6,21 +6,21 @@ module.exports = {
     clearMocks: true,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
-    collectCoverageFrom: ["src/**/*.{js,jsx,mjs}"],
+    // collectCoverageFrom: ["src/**/*.{js,jsx,mjs}"],
 
     moduleNameMapper: {
         "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
             "<rootDir>/fileMock.js",
-        "\\.(css|styl)$": "<rootDir>/fileMock.js"
+        "\\.(css|styl)$": "<rootDir>/test/fileMock.js"
     },
 
     // Ignore coverage
     coveragePathIgnorePatterns: [
-        "<rootDir>/src/lang/",
-        "<rootDir>/src/constants/",
-        "<rootDir>/src/styles/",
         "<rootDir>/src/views/components/default/Tooltip",
-        "<rootDir>/src/views/containers/ScrollToTop"
+        "<rootDir>/src/views/containers/ScrollToTop",
+        "<rootDir>/test",
+        "<rootDir>/webpack",
+        "<rootDir>/node_modules"
     ],
 
     // The directory where Jest should output its coverage files
@@ -51,7 +51,7 @@ module.exports = {
     verbose: false,
 
     // Add jest-extended
-    setupTestFrameworkScriptFile: "<rootDir>/testSetup.js"
+    setupTestFrameworkScriptFile: "<rootDir>/test/testSetup.js"
 
     // transform: {
     //     "^.+\\.jsx?$": "babel-jest"
