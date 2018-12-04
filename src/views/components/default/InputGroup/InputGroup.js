@@ -40,11 +40,7 @@ class InputGroup extends React.PureComponent {
         } = this.props;
         let errorClass = "";
         if (errorField !== null) {
-            if (Array.isArray(errorField)) {
-                errorClass = errorField.includes(label);
-            } else {
-                errorClass = errorField === label;
-            }
+            errorClass = errorField === label;
         }
         return (
             <div
