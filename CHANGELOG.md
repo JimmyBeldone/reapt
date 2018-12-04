@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.1"></a>
+## [1.10.1](https://github.com/JimmyBeldone/reapt/compare/v1.10.0...v1.10.1) (2018-12-04)
+
+
+### Bug Fixes
+
+* **#10:** Update Webpack-pwa-manifest ([60a4cf0](https://github.com/JimmyBeldone/reapt/commit/60a4cf0)), closes [#10](https://github.com/JimmyBeldone/reapt/issues/10)
+* **translation:** interpolation with react-i18next ([89e2f24](https://github.com/JimmyBeldone/reapt/commit/89e2f24))
+
+
+
 <a name="1.10.0"></a>
 # [1.10.0](https://github.com/JimmyBeldone/reapt/compare/v1.9.11...v1.10.0) (2018-11-30)
 
