@@ -18,7 +18,9 @@ module.exports = {
     coveragePathIgnorePatterns: [
         "<rootDir>/src/lang/",
         "<rootDir>/src/constants/",
-        "<rootDir>/src/styles/"
+        "<rootDir>/src/styles/",
+        "<rootDir>/src/views/components/default/Tooltip",
+        "<rootDir>/src/views/containers/ScrollToTop"
     ],
 
     // The directory where Jest should output its coverage files
