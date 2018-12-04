@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 // import PropTypes from 'prop-types'
 
 import "./Header.styl";
@@ -6,7 +6,7 @@ import SwitchLangBtn from "../../components/default/SwitchLangBtn";
 // import SwitchThemeBtn from "../../components/default/SwitchThemeBtn";
 import Nav from "../Nav";
 
-const Header = memo(() => (
+const Header = () => (
     <header>
         <div className="container">
             <div className="content">
@@ -17,6 +17,6 @@ const Header = memo(() => (
             </div>
         </div>
     </header>
-));
+);
 
 export default Header;

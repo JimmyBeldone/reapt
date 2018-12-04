@@ -1,10 +1,10 @@
-import React, { memo } from "react";
+import React from "react";
 import { Trans } from "react-i18next";
 
 import "./ForgottenPassword.styl";
 import ForgottenPassword from "../../features/UserPassword/components/ForgottenPassword";
 
-const ForgottenPasswordPage = memo(() => (
+const ForgottenPasswordPage = () => (
     <div className="ForgottenPasswordPage">
         <div className="titles">
             <h2>
@@ -17,6 +17,6 @@ const ForgottenPasswordPage = memo(() => (
 
         <ForgottenPassword />
     </div>
-));
+);
 
 export default ForgottenPasswordPage;

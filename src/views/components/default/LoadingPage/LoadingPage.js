@@ -1,5 +1,5 @@
-import React, { memo } from "react";
+import React from "react";
 
-const LoadingPage = memo(() => <div>Loading</div>);
+const LoadingPage = () => <div>Loading</div>;
 
 export default LoadingPage;

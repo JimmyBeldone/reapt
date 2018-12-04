@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import { PAGE_ABOUT_ONE, PAGE_ABOUT_TWO } from "../../../constants/router";
 
 import "./About.styl";
 
-const About = memo(({ routes }) => (
+const About = ({ routes }) => (
     <div>
         <div className="about">
             <Link to={PAGE_ABOUT_ONE}>One</Link>
@@ -18,7 +18,7 @@ const About = memo(({ routes }) => (
             <RouteWithSubRoutes key={i} {...route} />
         ))}
     </div>
-));
+);
 
 About.propTypes = {
     routes: PropTypes.array.isRequired
