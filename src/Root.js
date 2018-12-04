@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import PropTypes from "prop-types";
 import { hot } from "react-hot-loader";
@@ -10,7 +10,7 @@ import ThemeProvider, { ThemeConsumer } from "./providers/ThemeProvider";
 import "./providers/i18nProvider";
 import App from "./App";
 
-const Root = memo(({ store, history }) => (
+const Root = ({ store, history }) => (
     <ThemeProvider>
         <ThemeConsumer>
             {({ theme }) => (
@@ -28,7 +28,7 @@ const Root = memo(({ store, history }) => (
             )}
         </ThemeConsumer>
     </ThemeProvider>
-));
+);
 
 Root.propTypes = {
     store: PropTypes.object.isRequired,
