@@ -8,7 +8,7 @@
 
 This component uses *React Portals*,
 You can import Overlay component anywhere,
-let's say in component **App** for exemple.
+let's say in component **App** for example.
 
 ```js
 import React, { PureComponent } from 'react'

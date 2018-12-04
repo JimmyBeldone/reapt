@@ -3,11 +3,11 @@ import { connectRouter } from "connected-react-router";
 
 import { featuresReducers } from "../views/features";
 
-import exempleReducer from "./exempleReducer";
+import exampleReducer from "./exampleReducer";
 
 export default history => {
     let rootReducer = {
-        exempleReducer,
+        exampleReducer,
         router: connectRouter(history)
     };
 
