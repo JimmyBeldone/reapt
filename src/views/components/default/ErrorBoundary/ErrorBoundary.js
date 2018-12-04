@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
 class ErrorBoundary extends PureComponent {
@@ -7,7 +7,8 @@ class ErrorBoundary extends PureComponent {
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node,
             PropTypes.string
-        ]).isRequired
+        ]).isRequired,
+        render: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -19,7 +20,6 @@ class ErrorBoundary extends PureComponent {
     }
 
     componentDidCatch(error, info) {
-        console.log(error);
         this.setState(state => ({
             ...state,
             hasError: error,
@@ -29,16 +29,9 @@ class ErrorBoundary extends PureComponent {
 
     render() {
         const { hasError, info } = this.state;
-        const { children } = this.props;
+        const { children, render } = this.props;
         if (hasError) {
-            return [
-                <div key="A" className="error">
-                    Une erreur est survenue :{" "}
-                </div>,
-                <div key="B" className="error-info">
-                    {info}
-                </div>
-            ];
+            return render(info);
         }
         return children;
     }
