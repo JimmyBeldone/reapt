@@ -2,15 +2,6 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import SwitchLangBtn from ".";
 
-const selectOption = (wrapper, selector, option) => {
-    wrapper.find(`${selector}`).instance().value = option.charAt(0);
-    wrapper.find(`${selector}`).simulate("change", {
-        target: { value: option.charAt(0) }
-    });
-    wrapper.find(`${selector} [children="${option}"]`).simulate("click");
-    return `${selector}`;
-};
-
 describe("Test SwitchLangBtn Component", () => {
     it("Should render", () => {
         const wrapper = shallow(<SwitchLangBtn />);

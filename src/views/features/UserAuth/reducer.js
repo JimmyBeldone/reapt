@@ -16,8 +16,7 @@ const authState = {
     pending: false,
     authenticated: user !== null,
     user,
-    error: false,
-    message: ""
+    error: false
 };
 
 const authReducer = (state = authState, action) => {
@@ -26,8 +25,7 @@ const authReducer = (state = authState, action) => {
             return {
                 pending: true,
                 authenticated: false,
-                error: false,
-                message: ""
+                error: false
             };
         }
         case types.AUTH_LOGIN_FULFILLED: {
@@ -56,8 +54,7 @@ const authReducer = (state = authState, action) => {
                 pending: false,
                 authenticated: false,
                 user: null,
-                error: false,
-                message: ""
+                error: false
             };
         }
     }

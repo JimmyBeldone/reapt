@@ -13,8 +13,7 @@ export const configAskPassword = {
     apiRoute: "/",
     inputLib: "Email",
     hasResolveAction: false,
-    resolveAction: () =>
-        console.log("RESET_PASSWORD_ACTION - Add function to log user")
+    resolveAction: null
 };
 
 export const configResetPassword = {
@@ -61,8 +60,7 @@ export const configChangePassword = {
     ],
     apiRoute: "/",
     hasResolveAction: false,
-    resolveAction: () =>
-        console.log("CHANGE_PASSWORD_ACTION - Add resolve function ")
+    resolveAction: null
 };
 
 export const apiUtil = api;

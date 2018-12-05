@@ -2,13 +2,13 @@ import { combineReducers } from "redux";
 
 import * as types from "./types";
 
-const askPasswordReducerState = {
+const askPasswordState = {
     pending: false,
     message: "",
     error: false
 };
 
-const askPasswordReducer = (state = askPasswordReducerState, action) => {
+const askPassword = (state = askPasswordState, action) => {
     switch (action.type) {
         case types.RESETTING_PASSWORD_SEND_EMAIL_PENDING: {
             return { ...state, pending: true, error: false, message: "" };
@@ -83,7 +83,7 @@ const changePassword = (state = changePasswordState, action) => {
 export default {
     name: "userPassword",
     reducer: combineReducers({
-        askPassword: askPasswordReducer,
+        askPassword,
         resetPassword,
         changePassword
     })

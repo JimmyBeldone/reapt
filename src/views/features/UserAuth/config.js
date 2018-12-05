@@ -26,8 +26,7 @@ export const configLogin = {
     ],
     formBtn: "pages.login.btn",
     hasResolveAction: false,
-    resolveAction: () =>
-        console.log("RESET_PASSWORD_ACTION - Add function to log user")
+    resolveAction: null
 };
 
 export const configRefreshToken = {
@@ -37,8 +36,7 @@ export const configRefreshToken = {
     apiRoute: "/refresh_token",
     fields: [],
     hasResolveAction: false,
-    resolveAction: () =>
-        console.log("RESET_PASSWORD_ACTION - Add function to log user")
+    resolveAction: null
 };
 
 export const configLogout = {

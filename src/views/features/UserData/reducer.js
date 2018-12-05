@@ -13,8 +13,7 @@ if (token) {
 const userState = {
     pending: false,
     data: user,
-    error: false,
-    message: ""
+    error: false
 };
 
 const UserReducer = (state = userState, action) => {
@@ -23,7 +22,7 @@ const UserReducer = (state = userState, action) => {
             return { ...state, data: action.payload };
         }
         case types.USER_UPDATE_PENDING: {
-            return { ...state, pending: true, error: false, message: "" };
+            return { ...state, pending: true, error: false };
         }
         case types.USER_UPDATE_FULFILLED: {
             return { ...state, pending: false, data: action.payload };

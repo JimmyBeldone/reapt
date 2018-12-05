@@ -6,8 +6,7 @@ export const configUserUpdate = {
     messageError: "Une erreur s'est produite",
     apiRoute: "/",
     hasResolveAction: false,
-    resolveAction: () =>
-        console.log("USER_UPDATE_ACTION - Add function to log user")
+    resolveAction: null
 };
 
 export const apiUtil = api;
