@@ -2,17 +2,16 @@
 const settings = require("../../webpack.settings.js");
 
 exports.configureDevServer = () => ({
-    public: settings.devServerConfig.public(),
+    // public: settings.devServerConfig.public(),
     contentBase: "./dist",
     host: settings.devServerConfig.host(),
     port: settings.devServerConfig.port(),
-    https: !!parseInt(settings.devServerConfig.https()),
+    // https: !!parseInt(settings.devServerConfig.https()),
     historyApiFallback: true,
     inline: true,
-    quiet: true,
+    // quiet: true,
     hot: true,
-    hotOnly: true,
-    clientLogLevel: "none",
+    // clientLogLevel: "none",
     // stats: "errors-only",
     overlay: {
         warnings: true,
@@ -21,9 +20,9 @@ exports.configureDevServer = () => ({
     compress: true,
     open: true,
     noInfo: true,
-    watchOptions: {
-        poll: !!parseInt(settings.devServerConfig.poll())
-    },
+    // watchOptions: {
+    //     poll: !!parseInt(settings.devServerConfig.poll())
+    // },
     headers: {
         "Access-Control-Allow-Origin": "*"
     }
