@@ -3,6 +3,7 @@
 A complete React Redux starterkit, configured with Webpack
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1dca985e69234d6fb20b8c37e505cb36)](https://www.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JimmyBeldone/reapt&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1dca985e69234d6fb20b8c37e505cb36)](https://www.codacy.com/app/JimmyBeldone/reapt?utm_source=github.com&utm_medium=referral&utm_content=JimmyBeldone/reapt&utm_campaign=Badge_Coverage)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![Greenkeeper badge](https://badges.greenkeeper.io/JimmyBeldone/reapt.svg)](https://greenkeeper.io/)  [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Release](https://badgen.net/github/release/JimmyBeldone/reapt/stable) ![Dependencies](https://badgen.net/david/dep/JimmyBeldone/reapt) ![DevDependencies](https://badgen.net/david/dev/JimmyBeldone/reapt) ![Travis](https://badgen.net/travis/JimmyBeldone/reapt)
 
