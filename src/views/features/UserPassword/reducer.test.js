@@ -7,7 +7,6 @@ import {
     configResetPassword,
     configChangePassword
 } from "./config";
-import { change } from "redux-form";
 
 describe("Test UserPassword Reducer", () => {
     const reducer = userPasswordReducer.reducer;
