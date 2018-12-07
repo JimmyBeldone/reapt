@@ -5,7 +5,7 @@ import { Trans } from "react-i18next";
 import { push } from "connected-react-router";
 import cn from "classnames";
 
-import "../../../AuthUser/components/LogoutButton/Logoutbutton.styl";
+import "./Logoutbutton.styl";
 
 import { logoutUser } from "../../actions";
 import { configLogout } from "../../config";

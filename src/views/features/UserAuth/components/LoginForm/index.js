@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    loginUser: (username, password) => dispatch(loginUser(username, password))
+    loginUser: userData => dispatch(loginUser(userData))
 });
 
 class LoginForm extends PureComponent {
@@ -40,7 +40,7 @@ class LoginForm extends PureComponent {
         const fields = this.refs;
         const errors = [];
 
-        const username = fields["input-username"].input;
+        const email = fields["input-email"].input;
         const password = fields["input-password"].input;
 
         Object.values(fields).filter(field => {
@@ -61,7 +61,11 @@ class LoginForm extends PureComponent {
                 errorField: "",
                 errorMessage: ""
             });
-            loginUser(username.value.trim(), password.value.trim());
+            const userData = {
+                email: email.value.trim(),
+                password: password.value.trim()
+            };
+            loginUser(userData);
         }
     }
 
@@ -75,6 +79,7 @@ class LoginForm extends PureComponent {
                 type={field.type}
                 label={field.lib}
                 errorField={errorField}
+                withIntl
             />
         ));
     }
@@ -89,7 +94,9 @@ class LoginForm extends PureComponent {
             >
                 {this.renderFields()}
                 <Link to={configLogin.passwordPath}>
-                    <div className="home-link">Mot de passe oublié ?</div>
+                    <div className="home-link">
+                        <Trans i18nKey={configLogin.link} />
+                    </div>
                 </Link>
                 <div className="error-message">
                     {loginError || hasError ? (

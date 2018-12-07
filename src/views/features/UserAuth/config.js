@@ -1,5 +1,6 @@
 import api from "../../../utils/api";
 import { PAGE_HOME, PAGE_FORGOTTEN_PASSWORD } from "../../../constants/router";
+import { API_ROUTE_USER_LOGIN } from "../../../constants/apiRoutes";
 
 /** ****
  * resolveAction : function
@@ -7,31 +8,28 @@ import { PAGE_HOME, PAGE_FORGOTTEN_PASSWORD } from "../../../constants/router";
  ***** */
 
 export const configLogin = {
-    messageSuccess: "Un email vient de vous être envoyé",
-    messageError: "Une erreur s'est produite",
+    messageSuccess: "",
+    messageError: "",
     withIntl: false,
-    apiRoute: "/log",
+    apiRoute: process.env.API_URL + API_ROUTE_USER_LOGIN,
     passwordPath: PAGE_FORGOTTEN_PASSWORD,
     fields: [
+        { lib: "pages.login.fields.login", type: "text", name: "email" },
         {
-            lib: "Login",
-            type: "text",
-            name: "username"
-        },
-        {
-            lib: "Mot de passe",
+            lib: "pages.login.fields.pw",
             type: "password",
             name: "password"
         }
     ],
+    link: "pages.login.link",
     formBtn: "pages.login.btn",
     hasResolveAction: false,
     resolveAction: null
 };
 
 export const configRefreshToken = {
-    messageSuccess: "Un email vient de vous être envoyé",
-    messageError: "Une erreur s'est produite",
+    messageSuccess: "",
+    messageError: "",
     withIntl: false,
     apiRoute: "/refresh_token",
     fields: [],
@@ -41,7 +39,7 @@ export const configRefreshToken = {
 
 export const configLogout = {
     homePath: PAGE_HOME,
-    lib: "usermenu.logout",
+    lib: "nav.logout",
     withIntl: true
 };
 

@@ -2,6 +2,13 @@ module.exports = {
     general: {
         lang: "lang"
     },
+    nav: {
+        home: "Home",
+        login: "Log In",
+        register: "Sign Up",
+        about: "About",
+        logout: "Log out"
+    },
     home: {
         hello: "hello",
         content: {
@@ -9,12 +16,27 @@ module.exports = {
         }
     },
     pages: {
+        register: {
+            title: "Sign Up",
+            fields: {
+                username: "Username",
+                email: "Email",
+                password: "Password",
+                confirmPass: "Confirm password"
+            },
+            link: {
+                text: "Already have an account?",
+                btn: "Log in"
+            },
+            btn: "sign up"
+        },
         login: {
             title: "Log in",
             fields: {
-                login: "Username",
+                login: "Email",
                 pw: "Password"
             },
+            link: "Forgot password ?",
             btn: "Log In"
         },
         forgottenPassword: {
