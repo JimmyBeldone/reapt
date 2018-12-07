@@ -7,7 +7,8 @@ describe("Test InputGroup Component", () => {
         name: "login",
         label: "Login",
         // ref: "input-login",
-        errorField: ""
+        errorField: "",
+        withIntl: false
     };
 
     it("Should render", () => {
