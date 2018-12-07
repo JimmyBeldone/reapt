@@ -88,7 +88,7 @@
     "react": "^16.6.3",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.6.3",
-    "react-hot-loader": "^4.3.12",
+    "react-hot-loader": "^4.5.0",
     "react-i18next": "^8.3.8",
     "react-icons": "^3.2.2",
     "react-intl": "^2.7.2",

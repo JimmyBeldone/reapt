@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import PropTypes from "prop-types";
-import { hot } from "react-hot-loader";
+import { hot, setConfig } from "react-hot-loader";
 import { ConnectedRouter } from "connected-react-router";
 import cn from "classnames";
 import { NamespacesConsumer } from "react-i18next";
@@ -34,5 +34,7 @@ Root.propTypes = {
     store: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
+
+setConfig({ pureRender: true });
 
 export default hot(module)(Root);

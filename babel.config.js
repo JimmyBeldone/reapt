@@ -4,6 +4,7 @@ module.exports = {
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-proposal-class-properties",
+        "react-hot-loader/babel",
         [
             "@babel/plugin-proposal-decorators",
             {
