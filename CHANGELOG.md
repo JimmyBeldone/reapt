@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.2"></a>
+## [1.10.2](https://github.com/JimmyBeldone/reapt/compare/v1.10.1...v1.10.2) (2018-12-07)
+
+
+### Bug Fixes
+
+* **package:** update react-redux to version 6.0.0 ([83ee5d8](https://github.com/JimmyBeldone/reapt/commit/83ee5d8))
+* **UserPassword:** import in reducer ([6173825](https://github.com/JimmyBeldone/reapt/commit/6173825))
+* react-hot-loader now works with react > 16.4 ([a78b4e1](https://github.com/JimmyBeldone/reapt/commit/a78b4e1))
+
+
+
 <a name="1.10.1"></a>
 ## [1.10.1](https://github.com/JimmyBeldone/reapt/compare/v1.10.0...v1.10.1) (2018-12-04)
 
