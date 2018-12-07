@@ -18,41 +18,44 @@ const browserslist = {
 exports.configureBabelLoader = buildType => ({
     test: /\.(js|jsx)$/,
     exclude: /node_modules/,
-    use: {
-        loader: "babel-loader",
-        options: {
-            presets: [
-                [
-                    "@babel/preset-env",
-                    {
-                        modules: false,
-                        useBuiltIns: "entry",
-                        targets: {
-                            // eslint-disable-next-line security/detect-object-injection
-                            browsers: browserslist[buildType]
+    use: [
+        "react-hot-loader/webpack",
+        {
+            loader: "babel-loader",
+            options: {
+                presets: [
+                    [
+                        "@babel/preset-env",
+                        {
+                            modules: false,
+                            useBuiltIns: "entry",
+                            targets: {
+                                // eslint-disable-next-line security/detect-object-injection
+                                browsers: browserslist[buildType]
+                            }
                         }
-                    }
+                    ],
+                    "@babel/preset-react"
                 ],
-                "@babel/preset-react"
-            ],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "react-hot-loader/babel",
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/plugin-proposal-class-properties",
-                [
-                    "@babel/plugin-proposal-decorators",
-                    {
-                        legacy: true
-                    }
-                ],
-                [
-                    "@babel/plugin-transform-runtime",
-                    {
-                        regenerator: true
-                    }
+                plugins: [
+                    "@babel/plugin-syntax-dynamic-import",
+                    "react-hot-loader/babel",
+                    "@babel/plugin-proposal-object-rest-spread",
+                    "@babel/plugin-proposal-class-properties",
+                    [
+                        "@babel/plugin-proposal-decorators",
+                        {
+                            legacy: true
+                        }
+                    ],
+                    [
+                        "@babel/plugin-transform-runtime",
+                        {
+                            regenerator: true
+                        }
+                    ]
                 ]
-            ]
+            }
         }
-    }
+    ]
 });
