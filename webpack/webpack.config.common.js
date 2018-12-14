@@ -43,7 +43,10 @@ const baseConfig = {
             "gif",
             ".ico"
         ],
-        modules: ["src", "node_modules"]
+        modules: ["src", "node_modules"],
+        alias: {
+            "react-dom": "@hot-loader/react-dom"
+        }
     },
     stats: "normal",
     // externals: {

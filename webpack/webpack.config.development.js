@@ -25,7 +25,7 @@ const devConfig = buildType => {
             publicPath: `${settings.devServerConfig.public()}/`
         },
         mode: "development",
-        devtool: "inline-source-map",
+        devtool: "eval",
         devServer: configureDevServer(),
         module: {
             rules: [
