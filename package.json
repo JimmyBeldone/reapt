@@ -70,7 +70,6 @@
     ]
   },
   "dependencies": {
-    "@hot-loader/react-dom": "npm:react-dom",
     "airbnb-prop-types": "^2.11.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
