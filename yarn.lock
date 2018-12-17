@@ -3647,10 +3647,10 @@ css-has-pseudo@^0.10.0:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
 
-css-loader@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-2.0.0.tgz#f0f7469dc8e750dace97534328ed80395b5c575b"
-  integrity sha512-3Fq8HJYs7ruBiDpJA/w2ZROtivA769ePuH3/vgPdOB+FQiotErJ7VJYRZq86SPRVFaccn1wEktUnaaUyf+Uslw==
+css-loader@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-2.0.1.tgz#2e51a15449ab3f7195b7e1bc00a407460016a3b3"
+  integrity sha512-XIVwoIOzSFRVsafOKa060GJ/A70c0IP/C1oVPHEX4eHIFF39z0Jl7j8Kua1SUTiqWDupUnbY3/yQx9r7EUB35w==
   dependencies:
     icss-utils "^4.0.0"
     loader-utils "^1.0.2"
@@ -12304,10 +12304,10 @@ react-dom@^16.6.3:
     prop-types "^15.6.2"
     scheduler "^0.11.2"
 
-react-hot-loader@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.6.0.tgz#7a556efea51a3c79e8bffdb094fbe17883a79432"
-  integrity sha512-ytmtbJB0RlTUqa9HnpVsoZiZ6iRsTzu+O2WovKT++f+tDYOTNZYa7OesVAE+R90e/1w/OJO4G/tw4rNSMYCjFw==
+react-hot-loader@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.6.1.tgz#7b4ebbbf931d864e78b31c25eee813fcf1ecfa99"
+  integrity sha512-BrMa/zyVq7aeHa2TDG6cVFgMiUut6OHZ/RkPqVHovsFbo0VI8VX7qCz2dYTDHFc9HtVrSUbJGd9LpFPIWtExBg==
   dependencies:
     fast-levenshtein "^2.0.6"
     global "^4.3.0"
@@ -12319,10 +12319,10 @@ react-hot-loader@^4.6.0:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-i18next@^8.3.9:
-  version "8.3.9"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-8.3.9.tgz#24e7437d65095fe42b0796a055e10c20c2487bc0"
-  integrity sha512-/Une5B2xqkFKuI8uyRKq3BUNx4kFMZDESV+sn7KUNpAgYq4r0Wsd0HhMUEuJh8N7Y+ffeTbF5IaDH+pgPJdBEg==
+react-i18next@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-8.4.0.tgz#e9f0c5b9938b155eaa6051360614719c08cae72f"
+  integrity sha512-zIO/bc1L0UUGdaws2y40cTiSQHuQud5e9SSodYM6MTzhJTI3iayxCCdgvotblOLM4taOD77Ct2/fUbheQIhyeg==
   dependencies:
     "@babel/runtime" "^7.1.2"
     create-react-context "0.2.3"
