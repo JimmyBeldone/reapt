@@ -5640,6 +5640,11 @@ file-type@^10.4.0:
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.5.0.tgz#895d686cb677f73aba2ff36ea0fc8a232ae7b890"
   integrity sha512-zxVkZQY5rtw2H75SMPQUXJveD7uWGdaJJtsVBFfdW3m0W6UeBXzUwiIENFKQ2aRuPozTgBZYV6WhyeGOvs5YsA==
 
+file-type@^10.7.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.7.0.tgz#b6a9bf24f1d14ba514ab9087c7864d4da4a7ce76"
+  integrity sha512-AbaGtdWYYRaVrv2MwL/65myuRJ9j3e79e7etJ79US18QHuVlzJBcQHUH+HxDUoLtbyWRTUfLzLkGXX3pP9kfZg==
+
 file-type@^3.1.0, file-type@^3.8.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
@@ -7207,12 +7212,12 @@ imagemin-svgo@^7.0.0:
     is-svg "^3.0.0"
     svgo "^1.0.5"
 
-imagemin-webp-webpack-plugin@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/imagemin-webp-webpack-plugin/-/imagemin-webp-webpack-plugin-2.0.1.tgz#7856a63b3509d9055985e79cb4a843610f9b4767"
-  integrity sha512-FRX8/TORHPKy7DwwbOozHwSTIAZsAwdzEQONBvirCx3ajD2Ld1xsa3T1sflJ7/7FUfsceMMCuAf2dpmuA63S+Q==
+imagemin-webp-webpack-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/imagemin-webp-webpack-plugin/-/imagemin-webp-webpack-plugin-3.0.0.tgz#22778e33bf5236bf3843bca7a7eaafa889b5c6ea"
+  integrity sha512-lmcSCGarQMwmRYq4k1zYXkz7zru+UTHzQCFhfZ3VcrtXwKvKYw5kvzoyE6BY97c8GIqKMpCgiajIiUE7nu0hCQ==
   dependencies:
-    imagemin "^6.0.0"
+    imagemin "^6.1.0"
     imagemin-webp "^5.0.0"
 
 imagemin-webp@^5.0.0:
@@ -7253,6 +7258,18 @@ imagemin@^6.0.0:
     make-dir "^1.0.0"
     p-pipe "^1.1.0"
     pify "^3.0.0"
+    replace-ext "^1.0.0"
+
+imagemin@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/imagemin/-/imagemin-6.1.0.tgz#62508b465728fea36c03cdc07d915fe2d8cf9e13"
+  integrity sha512-8ryJBL1CN5uSHpiBMX0rJw79C9F9aJqMnjGnrd/1CafegpNuA81RBAAru/jQQEOWlOJJlpRnlcVFF6wq+Ist0A==
+  dependencies:
+    file-type "^10.7.0"
+    globby "^8.0.1"
+    make-dir "^1.0.0"
+    p-pipe "^1.1.0"
+    pify "^4.0.1"
     replace-ext "^1.0.0"
 
 img-loader@^3.0.1:
