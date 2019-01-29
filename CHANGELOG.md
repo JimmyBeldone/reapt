@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.3"></a>
+## [1.10.3](https://github.com/JimmyBeldone/reapt/compare/v1.10.2...v1.10.3) (2019-01-29)
+
+
+### Bug Fixes
+
+* **package:** update i18next to version 13.0.0 ([7e16551](https://github.com/JimmyBeldone/reapt/commit/7e16551))
+
+
+
 <a name="1.10.2"></a>
 ## [1.10.2](https://github.com/JimmyBeldone/reapt/compare/v1.10.1...v1.10.2) (2018-12-07)
 

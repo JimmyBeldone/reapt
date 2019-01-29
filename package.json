@@ -1,6 +1,6 @@
 {
   "name": "reapt",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "description": "A complete React Redux starterkit, configured with Webpack, stop wasting time configuring, adopt it and just code",
   "main": "src/index.js",
   "scripts": {
