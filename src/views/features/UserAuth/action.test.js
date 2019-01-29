@@ -2,7 +2,6 @@ import React from "react";
 import cookie from "react-cookies";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import fetchMock from "fetch-mock";
 
 import * as types from "./types";
 import { loginUser } from "./actions";

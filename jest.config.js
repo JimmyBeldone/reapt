@@ -51,7 +51,7 @@ module.exports = {
     verbose: false,
 
     // Add jest-extended
-    setupTestFrameworkScriptFile: "<rootDir>/test/testSetup.js"
+    setupFilesAfterEnv: ["<rootDir>/test/testSetup.js"]
 
     // transform: {
     //     "^.+\\.jsx?$": "babel-jest"
