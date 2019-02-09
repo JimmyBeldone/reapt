@@ -6447,17 +6447,17 @@ hoek@6.x.x:
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-6.1.1.tgz#dae8ca1c97b091b123281d87d4eba38d71580b7d"
   integrity sha512-q60PigXXRtRFSe1+Eal3y/wlIq5weFsYPiyulkg1EAObgWhkDqSwj4xqgtd7qT3IpS6e4eLigyMWH6duPRI7QA==
 
-hoist-non-react-statics@3.2.1, hoist-non-react-statics@^3.2.1:
+hoist-non-react-statics@^2.5.0:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
+  integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
+
+hoist-non-react-statics@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.2.1.tgz#c09c0555c84b38a7ede6912b61efddafd6e75e1e"
   integrity sha512-TFsu3TV3YLY+zFTZDrN8L2DTFanObwmBLpWvJs1qfUuEQ5bTAdFcwfx2T/bsCXfM9QHSLvjfP+nihEl0yvozxw==
   dependencies:
     react-is "^16.3.2"
-
-hoist-non-react-statics@^2.5.0:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
-  integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
 hoist-non-react-statics@^3.3.0:
   version "3.3.0"
@@ -11854,13 +11854,12 @@ react-hot-loader@^4.6.3:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-i18next@^9.0.9:
-  version "9.0.9"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-9.0.9.tgz#92afa0c457b200d57a3c76bba7a1d5712384f328"
-  integrity sha512-VQCu2hel5qj+5FlzvOWu+AdoFq1dwTWFSuHZaiCE69GrMi75jYwN9gfJWs+v17btWJPgsxJD1Lj1shRp0M42eA==
+react-i18next@^10.0.4:
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.0.4.tgz#a50cd79e44897e595e492c82ea722b25a69e2cf4"
+  integrity sha512-jwlll/+ntPATCIodcrZGxt7LD52Cldts4+kxw2omtm2sDhA649H78/nvG/z36WTeH+rpZdIfypAUR362E9tHKg==
   dependencies:
     "@babel/runtime" "^7.3.1"
-    hoist-non-react-statics "3.2.1"
     html-parse-stringify2 "2.0.1"
 
 react-icons@^3.3.0:
