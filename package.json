@@ -77,7 +77,7 @@
     "dayjs": "^1.8.0",
     "history": "^4.7.2",
     "i18next": "^14.0.1",
-    "i18next-browser-languagedetector": "^2.2.4",
+    "i18next-browser-languagedetector": "^3.0.1",
     "immutable": "^3.8.2",
     "jwt-decode": "^2.2.0",
     "no-internet": "^1.4.3",
