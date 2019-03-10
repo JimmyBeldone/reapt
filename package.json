@@ -74,7 +74,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.2.2",
-    "dayjs": "^1.8.0",
+    "dayjs": "1.8.9",
     "history": "^4.7.2",
     "i18next": "^14.0.1",
     "i18next-browser-languagedetector": "^2.2.4",
