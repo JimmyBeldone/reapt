@@ -89,7 +89,7 @@
     "react-cookies": "^0.1.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.3",
-    "react-i18next": "^9.0.9",
+    "react-i18next": "^10.5.1",
     "react-icons": "^3.3.0",
     "react-modal": "^3.8.1",
     "react-notification": "^6.8.4",
