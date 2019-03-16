@@ -220,6 +220,6 @@
     "webpack-pwa-manifest": "^4.0.0",
     "webpack-stylish": "^0.1.8",
     "workbox-cli": "^3.6.3",
-    "workbox-webpack-plugin": "^3.6.3"
+    "workbox-webpack-plugin": "^4.1.1"
   }
 }
