@@ -94,7 +94,7 @@
     "react-modal": "^3.8.1",
     "react-notification": "^6.8.4",
     "react-redux": "^6.0.0",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-auth-wrapper": "^2.1.0",
     "redux-form": "^8.1.0",
