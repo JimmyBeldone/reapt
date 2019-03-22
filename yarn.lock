@@ -9406,10 +9406,10 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mk-react-comp@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.0.tgz#ab86dddbc2b404c33263c985d189c9e4e272904d"
-  integrity sha512-QsPjZ1Dw8EINwnxk5him7p7P6Z4VTPYHjwJ98gmFQpgcvWn5zjJOEg2NFD55xTD0/t7DQ5m3n9m8nYblKeq0Og==
+mk-react-comp@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.3.tgz#dcacb3e16d5c40e7906487cb35c843043dad77e8"
+  integrity sha512-xg3qWZa0/IOf3RFlg2OpIU5/xK9JjNJ8h3G7d4wYcbMImYh4YNaKtl95lyP4Kmbd0rsykykX/bS9N5NndUgnxQ==
 
 mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@0.x.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
