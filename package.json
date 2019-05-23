@@ -100,7 +100,7 @@
     "redux-form": "^8.1.0",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.3.0",
-    "validator": "^10.11.0"
+    "validator": "^11.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
