@@ -186,7 +186,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-combine-duplicated-selectors": "^7.0.0",
+    "postcss-combine-duplicated-selectors": "^8.0.1",
     "postcss-fixie": "^2.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.5.0",
