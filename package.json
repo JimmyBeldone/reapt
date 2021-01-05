@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "airbnb-prop-types": "^2.11.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.2.2",
     "dayjs": "^1.8.0",
